@@ -8,9 +8,13 @@ import { Registration } from 'pages/Registration';
 
 import { Routes, Route } from 'react-router-dom';
 
+import { Global } from '@emotion/react';
+import { GlobalStyles } from './GlobalStyles';
+
 export const App = () => {
   return (
     <>
+      <Global styles={GlobalStyles} />
       <Routes>
         <Route path="" element={<Home />} />
 
