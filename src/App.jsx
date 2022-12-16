@@ -9,7 +9,7 @@ import { Registration } from 'pages/Registration';
 import { Routes, Route } from 'react-router-dom';
 
 import { Global } from '@emotion/react';
-import { GlobalStyles } from './components/GlobalStyles';
+import { GlobalStyles } from 'components/GlobalStyles';
 
 export const App = () => {
   return (
