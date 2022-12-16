@@ -1,68 +1,77 @@
-import { NavLink } from "react-router-dom";
+
+import React, { useState } from 'react';
+
+import {
+  Title,
+  FormList,
+  FormItem,
+  Label,
+  Input,
+  ButtonsContainer,
+  Button,
+  StyledNavLink,
+  Form,
+  Wrap,
+  ShowPassButton
+} from "./RegistrationForm.styled";
 
 
 
-import styled from 'styled-components'
-import { color, space, layout } from 'styled-system'
-
-const Box = styled.div`
-  ${color}
-  ${space}
-  ${layout}
-`
-
-export default Box
 
 
 
 export const RegistrationForm = () => {
+ const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+
   return (
     <>
-    <Box color="#fff" bg="tomato" m="0" height="261px" mt="120px">
-      <h1>Реєстрація</h1>
+    <Wrap>
+      <Title>Реєстрація</Title>
 
-      <form>
-        <ul>
-          <li>
-            <label htmlFor="name">Ім'я *</label>
-            <input
+      <Form >
+        <FormList>
+          <FormItem>
+            <Label htmlFor="name">Ім'я *</Label>
+            <Input
               id="name"
               name="name"
               type="text"
               
             />      
-          </li>
-          <li>
-            <label htmlFor="email">Електронна пошта *</label>
+          </FormItem>
+          <FormItem>
+            <Label htmlFor="email">Електронна пошта *</Label>
 
-            <input
+            <Input
               id="email"
               name="email"
               type="text"         
             />
-          </li>
+          </FormItem>
 
-          <li>
-            <label htmlFor="password">Пароль *</label>
+          <FormItem>
+            <Label htmlFor="password">Пароль *</Label>
 
-            <input
+            <Input
               id="password"
               name="password"
+              type={show ? 'text' : 'password'}
             />
-            
+            <ShowPassButton type='button' onClick={handleClick}  show={show} >Показати пароль?</ShowPassButton>
 
             
-          </li>
-          </ul>
-            </form>
- </Box>
-        <Box bg="green" height="108px">
-          <button type="submit">Зареєструватися</button>
+          </FormItem>
+          </FormList>
+            </Form>
+ 
+        <ButtonsContainer bg="green" height="108px">
+          <Button type="submit" >Зареєструватися</Button>
 
-          <NavLink to="/login">Увійти</NavLink>
-        </Box>
+          <StyledNavLink to="/login">Увійти</StyledNavLink>
+        </ButtonsContainer>
     
-     
+     </Wrap>
       </>
   );
 };
