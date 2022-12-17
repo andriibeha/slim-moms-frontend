@@ -5,7 +5,7 @@ import { Login } from 'pages/Login';
 import { Logout } from 'pages/Logout';
 import { NotFound } from 'pages/NotFound';
 import { RegistrationPage } from 'pages/RegistrationPage';
-import SharedLayout from 'components/SharedLayout';
+import { SharedLayout } from 'components/SharedLayout';
 import { Routes, Route } from 'react-router-dom';
 
 import { Global } from '@emotion/react';
