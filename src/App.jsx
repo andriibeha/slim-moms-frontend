@@ -4,7 +4,7 @@ import { Home } from 'pages/Home';
 import { Login } from 'pages/Login';
 import { Logout } from 'pages/Logout';
 import { NotFound } from 'pages/NotFound';
-import { Registration } from 'pages/Registration';
+import { RegistrationPage } from 'pages/RegistrationPage/RegistrationPage';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ export const App = () => {
     <>
       <Global styles={GlobalStyles} />
       <Routes>
+       
         <Route path="" element={<Home />} />
 
         {/* PRIVATE ROUTES */}
@@ -25,7 +26,7 @@ export const App = () => {
 
         {/* PUBLICK ROUTES */}
         <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/registration" element={<RegistrationPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
