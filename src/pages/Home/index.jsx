@@ -7,7 +7,7 @@ export const Home = () => {
     <>
       <Logo />
       {/* <Loader /> */}
-      <Button text="Hello" w="182px" h="44px" color="#FC842D" bg="white" />
+      <Button text="Hello" />
     </>
   );
 };
