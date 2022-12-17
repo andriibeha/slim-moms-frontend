@@ -1,3 +1,5 @@
+import { LogoHead } from './LogoStyled';
+
 export const Logo = () => {
-  return <div>Logo</div>;
+  return <LogoHead>Logo</LogoHead>;
 };
