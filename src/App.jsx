@@ -11,6 +11,8 @@ import { Routes, Route } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
 
+import { ToastContainer } from 'react-toastify';
+
 export const App = () => {
   return (
     <>
@@ -29,6 +31,7 @@ export const App = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 };
