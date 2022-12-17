@@ -4,13 +4,17 @@ import { Home } from 'pages/Home';
 import { Login } from 'pages/Login';
 import { Logout } from 'pages/Logout';
 import { NotFound } from 'pages/NotFound';
-import { Registration } from 'pages/Registration';
+import { RegistrationPage } from 'pages/RegistrationPage';
 import SharedLayout from 'components/SharedLayout';
 import { Routes, Route } from 'react-router-dom';
+
+import { Global } from '@emotion/react';
+import { GlobalStyles } from 'components/GlobalStyles';
 
 export const App = () => {
   return (
     <>
+      <Global styles={GlobalStyles} />
       <Routes>
         <Route path="" element={<SharedLayout />}>
           <Route index element={<Home />} />
@@ -23,7 +27,7 @@ export const App = () => {
 
           {/* PUBLICK ROUTES */}
           <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/registration" element={<RegistrationPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
