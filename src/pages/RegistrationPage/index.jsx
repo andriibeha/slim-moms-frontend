@@ -1,5 +1,4 @@
-import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
-
+import { RegistrationForm } from 'components/RegistrationForm';
 
 // import styled from 'styled-components'
 // import { color, space } from 'styled-system'
@@ -11,14 +10,10 @@ import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
 
 // export default Box
 
-
-
-
-
 export const RegistrationPage = () => {
-    return (    
+  return (
     //   <Box color="#fff" bg="tomato" mt="0">
-            <RegistrationForm />    
-        // {/* </Box> */}
+    <RegistrationForm />
+    // {/* </Box> */}
   );
 };
