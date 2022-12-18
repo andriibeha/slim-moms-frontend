@@ -3,6 +3,7 @@ import { Logo } from 'components/Logo';
 import { HeaderStyled } from './Header.Styled';
 // import { Userinfo } from 'components/Userinfo';
 // import { Navigation } from 'components/Navigation';
+import { Navigation } from 'components/Navigation';
 
 export const Header = () => {
   return (
@@ -22,7 +23,7 @@ export const Header = () => {
       display="flex"
     >
       <Logo />
-      {/* <Navigation /> */}
+      <Navigation />
       {/* <Userinfo /> */}
     </HeaderStyled>
   );
