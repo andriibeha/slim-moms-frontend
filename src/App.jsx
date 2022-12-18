@@ -4,19 +4,23 @@ import { MainPage } from 'pages/MainPage';
 import { Login } from 'pages/Login';
 import { Logout } from 'pages/Logout';
 import { NotFound } from 'pages/NotFound';
-import { RegistrationPage } from 'pages/RegistrationPage';
 import { SharedLayout } from 'components/SharedLayout';
+import { RegistrationPage } from 'pages/RegistrationPage';
+import Modal from './components/Modal';
 import { Routes, Route } from 'react-router-dom';
 
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
 
 import { ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+  const showModal = useSelector(state => state.showModal);
   return (
     <>
       <Global styles={GlobalStyles} />
+      {showModal && <Modal />}
       <Routes>
         <Route path="" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
