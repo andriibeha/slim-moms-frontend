@@ -31,14 +31,12 @@ export const RegistrationForm = () => {
             </FormItem>
             <FormItem>
               <Label htmlFor="email">Електронна пошта *</Label>
-
               <Input id="email" name="email" type="text" />
             </FormItem>
 
             <FormItem>
               <Label htmlFor="password">Пароль *</Label>
-
-              <Input
+             <Input
                 id="password"
                 name="password"
                 type={show ? 'text' : 'password'}
