@@ -12,7 +12,7 @@ import {
   Link,
 } from './DailyCalorieIntake.styled';
 import { useDispatch } from 'react-redux';
-import { toggleModal } from 'redux/actions';
+import { toggleModal } from 'redux/modal/operations';
 
 const dataArray = {
   products: [

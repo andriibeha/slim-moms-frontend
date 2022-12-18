@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { toggleModal } from 'redux/actions';
+import { toggleModal } from 'redux/modal/operations';
 import DailyCalorieIntake from '../DailyCalorieIntake';
 import { Backdrop, ModalWindow, ModalButton } from './Modal.styled';
 
