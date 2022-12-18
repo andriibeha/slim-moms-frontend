@@ -1,4 +1,8 @@
+
+
+
 export const NotFoundBlock = () => {
+
   return (
     <div
       style={{
