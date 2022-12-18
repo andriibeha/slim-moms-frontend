@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
   line-height: 17px;
   letter-spacing: 0.04em;
   font-weight: 700;
-  border-radius: 30px;
+  border-radius: ${({ radius }) => radius || '30px'};
   border: 2px solid #fc842d;
   color: ${({ color }) => color || '#fff'};
   font-size: ${({ font }) => font || '14px'};

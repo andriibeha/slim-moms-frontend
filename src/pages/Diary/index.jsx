@@ -1,3 +1,9 @@
+import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
+
 export const Diary = () => {
-  return <div>Diary</div>;
+  return (
+    <>
+      <DiaryAddProductForm />
+    </>
+  );
 };
