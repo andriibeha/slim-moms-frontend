@@ -1,3 +1,5 @@
+import { DiaryProductsList } from 'components/DiaryProductsList';
+
 export const Diary = () => {
-  return <div>Diary</div>;
+  return <DiaryProductsList />;
 };
