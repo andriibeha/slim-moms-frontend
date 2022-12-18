@@ -37,7 +37,7 @@ export const store = configureStore({
   reducer: {
     login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-    modal: persistReducer(showModal, showModalPersistConfig),
+    modal: persistReducer(showModalPersistConfig, showModal),
   },
 
   middleware(getDefaultMiddleware) {
