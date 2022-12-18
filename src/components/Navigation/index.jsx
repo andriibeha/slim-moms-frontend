@@ -3,8 +3,8 @@ import { NavStyled, Link } from './Navigation.styled';
 export const Navigation = () => {
   return (
     <NavStyled>
-      <Link to="/">Sign IN</Link>
-      <Link to="/">Registration</Link>
+      <Link to="/login">Sign IN</Link>
+      <Link to="/register">Registration</Link>
     </NavStyled>
   );
 };
