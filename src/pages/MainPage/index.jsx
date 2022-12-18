@@ -3,14 +3,12 @@ import { Logo } from 'components/Logo';
 import { Button } from 'components/Button';
 import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
 
-
-
 export const MainPage = () => {
   return (
     <>
       <Logo />
       {/* <Loader /> */}
-      <DailyCaloriesForm/>
+      <DailyCaloriesForm />
       <Button text="Hello" />
     </>
   );
