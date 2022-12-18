@@ -9,7 +9,6 @@ export const Home = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
-      <Logo />
       {/* <Loader /> */}
       <div>{isLoggedIn ? <UserInfo /> : <p>Блок навигации</p>}</div>
       <Button text="Hello" />
