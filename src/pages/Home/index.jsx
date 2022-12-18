@@ -1,5 +1,4 @@
 // import Loader from 'components/Loader/Loader';
-import { Logo } from 'components/Logo';
 import { Button } from 'components/Button';
 import { UserInfo } from 'components/UserInfo';
 import { useSelector } from 'react-redux';
