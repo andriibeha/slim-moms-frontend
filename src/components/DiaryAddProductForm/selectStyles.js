@@ -1,20 +1,24 @@
+import { theme } from '../Theme';
+
 export const selectStyles = {
   option: (provided, state) => ({
     ...provided,
     fontWeight: 700,
     lineHeight: 1.17,
-    color: '#9B9FAA',
-    backgroundColor: state.isFocused ? 'Orange' : 'white',
+    color: theme.colors.textFirst,
+    backgroundColor: state.isFocused ? theme.colors.accent : theme.colors.white,
     '&:hover': {
-      backgroundColor: state.isFocused ? 'Orange' : 'white',
-      color: 'white',
+      backgroundColor: state.isFocused
+        ? theme.colors.accent
+        : theme.colors.white,
+      color: theme.colors.white,
     },
   }),
   singleValue: (provided, state) => ({
     ...provided,
-    fontWeight: 700,
+    fontWeight: theme.fontWeights.bold,
     lineHeight: 1.2,
-    color: '#9B9FAA',
+    color: theme.colors.textFirst,
   }),
   control: () => ({
     width: 240,
@@ -27,7 +31,7 @@ export const selectStyles = {
   }),
   container: provided => ({
     ...provided,
-    borderBottom: '1px solid #e0e0e0',
+    borderBottom: theme.borders.normal + theme.colors.grey,
     position: 'relative',
   }),
   valueContainer: provided => ({
@@ -39,9 +43,9 @@ export const selectStyles = {
   placeholder: (provided, state) => ({
     ...provided,
     textAlign: 'left',
-    fontWeight: 700,
+    fontWeight: theme.fontWeights.bold,
     lineHeight: 1.2,
-    color: '#9B9FAA',
+    color: theme.colors.textFirst,
     display: state.isFocused && 'none',
     bottom: !state.isFocused && '4px',
   }),
@@ -51,9 +55,9 @@ export const selectStyles = {
 
   input: provided => ({
     ...provided,
-    fontWeight: 700,
+    fontWeight: theme.fontWeights.bold,
     lineHeight: 1.2,
-    color: '#9B9FAA',
+    color: theme.colors.textFirst,
     height: '48px',
   }),
 };
