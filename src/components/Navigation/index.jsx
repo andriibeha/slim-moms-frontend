@@ -4,7 +4,7 @@ export const Navigation = () => {
   return (
     <NavStyled>
       <Link to="/login">Sign IN</Link>
-      <Link to="/register">Registration</Link>
+      <Link to="/registration">Registration</Link>
     </NavStyled>
   );
 };
