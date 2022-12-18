@@ -1,6 +1,6 @@
 import { Calculator } from 'pages/Calculator';
 import { Diary } from 'pages/Diary';
-import { Home } from 'pages/Home';
+import { MainPage } from 'pages/MainPage';
 import { Login } from 'pages/Login';
 import { Logout } from 'pages/Logout';
 import { NotFound } from 'pages/NotFound';
@@ -19,8 +19,7 @@ export const App = () => {
       <Global styles={GlobalStyles} />
       <Routes>
         <Route path="" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          {/* <Route path="" element={<Home />} /> */}
+          <Route index element={<MainPage />} />
 
           {/* PRIVATE ROUTES */}
           <Route path="/logout" element={<Logout />} />
