@@ -1,3 +1,5 @@
+import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
+import { DiaryDateCalendar } from 'components/DiaryDateСalendar';
 import { DiaryProductsList } from 'components/DiaryProductsList';
 
 import { DiaryDateСalendar } from 'components/DiaryDateСalendar';
@@ -10,14 +12,11 @@ import { Box } from 'components/Box';
 import { UserInfo } from 'components/UserInfo';
 
 export const Diary = () => {
-  // const isUserLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
   return (
-    <Box>
-      <UserInfo />
-      <DiaryDateСalendar />
-      {/* <DiaryAddProductForm /> */}
-      <DiaryProductsList />
-    </Box>
+    <>
+      <DiaryDateCalendar />
+      <DiaryAddProductForm />
+      <DiaryProductsList />;
+    </>
   );
 };
