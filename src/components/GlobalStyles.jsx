@@ -39,4 +39,9 @@ export const GlobalStyles = css`
     max-width: 100%;
     height: auto;
   }
+  button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
 `;

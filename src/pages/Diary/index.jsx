@@ -1,3 +1,5 @@
+import { DiaryProductsList } from 'components/DiaryProductsList';
+
 // import {DiaryDateСalendar},
 // import {DiaryAddProductForm}
 // import {DiaryProductsList}
@@ -16,7 +18,7 @@ export const Diary = () => {
       <UserInfo />
       {/* // <DiaryDateСalendar/> */}
       {/* // <DiaryAddProductForm/> */}
-      {/* // <DiaryProductsList /> */}
+      <DiaryProductsList />
     </Box>
   );
 };
