@@ -1,9 +1,6 @@
-import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
+import { DiaryProductsList } from 'components/DiaryProductsList';
 
 export const Diary = () => {
-  return (
-    <>
-      <DiaryAddProductForm />
-    </>
-  );
+  return <DiaryProductsList />;
+  /*<DiaryAddProductForm />*/
 };
