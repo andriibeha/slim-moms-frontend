@@ -10,6 +10,7 @@ import {
   ButtonContainer,
   BloodListItem,
   WrapBox,
+  TitleRadioBtn,
 } from './DailyCaloriesForm.styled';
 
 export const DailyCaloriesForm = () => {
@@ -55,7 +56,9 @@ export const DailyCaloriesForm = () => {
             />
           </Label>
           <Label htmlFor="bloodType" required>
-            <p style={{ marginBottom: '8px' }}>Blood type *</p>
+            <TitleRadioBtn style={{ marginBottom: '8px' }}>
+              Blood type *
+            </TitleRadioBtn>
             <BloodList>
               <BloodListItem>
                 <RadioButton

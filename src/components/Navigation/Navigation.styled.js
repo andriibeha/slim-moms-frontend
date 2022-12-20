@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const NavStyled = styled('nav')`
+  margin-top: auto;
   width: 211px;
   display: flex;
   justify-content: space-between;
