@@ -22,6 +22,8 @@ export const GlobalStyles = css`
 
   body {
     margin: 0;
+    font-size: 14px;
+    line-height: 17px;
     font-family: 'Verdana', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
