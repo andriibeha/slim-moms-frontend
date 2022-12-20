@@ -14,9 +14,20 @@ import { GlobalStyles } from 'components/GlobalStyles';
 
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export const App = () => {
-  const showModal = useSelector(state => state.showModal);
+  const showModal = useSelector(state => state.modal.showModal);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, [showModal]);
+
   return (
     <>
       <Global styles={GlobalStyles} />

@@ -5,4 +5,6 @@
 <symbol id="icon-cross_delete_12x12" viewBox="0 0 32 32"><path fill="none" stroke="#9b9faa" stroke-width="4.571" d="m2.286 2.286 27.429 27.429M2.286 29.714 29.715 2.285" style="stroke:var(--color1, #9b9faa)"/></symbol>
 <symbol id="icon-cross_exit_12x12" viewBox="0 0 32 32"><path stroke-width="4.571" d="m2.286 2.286 27.429 27.429M2.286 29.714 29.715 2.285"/></symbol>
 <symbol id="icon-cross_exit_14x14" viewBox="0 0 32 32"><path stroke-width="4" d="m2 2 28 28M2 30 30 2"/></symbol>
+<symbol id="icon-exit-icon" viewBox="0 0 32 32"><path d="M25.333 8.546l-1.88-1.88-7.453 7.454-7.453-7.453-1.88 1.878 7.453 7.454-7.453 7.453 1.88 1.88 7.453-7.453 7.453 7.453 1.88-1.88-7.453-7.453 7.453-7.454z"></path>
+</symbol>
 </defs></svg>

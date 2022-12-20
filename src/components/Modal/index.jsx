@@ -1,9 +1,15 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { toggleModal } from 'redux/modal/operations';
+import { toggleModal } from '../../redux/modal/slice';
 import DailyCalorieIntake from '../DailyCalorieIntake';
-import { Backdrop, ModalWindow, ModalButton } from './Modal.styled';
+import {
+  Backdrop,
+  ModalWindow,
+  ModalButton,
+  ModalButtonIcon,
+} from './Modal.styled';
+import sprite from 'images/icons.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -36,7 +42,11 @@ export default function Modal() {
     <Backdrop onClick={onBackdropClick}>
       <ModalWindow>
         <DailyCalorieIntake />
-        <ModalButton onClick={() => onBtnClick()}>X</ModalButton>
+        <ModalButton onClick={() => onBtnClick()}>
+          <ModalButtonIcon>
+            <use href={sprite + '#icon-exit-icon'} />
+          </ModalButtonIcon>
+        </ModalButton>
       </ModalWindow>
     </Backdrop>,
     modalRoot
