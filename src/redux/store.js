@@ -29,16 +29,11 @@ const authPersistConfig = {
   storage,
 };
 
-const showModalPersistConfig = {
-  key: 'modal',
-  storage,
-};
-
 export const store = configureStore({
   reducer: {
     login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-    modal: persistReducer(showModalPersistConfig, showModal),
+    modal: showModal,
     products: productsReducer,
   },
 
