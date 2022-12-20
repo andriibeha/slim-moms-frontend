@@ -7,16 +7,31 @@ export const GlobalStyles = css`
     width: 100vw;
     overflow-x: hidden;
   }
+
+  @font-face {
+    font-family: Verdana;
+    src: url('../fonts/verdana-font-family/Verdana.ttf') format('opentype');
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: Verdana;
+    src: url('../fonts/verdana-font-family/Verdana-bold.ttf') format('opentype');
+    font-weight: bold;
+  }
+
   body {
     margin: 0;
     font-family: 'Verdana', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
   h1,
   h2,
   h3,
@@ -32,11 +47,13 @@ export const GlobalStyles = css`
     list-style: none;
     text-decoration: none;
   }
+
   img {
     display: block;
     max-width: 100%;
     height: auto;
   }
+
   button {
     padding: 0;
     margin: 0;

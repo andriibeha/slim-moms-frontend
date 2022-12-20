@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 
 export const App = () => {
   const showModal = useSelector(state => state.showModal);
+
   return (
     <>
       <Global styles={GlobalStyles} />
