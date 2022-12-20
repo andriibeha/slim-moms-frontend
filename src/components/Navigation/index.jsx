@@ -14,5 +14,6 @@ export const Navigation = () => {
         <Link to="/registration">Registration</Link>
       </Box>
     </NavStyled>
+
   );
 };
