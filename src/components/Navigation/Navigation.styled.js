@@ -1,21 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
-export const NavStyled = styled('nav')`
-  margin-top: auto;
-  width: 211px;
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (min-width: 768px) {
-    width: 221px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 215px;
-  }
-`;
-
 export const Link = styled(NavLink)`
   font-family: Verdana, sans-serif;
   font-weight: ${p => p.theme.fontWeights.bold};

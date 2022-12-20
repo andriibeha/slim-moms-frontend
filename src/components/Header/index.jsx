@@ -21,7 +21,7 @@ export const Header = () => {
         '2px solid #E0E0E0',
         '0',
       ]}
-      // justifyContent="space-between"
+      justifyContent="space-between"
       alignItems="center"
       color="#212121"
       display="flex"
