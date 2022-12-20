@@ -45,6 +45,17 @@ export const ModalButton = styled.button`
     background-color: #11ffee00;
     border: none;
     color: black;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms easy;
+  cursor: pointer;
+
+  &:hover,
+  :focus {
+    fill: #fc842d;
+   
   }
+`;
+
+export const ModalButtonIcon = styled.svg`
+  width: 20px;
+  height: 20px;
 `;
