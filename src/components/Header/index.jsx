@@ -1,11 +1,15 @@
 import { Logo } from 'components/Logo';
 // import { Navigation } from 'components/Navigation';
 import { HeaderStyled } from './Header.Styled';
-// import { Userinfo } from 'components/Userinfo';
+// import { UserInfo } from 'components/UserInfo';
 // import { Navigation } from 'components/Navigation';
 import { Navigation } from 'components/Navigation';
+import { Link } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { authSelectors } from 'redux/auth/auth-selectors';
 
 export const Header = () => {
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <HeaderStyled
       px={[20, 20, 32, 16]}
@@ -22,8 +26,11 @@ export const Header = () => {
       color="#212121"
       display="flex"
     >
-      <Logo />
+      <Link to="/diary">
+        <Logo />
+      </Link>
       <Navigation />
+      {/* <div>{isLoggedIn ? <UserInfo /> : <Navigation />}</div> */}
       {/* <Userinfo /> */}
     </HeaderStyled>
   );

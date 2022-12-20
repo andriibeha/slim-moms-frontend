@@ -10,6 +10,7 @@ import {
   ButtonContainer,
   BloodListItem,
   WrapBox,
+
 } from './DailyCaloriesForm.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -165,11 +166,47 @@ export const DailyCaloriesForm = () => {
                 onChange={handleInputChange}
               />
             )}
+
+  {/*
+  TitleRadioBtn,
+} from './DailyCaloriesForm.styled';
+
+export const DailyCaloriesForm = () => {
+  return (
+    <Wrap>
+      <Title>Calculate your daily calorie intake right now</Title>
+      <Form>
+        <WrapBox>
+          <Label htmlFor="height">
+            Height *
+            <Input
+              pattern="[0-9]"
+              required
+              id="height"
+              type="number"
+              name="height"
+            />
+          </Label>
+          <Label htmlFor="age">
+            Age *
+            <Input pattern="[0-9]" id="age" required type="number" name="age" />
+          </Label>
+          <Label htmlFor="currentWeight">
+            Current weight *
+            <Input
+              pattern="[0-9]"
+              required
+              id="currentWeight"
+              type="number"
+              name="currentWeight"
+            />
+*/}
           </Label>
         </WrapBox>
         <WrapBox>
           <Label htmlFor="desiredWeight">
             Desired weight *
+
             {token ? (
               <Input
                 pattern="[0-9]"
@@ -194,6 +231,22 @@ export const DailyCaloriesForm = () => {
           </Label>
           <Label htmlFor="bloodType" required>
             <p style={{ marginBottom: '8px' }}>Blood type *</p>
+
+              {/* 
+            <Input
+              pattern="[0-9]"
+              id="desiredWeight"
+              required
+              name="desiredWeight"
+              type="number"
+            />
+          </Label>
+          <Label htmlFor="bloodType" required>
+            <TitleRadioBtn style={{ marginBottom: '8px' }}>
+              Blood type *
+            </TitleRadioBtn>
+            */}
+
             <BloodList>
               <BloodListItem>
                 <RadioButton
@@ -202,6 +255,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-1"
                   value={1}
                   onChange={handleRadioChange}
+
                 />
                 <label htmlFor="blood-inp-1">1</label>
               </BloodListItem>
@@ -212,6 +266,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-2"
                   value={2}
                   onChange={handleRadioChange}
+
                 />
                 <label htmlFor="blood-inp-2">2</label>
               </BloodListItem>
@@ -222,6 +277,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-3"
                   value={3}
                   onChange={handleRadioChange}
+
                 />
                 <label htmlFor="blood-inp-3">3</label>
               </BloodListItem>
@@ -231,7 +287,9 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-4"
                   value={4}
+
                   onChange={handleRadioChange}
+
                 />
                 <label htmlFor="blood-inp-4">4</label>
               </BloodListItem>

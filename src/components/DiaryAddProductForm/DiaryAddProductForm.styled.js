@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { theme } from '../Theme';
 
 export const ContainerForm = styled.form`
   display: flex;
@@ -7,11 +8,11 @@ export const ContainerForm = styled.form`
   align-items: center;
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: ${theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.s};
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: ${theme.colors.textFirst};
 
   @media screen and (max-width: 767px) {
     margin-left: 20px;
@@ -26,17 +27,17 @@ export const WeightInputStyled = styled.input`
   width: 280px;
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: ${theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.s};
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #9b9faa;
-  border-bottom: 1px solid #e0e0e0;
+  color: ${theme.colors.textFirst};
+  border-bottom: ${theme.borders.normal} ${theme.colors.grey};
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
   &::placeholder {
-    color: #9b9faa;
+    color: ${theme.colors.textFirst};
   }
   @media screen and (min-width: 768px) {
     width: 106px;

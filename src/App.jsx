@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 export const App = () => {
+
   const showModal = useSelector(state => state.modal.showModal);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export const App = () => {
       document.body.style.overflow = 'visible';
     };
   }, [showModal]);
+
 
   return (
     <>
