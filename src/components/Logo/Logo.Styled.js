@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { theme } from 'components/Theme';
 
 export const Box = styled('div')`
   display: flex;
@@ -12,28 +13,28 @@ export const LogoStyled = styled('p')`
   padding: 0px;
   margin: 0px;
   margin-left: 0px;
-  color: #212121;
+  color: ${theme.colors.textSecond};
   opacity: 0;
 
   @media screen and (min-width: 768px) {
     margin-left: 10px;
-    fontsize: 16px;
+    font-size: ${theme.fontSizes.m};
     opacity: 1;
   }
 
   @media screen and (min-width: 1280px) {
     margin-left: -11px;
-    fontsize: 20px;
+    font-size: ${theme.fontSizes.l};
   }
 `;
 export const Span = styled('span')`
-  color: #fc842d;
+  color: ${theme.colors.accent};
   @media screen and (min-width: 768px) {
-    fontsize: 16px;
+    font-size: ${theme.fontSizes.m};
   }
 
   @media screen and (min-width: 1280px) {
-    fontsize: 20px;
+    font-size: ${theme.fontSizes.l};
   }
 `;
 
