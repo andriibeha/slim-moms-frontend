@@ -15,9 +15,9 @@ import { GlobalStyles } from 'components/GlobalStyles';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { AddProduct } from 'pages/AddProduct';
 
 export const App = () => {
-
   const showModal = useSelector(state => state.modal.showModal);
 
   useEffect(() => {
@@ -28,7 +28,6 @@ export const App = () => {
       document.body.style.overflow = 'visible';
     };
   }, [showModal]);
-
 
   return (
     <>
@@ -41,6 +40,7 @@ export const App = () => {
           {/* PRIVATE ROUTES */}
           <Route path="/logout" element={<Logout />} />
           <Route path="/diary" element={<Diary />} />
+          <Route path="/add" element={<AddProduct />} />
           <Route path="/calculator" element={<Calculator />} />
 
           {/* PUBLICK ROUTES */}
