@@ -20,8 +20,8 @@ export const StyledButton = styled.button`
 
   &:hover,
   :focus {
-    color: ${({ color }) => theme.colors.accent || theme.colors.white};
-    background: ${({ bg }) => theme.colors.white || theme.colors.accent};
+    color: ${({ bg }) => bg || theme.colors.accent};
+    background: ${({ color }) => color || theme.colors.white};
     box-shadow: ${({ shadowHover }) => shadowHover || 'none'};
   }
 `;
