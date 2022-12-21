@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
+import { register } from 'redux/auth/auth-operations';
 import * as yup from 'yup';
 
 import {
@@ -17,6 +18,7 @@ import {
   ShowPassButton,
   MessageErr,
 } from './RegistrationForm.styled';
+
 
 const FormError = ({ name }) => {
   return (
@@ -54,9 +56,9 @@ const initialValues = {
 export const RegistrationForm = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
-    // dispatch(registration({ name, email, password }));
+    dispatch(register({ name, email, password }));
     console.log({ name, email, password })
     resetForm();
   };
