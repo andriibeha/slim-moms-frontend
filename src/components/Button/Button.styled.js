@@ -13,13 +13,14 @@ export const StyledButton = styled.button`
   color: ${({ color }) => color || '#fff'};
   font-size: ${({ font }) => font || '14px'};
   background: ${({ bg }) => bg || '#FC842D'};
-  box-shadow: 0px 4px 10px 0px #fc842d80;
-  transition: all 250ms easy;
+  box-shadow: ${({ shadow }) => shadow || '0px 4px 10px 0px #fc842d80'};
+  transition: all 250ms ease;
   cursor: pointer;
 
   &:hover,
   :focus {
-    color: ${({ color }) => '#FC842D' || '#FFF'};
-    background: ${({ bg }) => '#FFF' || '#FC842D'};
+    color: ${({ bg }) => bg || '#FC842D'};
+    background: ${({ color }) => color || '#FFF'};
+    box-shadow: ${({ shadowHover }) => shadowHover || 'none'};
   }
 `;
