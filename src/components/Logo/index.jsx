@@ -1,4 +1,4 @@
-import logo from '../../images/logo_desktop_1x.jpg';
+import logo from '../../images/logo_desktop_1x.webp';
 import { Box, LogoStyled, Span, Img } from './Logo.Styled';
 import { Link } from 'react-router-dom';
 

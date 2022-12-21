@@ -87,6 +87,12 @@ export const Input = styled.input`
   }
 `;
 
+export const TitleRadioBtn = styled.p`
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding-bottom: 20px;
+`;
+
 export const BloodList = styled.ul`
   display: inline-flex;
   width: 100%;
@@ -140,6 +146,9 @@ export const RadioButton = styled.input`
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
   }
+  &:checked + label {
+    color: #fc842d;
+  }
   &:not(:checked) + label:after {
     opacity: 0;
     -webkit-transform: scale(0);
@@ -158,6 +167,6 @@ export const ButtonContainer = styled.div`
     align-self: flex-start;
   }
   @media screen and (min-width: 1280px) {
-    align-self: flex-end;
+    margin-left: auto;
   }
 `;

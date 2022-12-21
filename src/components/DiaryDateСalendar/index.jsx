@@ -8,8 +8,11 @@ import {
   IconCalendarStyled,
 } from './DiaryDateСalendar.styled';
 import sprite from 'images/icons.svg';
+import { useDispatch } from 'react-redux';
+import { getByDate } from 'redux/diary/diaryOperations';
 
 export const DiaryDateCalendar = () => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState(moment(new Date()));
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,6 +29,7 @@ export const DiaryDateCalendar = () => {
       return;
     }
     setValue(newValue);
+    dispatch(getByDate(newValue));
   };
 
   return (
@@ -51,5 +55,4 @@ export const DiaryDateCalendar = () => {
       </button>
     </Container>
   );
-
 };
