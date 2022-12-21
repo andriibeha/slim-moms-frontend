@@ -10,8 +10,8 @@ export const UserInfoContainer = styled.div`
   background: #eff1f3;
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: ${p => p.theme.fontSizes.s}; //14px
+  font-weight: ${p => p.theme.fontWeights.bold}; // 700
   letter-spacing: 0.04em;
 
   display: flex;
@@ -39,7 +39,7 @@ export const UserName = styled.p`
   padding-top: 8px;
   padding-bottom: 8px;
   border-right: 2px solid #e0e0e0;
-  color: #212121;
+  color: ${p => p.theme.colors.textSecond}; // #212121;
 `;
 
 export const ExitBtn = styled.button`
@@ -49,12 +49,12 @@ export const ExitBtn = styled.button`
   padding-left: 15px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: #9b9faa;
-  transition: all 250ms easy;
+  color: ${p => p.theme.colors.textFirst}; // #9b9faa;
+  transition: ${p => p.theme.transition.color};
   cursor: pointer;
 
   &:hover,
   :focus {
-    color: #212121;
+    color: ${p => p.theme.colors.textSecond}; // #212121;
   }
 `;

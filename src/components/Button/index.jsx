@@ -1,6 +1,7 @@
 import { StyledButton } from './Button.styled';
 
 export const Button = ({ text, type, color, bg, w, h, font, sh, shHov }) => (
+
   <StyledButton
     type={type || 'button'}
     color={color}
@@ -8,6 +9,7 @@ export const Button = ({ text, type, color, bg, w, h, font, sh, shHov }) => (
     width={w}
     height={h}
     font={font}
+
     shadow={sh}
     colorHover={bg}
     bgHover={color}
@@ -31,6 +33,7 @@ export const ButtonLinkAuth = ({ text }) => (
     height="44px"
     shadow="none"
     shadowHover="0px 4px 10px 0px #fc842d80"
+
   >
     {text}
   </StyledButton>

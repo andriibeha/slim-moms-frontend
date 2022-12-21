@@ -53,12 +53,15 @@ export const Unit = styled.p`
 export const BoxList = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: flex-start;
   margin-bottom: 40px;
 `;
 
 export const ListTitle = styled.p`
+  display: block;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+  margin-bottom: 20px;
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
@@ -67,7 +70,9 @@ export const ListTitle = styled.p`
   letter-spacing: 0.04em;
   color: #212121;
   text-align: start;
-  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 12px;
   }
 `;
 
