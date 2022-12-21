@@ -9,21 +9,7 @@ import { Link } from 'react-router-dom';
 export const Header = () => {
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <HeaderStyled
-      px={[20, 20, 32, 16]}
-      pt={[20, 20, 32, 80]}
-      pb={[20, 20, 32, 80]}
-      borderBottom={[
-        '2px solid #E0E0E0',
-        '2px solid #E0E0E0',
-        '2px solid #E0E0E0',
-        '0',
-      ]}
-      justifyContent="space-between"
-      alignItems="center"
-      color="#212121"
-      display="flex"
-    >
+    <HeaderStyled>
       <Link to="/diary">
         <Logo />
       </Link>

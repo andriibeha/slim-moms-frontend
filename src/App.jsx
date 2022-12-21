@@ -14,6 +14,7 @@ import PublicRoute from 'routes/PublicRoutes';
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
 
+
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/index'));
 const Login = lazy(() => import('./pages/Login/index'));
 const Logout = lazy(() => import('./pages/Logout/index'));
@@ -21,6 +22,12 @@ const Calculator = lazy(() => import('./pages/Calculator/index'));
 const Diary = lazy(() => import('./pages/Diary/index'));
 const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
+
+import { ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { AddProduct } from 'pages/AddProduct';
+
 
 export const App = () => {
   const showModal = useSelector(state => state.modal.showModal);
@@ -60,6 +67,8 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+              
+              <Route path="/add" element={<AddProduct />} />
           <Route
             path="/calculator"
             element={
@@ -68,6 +77,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+
 
           {/* PUBLICK ROUTES */}
           <Route
