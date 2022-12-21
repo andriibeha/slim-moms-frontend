@@ -1,6 +1,16 @@
 import { StyledButton } from './Button.styled';
-
-export const Button = ({ text, type, color, bg, w, h, font, sh, shHov }) => (
+export const Button = ({
+  text,
+  type,
+  color,
+  bg,
+  w,
+  h,
+  font,
+  radius,
+  sh,
+  shHov,
+}) => (
   <StyledButton
     type={type || 'button'}
     color={color}
@@ -8,6 +18,7 @@ export const Button = ({ text, type, color, bg, w, h, font, sh, shHov }) => (
     width={w}
     height={h}
     font={font}
+    radius={radius}
     shadow={sh}
     colorHover={bg}
     bgHover={color}

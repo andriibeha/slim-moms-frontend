@@ -1,6 +1,16 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { toggleModal } from './operations';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const showModal = createReducer(false, {
-  [toggleModal]: (_, action) => action.payload,
+const initialState = { showModal: false };
+
+const modalSlice = createSlice({
+  name: `modal`,
+  initialState,
+  reducers: {
+    toggleModal(state, action) {
+      state.showModal = action.payload;
+    },
+  },
 });
+
+export const { toggleModal } = modalSlice.actions;
+export const modalReducer = modalSlice.reducer;

@@ -14,7 +14,11 @@ import {
 
 import { logInReducer } from './login/slice';
 import authReducer from './auth/auth-slice';
-import { showModal } from './modal/slice';
+import { userReducer } from './user/slice';
+import { modalReducer } from './modal/slice';
+import { bloodDietReducer } from './bloodDiet/slice';
+import productsReducer from './products/products-slice';
+import { diaryReducer } from './diary/diarySlice';
 
 const logInPersistConfig = {
   key: 'login',
@@ -28,8 +32,8 @@ const authPersistConfig = {
   storage,
 };
 
-const showModalPersistConfig = {
-  key: 'modal',
+const userPersistConfig = {
+  key: 'user',
   storage,
 };
 
@@ -37,7 +41,11 @@ export const store = configureStore({
   reducer: {
     login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-    modal: persistReducer(showModalPersistConfig, showModal),
+    user: persistReducer(userPersistConfig, userReducer),
+    modal: modalReducer,
+    bloodDiet: bloodDietReducer,
+    products: productsReducer,
+    diary: diaryReducer,
   },
 
   middleware(getDefaultMiddleware) {

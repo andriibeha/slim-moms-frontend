@@ -10,10 +10,12 @@ import { RegistrationForm } from 'components/RegistrationForm';
 
 // export default Box
 
-export const RegistrationPage = () => {
+const RegistrationPage = () => {
   return (
     //   <Box color="#fff" bg="tomato" mt="0">
     <RegistrationForm />
     // {/* </Box> */}
   );
 };
+
+export default RegistrationPage;
