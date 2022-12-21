@@ -5,9 +5,9 @@ import { DiaryProductsList } from 'components/DiaryProductsList';
 export const Diary = () => {
   return (
     <>
-    <DiaryDateCalendar />
-    <DiaryAddProductForm />
-    <DiaryProductsList />;
+      <DiaryDateCalendar />
+      <DiaryAddProductForm />
+      <DiaryProductsList />;
     </>
-    )
+  );
 };

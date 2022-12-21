@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { Field, Form } from 'formik';
+
+export const MessageErr = styled.div`
+  color: red;
+  width: 300px;
+  text-align: justify;
+`;
 
 export const Wrap = styled.div`
   padding: 40px 20px;
@@ -20,17 +27,18 @@ export const Title = styled.h1`
   }
 `;
 
-export const Form = styled.form`
-  margin-bottom: 60px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 80px;
-  }
+export const FormReg = styled(Form)`
+ 
 `;
 
 export const FormList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 40px;
+   margin-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+  }
 `;
 
 export const FormItem = styled.li`
@@ -45,7 +53,7 @@ export const Label = styled.label`
   font-weight: 700;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   height: 20px;
   width: 100%;
   outline: none;
