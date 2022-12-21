@@ -2,7 +2,7 @@ import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
 import { DiaryDateCalendar } from 'components/DiaryDateСalendar';
 import { DiaryProductsList } from 'components/DiaryProductsList';
 
-export const Diary = () => {
+const Diary = () => {
   return (
     <>
       <DiaryDateCalendar />
@@ -11,3 +11,5 @@ export const Diary = () => {
     </>
   );
 };
+
+export default Diary;
