@@ -10,8 +10,8 @@ import {
   ButtonContainer,
   BloodListItem,
   WrapBox,
-
 } from './DailyCaloriesForm.styled';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeUserDate } from '../../redux/user/slice';
@@ -166,8 +166,7 @@ export const DailyCaloriesForm = () => {
                 onChange={handleInputChange}
               />
             )}
-
-  {/*
+            {/*
   TitleRadioBtn,
 } from './DailyCaloriesForm.styled';
 
@@ -206,7 +205,6 @@ export const DailyCaloriesForm = () => {
         <WrapBox>
           <Label htmlFor="desiredWeight">
             Desired weight *
-
             {token ? (
               <Input
                 pattern="[0-9]"
@@ -232,7 +230,7 @@ export const DailyCaloriesForm = () => {
           <Label htmlFor="bloodType" required>
             <p style={{ marginBottom: '8px' }}>Blood type *</p>
 
-              {/* 
+            {/* 
             <Input
               pattern="[0-9]"
               id="desiredWeight"
@@ -255,7 +253,6 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-1"
                   value={1}
                   onChange={handleRadioChange}
-
                 />
                 <label htmlFor="blood-inp-1">1</label>
               </BloodListItem>
@@ -266,7 +263,6 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-2"
                   value={2}
                   onChange={handleRadioChange}
-
                 />
                 <label htmlFor="blood-inp-2">2</label>
               </BloodListItem>
@@ -277,7 +273,6 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-3"
                   value={3}
                   onChange={handleRadioChange}
-
                 />
                 <label htmlFor="blood-inp-3">3</label>
               </BloodListItem>
@@ -287,9 +282,7 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-4"
                   value={4}
-
                   onChange={handleRadioChange}
-
                 />
                 <label htmlFor="blood-inp-4">4</label>
               </BloodListItem>

@@ -15,7 +15,6 @@ const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal() {
   const dispatch = useDispatch();
-  console.log('MODAL RENDER');
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -23,7 +22,9 @@ export default function Modal() {
         dispatch(toggleModal(false));
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
@@ -32,13 +33,11 @@ export default function Modal() {
   const onBackdropClick = e => {
     if (e.currentTarget === e.target) {
       dispatch(toggleModal(false));
-      console.log('onBackdropClick');
     }
   };
 
   const onBtnClick = () => {
     dispatch(toggleModal(false));
-    console.log('Button click');
   };
 
   return createPortal(

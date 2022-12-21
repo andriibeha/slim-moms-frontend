@@ -19,10 +19,13 @@ const DailyCalorieIntake = () => {
   const { products, dailyCalorie } = dataApi.data.result;
 
   const dispatch = useDispatch();
+
   const onBtnClick = () => {
     dispatch(toggleModal(false));
   };
+
   const mds = window.matchMedia('(min-width: 768px)');
+
   return (
     <Box>
       {mds.matches ? (
