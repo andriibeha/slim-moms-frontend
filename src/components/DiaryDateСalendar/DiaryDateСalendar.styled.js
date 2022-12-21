@@ -42,4 +42,7 @@ export const DatetimeStyled = styled(Datetime)`
 export const IconCalendarStyled = styled.svg`
   width: 20px;
   height: 18px;
+  & :hover {
+    cursor: pointer;
+  }
 `;
