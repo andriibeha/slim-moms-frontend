@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const Logo = () => {
   return (
-    <Link to="/diary">
+    <Link to="/login">
       <Box display="flex" alignItems={['center', 'center', 'center', 'end']}>
         <Img
           src={logo}
