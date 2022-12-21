@@ -2,7 +2,7 @@ import Loader from 'components/Loader/Loader';
 import { FormLogin } from 'components/LoginForm';
 import { useAuth } from 'hooks/useAuth';
 
-export const Login = () => {
+const Login = () => {
   const { isLoading } = useAuth();
   return (
     <>
@@ -12,3 +12,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;

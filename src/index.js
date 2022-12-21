@@ -11,14 +11,14 @@ import { theme } from './components/Theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/slim-moms-frontend">
-          <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/slim-moms-frontend">
             <App />
-          </ThemeProvider>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );

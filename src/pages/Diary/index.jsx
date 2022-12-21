@@ -13,8 +13,10 @@ import { useWindowResize } from 'hooks/useWindowResize';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 // import { useSelector } from 'react-redux';
 
+
 export const Diary = () => {
   const { width } = useWindowResize();
+
 
   return (
     <DiaryStyled>
@@ -37,3 +39,5 @@ export const Diary = () => {
     </DiaryStyled>
   );
 };
+
+export default Diary;
