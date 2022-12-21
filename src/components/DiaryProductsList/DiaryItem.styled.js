@@ -39,8 +39,7 @@ export const ProductProp = styled.div`
 `;
 
 export const ExitBtn = styled.button`
-  /* border: none;
-  background: url('../../images/icons.svg#icon-cross_delete_12x12'); */
+  background: none;
 `;
 
 export const Unit = styled.span`

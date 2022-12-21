@@ -1,5 +1,6 @@
 import { removeProduct } from 'redux/products/products-operations';
 import { ProductTitle, ProductProp, ExitBtn, Unit } from './DiaryItem.styled';
+import sprite from 'images/icons.svg';
 
 const { useDispatch } = require('react-redux');
 
@@ -24,8 +25,8 @@ export const DiaryItem = ({ product }) => {
       </ProductProp>
 
       <ExitBtn type="button" onClick={handleDelete}>
-        <svg width={10} height={10}>
-          <use href="../../images/icons.svg#icon-cross_delete_12x12"></use>
+        <svg width="12px" height="12px">
+          <use href={sprite + '#icon-cross_delete_12x12'} />
         </svg>
       </ExitBtn>
     </>
