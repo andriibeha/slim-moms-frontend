@@ -16,6 +16,7 @@ import { logInReducer } from './login/slice';
 import authReducer from './auth/auth-slice';
 import { showModal } from './modal/slice';
 import productsReducer from './products/products-slice';
+import { diaryReducer } from './diary/diarySlice';
 
 const logInPersistConfig = {
   key: 'login',
@@ -35,6 +36,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     modal: showModal,
     products: productsReducer,
+    diary: diaryReducer,
   },
 
   middleware(getDefaultMiddleware) {
