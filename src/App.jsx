@@ -14,6 +14,7 @@ import { GlobalStyles } from 'components/GlobalStyles';
 
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import { AddProduct } from 'pages/AddProduct';
 
 export const App = () => {
   const showModal = useSelector(state => state.showModal);
@@ -28,6 +29,7 @@ export const App = () => {
           {/* PRIVATE ROUTES */}
           <Route path="/logout" element={<Logout />} />
           <Route path="/diary" element={<Diary />} />
+          <Route path="/add" element={<AddProduct />} />
           <Route path="/calculator" element={<Calculator />} />
 
           {/* PUBLICK ROUTES */}
