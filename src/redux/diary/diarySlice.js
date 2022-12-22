@@ -2,6 +2,9 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
+  date: '',
+  calorisityPerDay: 0,
+  dateFirstAdded: '',
   products: [],
   isLoading: false,
   error: null,
@@ -28,8 +31,11 @@ const diarySlice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(getByDate.fulfilled, (state, action) => {
-        state.products = action.payload;
+      .addCase(getByDate.fulfilled, (state, { payload }) => {
+        state.products = payload.products;
+        state.date = payload.date;
+        state.dateFirstAdded = payload.dateFirstAdded;
+        state.calorisityPerDay = payload.calorisityPerDay;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
