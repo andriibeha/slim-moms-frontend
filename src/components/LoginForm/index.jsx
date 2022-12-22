@@ -3,6 +3,9 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { FormLogIn, Input, Label, ErrorText } from './LoginForm.styled';
 import { logIn } from 'redux/login/operations';
+import { ButtonAuth, ButtonLinkAuth } from 'components/Button';
+import { Link } from 'react-router-dom';
+import { Box } from 'components/Box';
 
 const FormError = ({ name }) => {
   return (
@@ -45,20 +48,33 @@ export const FormLogin = () => {
         validationSchema={schema}
       >
         <FormLogIn autoComplete="off">
-          <Label htmlFor="email">
-            <Input type="email" name="email" placeholder="Email *"></Input>
-            <FormError name="email" component="p" />
-          </Label>
-          <Label htmlFor="password">
-            <Input
-              type="password"
-              name="password"
-              placeholder="Password *"
-            ></Input>
-            <FormError name="password" component="p" />
-          </Label>
-          <button type="submit">Log in</button>
-          <button type="button">Register</button>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            mt="55px"
+            gridGap="40px"
+          >
+            <Label htmlFor="email">
+              Email *<Input type="email" name="email"></Input>
+              <FormError name="email" component="p" />
+            </Label>
+            <Label htmlFor="password">
+              Password *<Input type="password" name="password"></Input>
+              <FormError name="password" component="p" />
+            </Label>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection={['column', 'row']}
+            alignItems="center"
+            gridGap={['20px', '32px']}
+          >
+            <ButtonAuth text="Log in"></ButtonAuth>
+            <Link to="/registration">
+              <ButtonLinkAuth text="Register"></ButtonLinkAuth>
+            </Link>
+          </Box>
         </FormLogIn>
       </Formik>
     </>

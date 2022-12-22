@@ -1,14 +1,17 @@
 import Loader from 'components/Loader/Loader';
 import { FormLogin } from 'components/LoginForm';
 import { useAuth } from 'hooks/useAuth';
+import { LoginPage, TitleLogIn } from './loginPage.styled';
 
-export const Login = () => {
+const Login = () => {
   const { isLoading } = useAuth();
   return (
-    <>
-      <h2>LOG IN</h2>
+    <LoginPage>
+      <TitleLogIn>LOG IN</TitleLogIn>
       <FormLogin />
       {isLoading && <Loader />}
-    </>
+    </LoginPage>
   );
 };
+
+export default Login;

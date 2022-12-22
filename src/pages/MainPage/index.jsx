@@ -1,7 +1,7 @@
 // import Loader from 'components/Loader/Loader';
 import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
 
-export const MainPage = () => {
+const MainPage = () => {
   return (
     <>
       {/* <Loader /> */}
@@ -9,3 +9,5 @@ export const MainPage = () => {
     </>
   );
 };
+
+export default MainPage;

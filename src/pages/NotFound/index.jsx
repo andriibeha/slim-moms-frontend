@@ -1,9 +1,11 @@
 import { NotFoundBlock } from '../../components/NotFoundBlock/index';
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <>
       <NotFoundBlock />
     </>
   );
 };
+
+export default NotFound;

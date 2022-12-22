@@ -37,4 +37,5 @@ export const theme = {
     color: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
     all: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
+  breakpoints: ['768px', '1280px'],
 };

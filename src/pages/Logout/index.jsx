@@ -1,9 +1,11 @@
 import { LogoutBlock } from 'components/LogoutBlock';
 
-export const Logout = () => {
+const Logout = () => {
   return (
     <>
       <LogoutBlock />
     </>
   );
 };
+
+export default Logout;

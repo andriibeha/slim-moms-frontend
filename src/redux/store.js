@@ -18,6 +18,7 @@ import { userReducer } from './user/slice';
 import { modalReducer } from './modal/slice';
 import { bloodDietReducer } from './bloodDiet/slice';
 import productsReducer from './products/products-slice';
+import { diaryReducer } from './diary/diarySlice';
 
 const logInPersistConfig = {
   key: 'login',
@@ -44,6 +45,7 @@ export const store = configureStore({
     modal: modalReducer,
     bloodDiet: bloodDietReducer,
     products: productsReducer,
+    diary: diaryReducer,
   },
 
   middleware(getDefaultMiddleware) {
