@@ -55,9 +55,4 @@ export const DiaryDateCalendar = () => {
       </button>
     </Container>
   );
-<<<<<<< Updated upstream
 };
-=======
-  
-};
->>>>>>> Stashed changes
