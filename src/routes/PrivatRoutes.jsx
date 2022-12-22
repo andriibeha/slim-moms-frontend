@@ -2,9 +2,10 @@ import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ children }) => {
-  let isLogin = localStorage.getItem('user');
+  // let isLoggedIn = localStorage.getItem('user');
+  let isLoggedIn = true;
 
-  return <>{isLogin ? children : <Navigate to="/calculator" replace />}</>;
+  return <>{isLoggedIn ? children : <Navigate to="/diary" replace />}</>;
 };
 
 PrivateRoute.propTypes = {

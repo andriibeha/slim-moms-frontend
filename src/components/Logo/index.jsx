@@ -3,9 +3,9 @@ import { Box, LogoStyled, Span, Img } from './Logo.Styled';
 import { Link } from 'react-router-dom';
 
 export const Logo = () => {
+  const isLoggedIn = true;
   return (
-    // Якщо користувач isLoggedIn тоді Link направляє на сторінку "/Diary", а якщо !isLoggedIn - направляє на "/login"
-    <Link to="/login">
+    <Link to={isLoggedIn ? '/diary' : '/login'}>
       <Box>
         <Img src={logo} alt="main logo" />
 
