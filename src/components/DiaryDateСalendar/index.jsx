@@ -8,7 +8,7 @@ import {
   IconCalendarStyled,
 } from './DiaryDateСalendar.styled';
 import sprite from 'images/icons.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getByDate } from 'redux/diary/diaryOperations';
 // import { diarySelectors } from 'redux/diary/diarySelectors';
 
