@@ -6,6 +6,7 @@ import { logIn } from 'redux/login/operations';
 import { ButtonAuth, ButtonLinkAuth } from 'components/Button';
 import { Link } from 'react-router-dom';
 import { Box } from 'components/Box';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormError = ({ name }) => {
   return (
