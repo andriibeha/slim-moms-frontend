@@ -1,5 +1,10 @@
 import React from 'react';
+<<<<<<< Updated upstream
 
+=======
+// import { useState } from "react";
+// import { useDispatch } from 'react-redux';
+>>>>>>> Stashed changes
 import {
   Box,
   List,
@@ -10,6 +15,10 @@ import {
   CalcItem,
   CalcTitle,
 } from './RightSideBar.styled';
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 const dataArray = {
   products: [
@@ -44,6 +53,7 @@ const dataArray = {
 };
 
 export const RightSideBar = () => {
+<<<<<<< Updated upstream
   const leftCalories = dataArray.dailyCalorie - dataArray.consumedCalories;
   const percentOfNormal = (leftCalories / dataArray.dailyCalorie) * 100;
 
@@ -80,6 +90,43 @@ export const RightSideBar = () => {
 
         {dataArray.dailyCalorie > 0 ? (
           <List as="ol">
+=======
+  // const dispatch = useDispatch();'
+  // const [value, setValue] = useState(0);
+  
+  const sum = dataArray.reduce((acc, dataArray) => acc + dataArray.calories, 0);
+  const percentOfNormal = (sum / dataArray.dailyCalorie) * 100;
+
+  const leftCalories = sum - dataArray.dailyCalorie;
+  return (
+    <>
+      <Box>
+        <BoxList>
+          <ListTitle>Summary for DATA</ListTitle>
+          <List as="table">
+            <CalcItem>
+              <CalcTitle>Left</CalcTitle>
+              <td>{leftCalories} kcal</td>
+            </CalcItem>
+            <CalcItem>
+              <CalcTitle>Consumed</CalcTitle>
+              <td>{sum} kcal</td>
+            </CalcItem>
+            <CalcItem>
+              <CalcTitle>Daily rate </CalcTitle>{' '}
+              <td>{dataArray.dailyCalorie} kcal</td>
+            </CalcItem>
+            <CalcItem>
+              <CalcTitle>% of normal</CalcTitle>
+              <td>{percentOfNormal} %</td>
+            </CalcItem>
+          </List>
+        </BoxList>
+        <BoxList>
+          <ListTitle>Food not recommended</ListTitle>
+          <PreContent> Your diet will be displayed here </PreContent>
+          <List as="ul">
+>>>>>>> Stashed changes
             {dataArray.products.map(product => (
               <Item key={product._id}>{product.title.ua}</Item>
             ))}
