@@ -3,11 +3,12 @@ import { HeaderStyled } from './Header.Styled';
 import { UserInfo } from 'components/UserInfo';
 import { Navigation } from 'components/Navigation';
 // import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelectors } from 'redux/auth/auth-selectors';
+import { useAuth } from 'hooks/useAuth';
 
 export const Header = () => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const { isLoggedIn } = useAuth();
+
+  console.log(isLoggedIn);
   return (
     <HeaderStyled>
       {/* <Link to="/diary"> */}
