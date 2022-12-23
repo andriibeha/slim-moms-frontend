@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { Button } from '../Button';
 import { Box } from 'components/Box';
 import { ContainerForm, WeightInputStyled } from './DiaryAddProductForm.styled';
 import { selectStyles } from './selectStyles';
 import { useWindowResize } from 'hooks/useWindowResize';
+import { addProduct } from 'redux/products/products-operations';
 
 const data = [
   {
@@ -115,6 +117,7 @@ export const DiaryAddProductForm = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [options, setOptions] = useState([]);
   const { width } = useWindowResize();
+  const dispatch = useDispatch();
 
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
@@ -161,6 +164,8 @@ export const DiaryAddProductForm = () => {
       weight,
       caloriesBasic: selectedOption.calories,
     };
+    dispatch(addProduct({newProduct}));
+
     console.log(newProduct);
     setProduct('');
     setWeight('');
