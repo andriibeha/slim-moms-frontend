@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from '../Button';
 import { Box } from 'components/Box';
 import { ContainerForm, WeightInputStyled } from './DiaryAddProductForm.styled';
 import { selectStyles } from './selectStyles';
 import { useWindowResize } from 'hooks/useWindowResize';
-import { addProduct, getByDate } from 'redux/diary/diaryOperations';
-import { getProductByQuery } from 'redux/products/products-operations';
+import { addProduct } from 'redux/diary/diaryOperations';
+//import { getByDate } from 'redux/diary/diaryOperations';
+//import { getProductByQuery } from 'redux/products/products-operations';
 import { useDebounce } from 'hooks/useDebounce';
-
 
 const data = [
   {
@@ -129,7 +128,6 @@ export const DiaryAddProductForm = () => {
 
   // console.log(date);
 
-
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
   };
@@ -189,7 +187,7 @@ export const DiaryAddProductForm = () => {
       product: selectedOption.label,
       weight: Number(weight),
     };
-    
+
     dispatch(addProduct(newProduct));
     console.log(newProduct);
     setProduct('');
