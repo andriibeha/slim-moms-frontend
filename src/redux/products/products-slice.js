@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { removeProduct } from './products-operations';
+import {
+  removeProduct,
+  getAllProducts,
+  getProductByQuery,
+} from './products-operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -10,10 +14,21 @@ const handleRejcted = (state, action) => {
   state.error = action.payload;
 };
 
+const handleProducts = (state, { payload }) => {
+  state.error = null;
+  state.items = payload;
+};
+
+const handleProductsByQuery = (state, { payload }) => {
+  state.error = null;
+  state.productsByQuery = payload;
+};
+
 const productSlice = createSlice({
   name: 'products',
   initialState: {
     items: [],
+    productsByQuery: [],
     isLoading: false,
     error: null,
   },
@@ -27,6 +42,12 @@ const productSlice = createSlice({
       console.log('Product removed');
     },
     [removeProduct.rejected]: handleRejcted,
+    [getAllProducts.pending]: handlePending,
+    [getAllProducts.fulfilled]: handleProducts,
+    [getAllProducts.rejected]: handleRejcted,
+    [getProductByQuery.pending]: handlePending,
+    [getProductByQuery.fulfilled]: handleProductsByQuery,
+    [getProductByQuery.rejected]: handleRejcted,
   },
 });
 
