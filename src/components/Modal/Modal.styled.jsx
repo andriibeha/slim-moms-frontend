@@ -1,36 +1,40 @@
 import styled from '@emotion/styled';
+import { theme } from '../Theme';
+
 export const Backdrop = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vw;
-  background-color: rgba(33, 33, 33, 0.12);
+  width: 100%;
+  height: 100%;
   z-index: 1200;
-
-  @media screen and (min-width: 768px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background-color: ${theme.colors.backdrop};
+    opacity: 1;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opaсity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
 export const ModalWindow = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
   padding: 40px 20px 0 20px;
-  background-color: white;
+  background-color: ${theme.colors.white};
 
   @media screen and (min-width: 768px) {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
     width: 672px;
     height: auto;
     padding: 64px 82px 80px 82px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opaсity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
@@ -43,15 +47,14 @@ export const ModalButton = styled.button`
     right: 24px;
     display: block;
     background-color: #11ffee00;
-    border: none;
-    color: black;
-  transition: all 250ms easy;
+    border:${theme.borders.none};;
+    color: ${theme.colors.black};;
+  transition:  fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
   cursor: pointer;
 
   &:hover,
   :focus {
-    fill: #fc842d;
-   
+    fill: ${theme.colors.accent};
   }
 `;
 
