@@ -5,7 +5,7 @@ export const getByDate = createAsyncThunk(
   'diary/getByDate',
   async (date, thunkAPI) => {
     try {
-      const res = await api.get(`/api/diary/?date=${date}`);
+      const res = await api.get(`diary/?date=${date}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -16,7 +16,7 @@ export const addProduct = createAsyncThunk(
   'diary/addProduct',
   async (product, thunkAPI) => {
     try {
-      const res = await api.post(`/api/diary`, product);
+      const res = await api.post(`diary`, product);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -28,7 +28,7 @@ export const removeProduct = createAsyncThunk(
   'diary/removeProduct',
   async (productId, thunkAPI) => {
     try {
-      const res = await api.get(`/api/diary/${productId}`);
+      const res = await api.get(`diary/${productId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

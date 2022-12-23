@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Button } from '../Button';
 import { Box } from 'components/Box';
 import { ContainerForm, WeightInputStyled } from './DiaryAddProductForm.styled';
 import { selectStyles } from './selectStyles';
 import { useWindowResize } from 'hooks/useWindowResize';
-import { addProduct } from 'redux/products/products-operations';
+import { addProduct, getByDate } from 'redux/diary/diaryOperations';
+import { getProductByQuery } from 'redux/products/products-operations';
+import { useDebounce } from 'hooks/useDebounce';
+
 
 const data = [
   {
@@ -119,9 +125,29 @@ export const DiaryAddProductForm = () => {
   const { width } = useWindowResize();
   const dispatch = useDispatch();
 
+  const debouncedProduct = useDebounce(product, 2000);
+
+  // console.log(date);
+
+
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
   };
+  console.log(debouncedProduct);
+  console.log(product);
+
+  // useEffect(() => {
+  //   if (debouncedProduct) {
+  //     getProductByQuery(debouncedProduct)
+  //       .then(({ data }) => {
+  //         return data.map(product => ({
+  //           data: product._id,
+  //           label: product?.title?.ua,
+  //         }));
+  //       })
+  //       .then(data => setOptions(data));
+  //   }
+  // }, [debouncedProduct]);
 
   useEffect(() => {
     if (product.length >= 3) {
@@ -142,7 +168,7 @@ export const DiaryAddProductForm = () => {
     }
   }, [selectedOption, weight]);
 
-  const postNewProduct = e => {
+  const addNewProduct = e => {
     e.preventDefault();
     if (selectedOption === '' && weight === '') {
       setErrorProduct(true);
@@ -159,13 +185,12 @@ export const DiaryAddProductForm = () => {
     }
 
     const newProduct = {
-      productId: selectedOption.value,
-      title: selectedOption.label,
-      weight,
-      caloriesBasic: selectedOption.calories,
+      // data: data,
+      product: selectedOption.label,
+      weight: Number(weight),
     };
-    dispatch(addProduct({newProduct}));
-
+    
+    dispatch(addProduct(newProduct));
     console.log(newProduct);
     setProduct('');
     setWeight('');
@@ -181,7 +206,7 @@ export const DiaryAddProductForm = () => {
 
   return (
     <div>
-      <ContainerForm onSubmit={postNewProduct}>
+      <ContainerForm onSubmit={addNewProduct}>
         <Box>
           <Select
             required
