@@ -3,7 +3,9 @@ import {
   removeProduct,
   getAllProducts,
   getProductByQuery,
+  addProduct
 } from './products-operations';
+
 
 const handlePending = state => {
   state.isLoading = true;
@@ -33,6 +35,15 @@ const productSlice = createSlice({
     error: null,
   },
   extraReducers: {
+    [addProduct.pending]: handlePending,
+    [addProduct.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = (state, { payload }) => [...state, payload];
+      console.log('Product adds');
+    },
+    [addProduct.rejected]: handleRejcted,
+
     [removeProduct.pending]: handlePending,
     [removeProduct.fulfilled](state, action) {
       state.isLoading = false;

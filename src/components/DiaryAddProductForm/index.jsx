@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -11,6 +12,7 @@ import { useWindowResize } from 'hooks/useWindowResize';
 import { addProduct, getByDate } from 'redux/diary/diaryOperations';
 import { getProductByQuery } from 'redux/products/products-operations';
 import { useDebounce } from 'hooks/useDebounce';
+
 
 const data = [
   {
@@ -122,9 +124,11 @@ export const DiaryAddProductForm = () => {
   const [options, setOptions] = useState([]);
   const { width } = useWindowResize();
   const dispatch = useDispatch();
+
   const debouncedProduct = useDebounce(product, 2000);
 
   // console.log(date);
+
 
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
@@ -185,6 +189,7 @@ export const DiaryAddProductForm = () => {
       product: selectedOption.label,
       weight: Number(weight),
     };
+    
     dispatch(addProduct(newProduct));
     console.log(newProduct);
     setProduct('');

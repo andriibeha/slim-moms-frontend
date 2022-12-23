@@ -32,16 +32,11 @@ const authPersistConfig = {
   storage,
 };
 
-const userPersistConfig = {
-  key: 'user',
-  storage,
-};
-
 export const store = configureStore({
   reducer: {
     login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-    user: persistReducer(userPersistConfig, userReducer),
+    user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,
     products: productsReducer,
