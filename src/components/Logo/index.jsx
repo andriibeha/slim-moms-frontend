@@ -3,8 +3,9 @@ import { Box, LogoStyled, Span, Img } from './Logo.Styled';
 import { Link } from 'react-router-dom';
 
 export const Logo = () => {
+  const isLoggedIn = true;
   return (
-    <Link to="/diary">
+    <Link to={isLoggedIn ? '/diary' : '/login'}>
       <Box>
         <Img src={logo} alt="main logo" />
 
