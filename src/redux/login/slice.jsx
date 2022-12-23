@@ -8,22 +8,31 @@ const logInSlice = createSlice({
     user: { name: null, email: null },
     token: null,
     isLoading: false,
+    isLoggedIn: false,
   },
   extraReducers: builder =>
     builder
       .addCase(logIn.pending, state => {
         state.isLoading = true;
-        console.log('pending', state);
       })
       .addCase(logIn.fulfilled, (state, action) => {
-        console.log('pending', state);
-        console.log('pending', action);
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        toast.success(`Залогінено. Нотіфікашка тимчасова`, {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .addCase(logIn.rejected, (state, action) => {
-        console.log('rejected', state);
-        console.log('rejected', action);
         state.isLoading = false;
-        toast.warn(`Error`, {
+        toast.warn(`${action.payload}`, {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: false,
