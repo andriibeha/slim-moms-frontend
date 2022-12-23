@@ -59,8 +59,8 @@ const UserInfoNav = ({ active, setActive }) => {
 export const UserInfo = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const name = 'Nick';
-  // const name = useSelector(authSelectors.getUsername);
+
+  const name = useSelector(authSelectors.getUsername);
 
   const isLogout = () => {
     dispatch(logOut());

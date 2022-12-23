@@ -77,6 +77,7 @@ export const UserName = styled.p`
   padding-right: 15px;
   padding-top: 8px;
   padding-bottom: 8px;
+  text-transform: capitalize;
 
   border-right: 2px solid #e0e0e0;
   color: ${p => p.theme.colors.textSecond}; // #212121;
