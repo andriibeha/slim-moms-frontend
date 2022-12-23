@@ -10,13 +10,13 @@ export const GlobalStyles = css`
 
   @font-face {
     font-family: Verdana;
-    src: url('../fonts/verdana-font-family/Verdana.ttf') format('opentype');
+    src: url('../fonts/verdana-font-family/Verdana.ttf'), format('truetype');
     font-weight: normal;
   }
 
   @font-face {
     font-family: Verdana;
-    src: url('../fonts/verdana-font-family/Verdana-bold.ttf') format('opentype');
+    src: url('../fonts/verdana-font-family/Verdana-bold.ttf'), format('truetype');
     font-weight: bold;
   }
 
