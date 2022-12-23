@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { theme } from '../Theme';
 
 export const Box = styled.div`
   @media screen and (min-width: 768px) {
@@ -13,10 +14,10 @@ export const Box = styled.div`
 export const TextCalorie = styled.p`
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 700;
+  font-weight: ${theme.fontWeights.bold};
   font-size: 18px;
   line-height: 1.4;
-  color: #212121;
+  color: ${theme.colors.textSecond};
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
@@ -27,26 +28,23 @@ export const TextCalorie = styled.p`
 `;
 
 export const BoxCalorie = styled.div`
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  margin-bottom: 30px;
+  text-align: center;
+`;
 
+export const NumberCalorie = styled.sub`
+  font-size: 48px;
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 700;
+  font-weight: ${theme.fontWeights.bold};
   line-height: 58px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #264061;
+  color: ${theme.colors.blue};
 `;
 
-export const NumberCalorie = styled.p`
-  font-size: 48px;
-`;
-
-export const Unit = styled.p`
-  font-size: 30px;
+export const Unit = styled.span`
+  font-size: 20px;
+  letter-spacing: 0.02em;
   margin-left: 10px;
 `;
 
@@ -61,14 +59,15 @@ export const ListTitle = styled.p`
   display: block;
   border-top: 1px solid #e0e0e0;
   padding-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: ${theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.s};
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #212121;
+  color: ${theme.colors.textSecond};
   text-align: start;
 
   @media screen and (min-width: 768px) {
@@ -89,11 +88,11 @@ export const List = styled('ul')`
 export const Item = styled.li`
   font-family: 'Verdana';
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: ${theme.fontWeights.normal};
+  font-size: ${theme.fontSizes.s};
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: ${theme.colors.textFirst};
   margin-bottom: 20px;
 
   &:last-child {
@@ -111,16 +110,16 @@ export const Link = styled(NavLink)`
   font-weight: 700;
   border-radius: 30px;
   border: 2px solid #fc842d;
-  color: #fff;
-  font-size: 14px;
-  background: #fc842d;
+  color: ${theme.colors.white};
+  font-size: ${theme.fontSizes.s};
+  background: ${theme.colors.accent};
   box-shadow: 0px 4px 10px 0px #fc842d80;
   transition: all 250ms easy;
   cursor: pointer;
 
   &:hover,
   :focus {
-    color: #fc842d;
-    background: #fff;
+    color: ${theme.colors.accent};
+    background: ${theme.colors.white};
   }
 `;

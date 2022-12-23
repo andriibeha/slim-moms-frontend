@@ -2,12 +2,12 @@ import React from 'react';
 import {
   Box,
   TextCalorie,
+  BoxCalorie,
   NumberCalorie,
   Unit,
   List,
   ListTitle,
   Item,
-  BoxCalorie,
   BoxList,
   Link,
 } from './DailyCalorieIntake.styled';
@@ -36,8 +36,10 @@ const DailyCalorieIntake = () => {
         <TextCalorie>Your recommended daily calorie intake is</TextCalorie>
       )}
       <BoxCalorie>
-        <NumberCalorie>{dailyCalorie}</NumberCalorie>
-        <Unit>калл</Unit>
+        <NumberCalorie>
+          {dailyCalorie}
+          <Unit>kcal</Unit>
+        </NumberCalorie>
       </BoxCalorie>
       <BoxList>
         <ListTitle>Foods you should not eat</ListTitle>
