@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { logOut } from 'redux/auth/auth-operations';
 import { authSelectors } from 'redux/auth/auth-selectors';
 import sprite from 'images/icons.svg';
@@ -9,13 +8,11 @@ import {
   UserName,
   ExitBtn,
   UserNameContainer,
-  BurgerBtn,
   ModalContent,
   ModalBox,
   MenuButton,
   NameBox,
   Bar,
-  UserInfoBox,
   BackArrow,
   BackLink,
   UserNavLink,
