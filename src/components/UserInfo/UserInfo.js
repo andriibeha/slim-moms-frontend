@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { logOut } from 'redux/auth/auth-operations';
 import { authSelectors } from 'redux/auth/auth-selectors';
 import sprite from 'images/icons.svg';
+import { useAuth } from 'hooks/useAuth';
 import {
   UserName,
   ExitBtn,
@@ -57,7 +58,8 @@ export const UserInfo = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const name = useSelector(authSelectors.getUsername);
+  const { user } = useAuth();
+  console.log(user.data.user.name);
 
   const isLogout = () => {
     dispatch(logOut());
@@ -79,7 +81,7 @@ export const UserInfo = () => {
         </BackLink>
 
         <NameBox>
-          <UserName>{name}</UserName>
+          <UserName>{user.data.user.name}</UserName>
           <ExitBtn type="button" onClick={isLogout}>
             Exit
           </ExitBtn>
