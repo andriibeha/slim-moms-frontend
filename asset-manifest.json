@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/slim-moms-frontend/static/css/main.9f842b21.css",
-    "main.js": "/slim-moms-frontend/static/js/main.6357cc8f.js",
+    "main.js": "/slim-moms-frontend/static/js/main.4530f2b1.js",
     "static/js/883.506788c2.chunk.js": "/slim-moms-frontend/static/js/883.506788c2.chunk.js",
     "static/js/996.63a7ab21.chunk.js": "/slim-moms-frontend/static/js/996.63a7ab21.chunk.js",
     "static/js/196.b260947b.chunk.js": "/slim-moms-frontend/static/js/196.b260947b.chunk.js",
@@ -30,13 +30,18 @@
     "static/media/strawberry_tablet_1x.webp": "/slim-moms-frontend/static/media/strawberry_tablet_1x.b7f74ab57412180d3fcd.webp",
     "static/media/leaves_tablet-home1_1x.webp": "/slim-moms-frontend/static/media/leaves_tablet-home1_1x.b4486877726c268608d1.webp",
     "static/media/leaves_tablet-calculator1_1x.webp": "/slim-moms-frontend/static/media/leaves_tablet-calculator1_1x.5c9b2f258568cf498853.webp",
+    "static/media/logo_desktop_2x.webp": "/slim-moms-frontend/static/media/logo_desktop_2x.0b6f2974ce556ed1e05b.webp",
+    "static/media/logo_tablet_2x.webp": "/slim-moms-frontend/static/media/logo_tablet_2x.3a691c692cbe475e2f72.webp",
     "static/media/shadow_desktop.webp": "/slim-moms-frontend/static/media/shadow_desktop.b915d13dbc73690ed43f.webp",
     "static/media/shadow_tablet.webp": "/slim-moms-frontend/static/media/shadow_tablet.f7856948b3b08b92a430.webp",
-    "static/media/logo_desktop_1x.webp": "/slim-moms-frontend/static/media/logo_desktop_1x.1ea3deef41c6b49bbda1.webp",
+    "static/media/logo_desktop_1x.webp": "/slim-moms-frontend/static/media/logo_desktop_1x.7b460c9b597216dc1509.webp",
+    "static/media/logo_mobile_2x.webp": "/slim-moms-frontend/static/media/logo_mobile_2x.4887420438e3d37939e3.webp",
+    "static/media/logo_tablet_1x.webp": "/slim-moms-frontend/static/media/logo_tablet_1x.595a4d0e7b9eb104cb08.webp",
     "static/media/icons.svg": "/slim-moms-frontend/static/media/icons.30c73fe0f66c3017e38365ede2e511bb.svg",
     "index.html": "/slim-moms-frontend/index.html",
+    "static/media/logo_mobile_1x.webp": "/slim-moms-frontend/static/media/logo_mobile_1x.ae0bf428cb68282b5bf6.webp",
     "main.9f842b21.css.map": "/slim-moms-frontend/static/css/main.9f842b21.css.map",
-    "main.6357cc8f.js.map": "/slim-moms-frontend/static/js/main.6357cc8f.js.map",
+    "main.4530f2b1.js.map": "/slim-moms-frontend/static/js/main.4530f2b1.js.map",
     "883.506788c2.chunk.js.map": "/slim-moms-frontend/static/js/883.506788c2.chunk.js.map",
     "996.63a7ab21.chunk.js.map": "/slim-moms-frontend/static/js/996.63a7ab21.chunk.js.map",
     "196.b260947b.chunk.js.map": "/slim-moms-frontend/static/js/196.b260947b.chunk.js.map",
@@ -51,6 +56,6 @@
   },
   "entrypoints": [
     "static/css/main.9f842b21.css",
-    "static/js/main.6357cc8f.js"
+    "static/js/main.4530f2b1.js"
   ]
 }
