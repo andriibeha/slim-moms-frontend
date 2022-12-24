@@ -13,7 +13,7 @@ import {
 } from 'redux-persist';
 
 import { logInReducer } from './login/slice';
-import authReducer from './auth/auth-slice';
+// import authReducer from './auth/auth-slice';
 import { userReducer } from './user/slice';
 import { modalReducer } from './modal/slice';
 import { bloodDietReducer } from './bloodDiet/slice';
@@ -27,15 +27,15 @@ const logInPersistConfig = {
   whitelist: ['token'],
 };
 
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-};
+// const authPersistConfig = {
+//   key: 'auth',
+//   storage,
+// };
 
 export const store = configureStore({
   reducer: {
     login: persistReducer(logInPersistConfig, logInReducer),
-    auth: persistReducer(authPersistConfig, authReducer),
+    // auth: persistReducer(authPersistConfig, authReducer),
     user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,

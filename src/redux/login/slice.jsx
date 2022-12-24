@@ -1,17 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn } from './operations';
+import { logOut, register } from 'redux/auth/auth-operations';
 import { toast } from 'react-toastify';
 
+export const initialState = {
+  user: { name: null, email: null },
+  token: null,
+  isLoading: false,
+  isLoggedIn: false,
+};
+
 const logInSlice = createSlice({
-  name: 'login',
-  initialState: {
-    user: { name: null, email: null },
-    token: null,
-    isLoading: false,
-    isLoggedIn: false,
-  },
+  name: 'auth',
+  initialState,
+
   extraReducers: builder =>
     builder
+      .addCase(register.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.token = null;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+      })
       .addCase(logIn.pending, state => {
         state.isLoading = true;
       })
@@ -41,6 +51,11 @@ const logInSlice = createSlice({
           draggable: true,
           progress: undefined,
         });
+      })
+      .addCase(logOut.fulfilled, (state, action) => {
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
       }),
 });
 
