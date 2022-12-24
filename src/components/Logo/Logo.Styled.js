@@ -14,12 +14,12 @@ export const LogoStyled = styled('p')`
   margin: 0px;
   margin-left: 0px;
   color: ${theme.colors.textSecond};
-  opacity: 0;
+  display: none;
 
   @media screen and (min-width: 768px) {
     margin-left: 10px;
     font-size: ${theme.fontSizes.m};
-    opacity: 1;
+    display: inherit;
   }
 
   @media screen and (min-width: 1280px) {
