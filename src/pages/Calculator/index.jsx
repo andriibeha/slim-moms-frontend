@@ -1,5 +1,6 @@
+import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
 const Calculator = () => {
-  return <div>Calculator</div>;
+  return <DailyCaloriesForm />;
 };
 
 export default Calculator;
