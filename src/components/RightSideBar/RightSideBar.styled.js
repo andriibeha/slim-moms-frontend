@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import tabletImg from '../../images/leaves_tablet-calculator1_1x.webp'; 
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,12 +9,10 @@ export const Box = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     padding: 80px 32px 40px 32px;
-    background-image: url(${tabletImg});
   }
   @media screen and (min-width: 1280px) {
     flex-direction: column;
     padding: 149px 94px 116px 94px;
-    background-image:  url(${require(`../../images/leaves_desktop-calculator_1x.webp`)}); 
   }
 `;
 
@@ -39,18 +36,16 @@ export const ListTitle = styled.p`
   color: #212121;
   text-align: start;
   margin-bottom: 20px;
-  }
 `;
 
 export const List = styled('ul')`
-list-style: none;
+  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   list-style-position: inside;
   margin: 0;
   padding: 0;
-  }
 `;
 
 export const Item = styled.li`
