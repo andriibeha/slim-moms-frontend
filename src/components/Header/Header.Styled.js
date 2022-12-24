@@ -16,5 +16,6 @@ export const HeaderStyled = styled('header')`
   @media screen and (min-width: 1280px) {
     padding: 80px 16px;
     border-bottom: none;
+    justify-content: start;
   }
 `;
