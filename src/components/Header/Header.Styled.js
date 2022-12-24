@@ -17,5 +17,6 @@ export const HeaderStyled = styled('header')`
     padding: 80px 16px;
     border-bottom: none;
     justify-content: start;
+    align-items: baseline;
   }
 `;
