@@ -8,8 +8,8 @@ export const BackgroundStyled = styled.div`
 
 export const ImgBanana = styled.img`
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -275px;
+    top: -102px;
     z-index: -3;
     display: none;
     @media screen and (min-width: 1280px) {
@@ -31,8 +31,8 @@ export const ImgStraw = styled.img`
 
 export const ImgLeav = styled.img`
        position: absolute;
-    right: 196px;
-    top: 0;
+    right: 195px;
+    top: -26px;
     z-index: -1;
     display: none;
     @media screen and (min-width: 1280px) {
@@ -43,7 +43,7 @@ export const ImgLeav = styled.img`
 export const ImgShadow = styled.img`
 position: absolute;
     right: 0px;
-    top: 34px;
+    top: 34px;;
     z-index: -4;
     display: none;
     @media screen and (min-width: 1280px) {
@@ -55,7 +55,7 @@ position: absolute;
 
 export const ImgBananaTablet = styled.img`
     position: absolute;
-    right: 0;
+    right: -249px;
     top: 593px;
     z-index: -1;
     display: none;
@@ -66,11 +66,12 @@ export const ImgBananaTablet = styled.img`
 
 export const ImgStrawTablet = styled.img`
        position: absolute;
-    /* right: 96px; */
-    left:464px ;
+       height: 203px;
+    right: 96px;
     top: 583px;
     z-index: -2;
     display: none;
+    filter: drop-shadow(10px 20px 50px rgba(0, 0, 0, 0.3));
      @media screen and (min-width: 768px) and  (max-width: 1279px) {
     display: block;
   }
@@ -78,9 +79,8 @@ export const ImgStrawTablet = styled.img`
 
 export const ImgLeavTablet = styled.img`
        position: absolute;
-        /* bottom: -474px; */
-        top: 493px;
     left: 0;
+    top: 493px;
     z-index: -3;
     display: none;
      @media screen and (min-width: 768px) and  (max-width: 1279px) {
@@ -90,7 +90,7 @@ export const ImgLeavTablet = styled.img`
 
 export const ImgShadowTablet = styled.img`
 position: absolute;
-    right: 0;
+    right: -32px;
     top: 461px;
     z-index: -4;
     display: none;
