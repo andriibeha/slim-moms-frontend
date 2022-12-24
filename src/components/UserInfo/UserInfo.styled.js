@@ -6,6 +6,7 @@ export const UserContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-left: 20px;
 `;
 
 export const UserInfoBox = styled.div`
@@ -37,28 +38,23 @@ export const UserNameContainer = styled.div`
   width: 100%;
   height: 40px;
   left: 0;
-  top: 82px;
+  top: 77px;
 
   @media screen and (min-width: 768px) {
     padding-right: 48px;
     background: none;
     position: relative;
     top: 0;
+    left: 70%;
   }
-  @media screen and (min-width: 1024px) {
-    /* padding-left: 16px; */
-
-    justify-content: space-between;
+  @media screen and (min-width: 1280px) {
   }
 `;
 
 export const NavLinkBox = styled.div`
   display: none;
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     display: block;
-    /* align-items: flex-start;
-    justify-content: flex-start;
-    gap: 30px; */
     margin-left: auto;
 
     font-weight: 700;
@@ -106,7 +102,7 @@ export const ModalBox = styled.div`
   z-index: 50;
   width: 100vw;
   height: 100vh;
-  top: 82px;
+  top: 77px;
   left: 0;
   transform: translateX(110%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -114,6 +110,10 @@ export const ModalBox = styled.div`
   &.active {
     transform: translateX(0);
   }
+  @media screen and (min-width: 1280px) {
+    display: none;
+    position: relative;
+  } ;
 `;
 
 export const ModalContent = styled.div`
@@ -134,13 +134,10 @@ export const ModalContent = styled.div`
   }
 `;
 export const MenuButton = styled.button`
-  /* position: fixed;
-  top: 35px;
-  right: 20px; */
   display: block;
   transform-origin: 16px 11px;
   float: left;
-  /* padding: 12px; */
+  margin-left: auto;
   background: none;
 
   span {
@@ -181,7 +178,7 @@ export const MenuButton = styled.button`
       width: 14px;
     }
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 `;
@@ -222,7 +219,7 @@ export const UserNavLink = styled(Link)`
     font-size: 24px;
     line-height: 29px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     font-size: 14px;
     line-height: 17px;
     padding: 10px 9px;
