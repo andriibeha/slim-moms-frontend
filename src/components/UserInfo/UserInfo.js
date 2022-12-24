@@ -95,4 +95,4 @@ export const UserInfo = () => {
 // UserInfoModal - кнопка+модалка и ссылки
 // NameBox - name +Exit
 // NavLinkBox - отдельно линки, которые вылазят на десктопе
-// UserNameContainer - NameBox+BackLink +NavLinckBox- на мобилке серый фон, на таблетке с бургер-кнопкой -  флекс
+// UserNameContainer - NameBox+BackLink - на мобилке серый фон, на таблетке с бургер-кнопкой -  флекс
