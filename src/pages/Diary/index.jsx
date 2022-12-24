@@ -13,6 +13,7 @@ import {
   DiaryStyledPage,
 } from './Diary.styled';
 import { useWindowResize } from 'hooks/useWindowResize';
+import { BarBackground } from 'components/BarBackground';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 // import { useSelector } from 'react-redux';
 
@@ -22,6 +23,7 @@ export const Diary = () => {
 
 
   return (
+    <BarBackground>
     <DiaryStyledPage>
       <DiaryStyled>
         <DiaryCalendar>
@@ -43,7 +45,9 @@ export const Diary = () => {
       </DiaryStyled>
       <RightSideBar />
     </DiaryStyledPage>
+    </BarBackground>
   );
 };
 
 export default Diary;
+

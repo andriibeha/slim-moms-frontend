@@ -14,6 +14,7 @@ import {
 
 // import { logInReducer } from './login/slice';
 import authReducer from './auth/auth-slice';
+
 import { userReducer } from './user/slice';
 import { modalReducer } from './modal/slice';
 import { bloodDietReducer } from './bloodDiet/slice';
@@ -37,6 +38,7 @@ export const store = configureStore({
   reducer: {
     // login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
+
     user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,
