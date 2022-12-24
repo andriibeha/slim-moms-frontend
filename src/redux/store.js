@@ -12,30 +12,33 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { logInReducer } from './login/slice';
-// import authReducer from './auth/auth-slice';
+// import { logInReducer } from './login/slice';
+import authReducer from './auth/auth-slice';
+
 import { userReducer } from './user/slice';
 import { modalReducer } from './modal/slice';
 import { bloodDietReducer } from './bloodDiet/slice';
 import productsReducer from './products/products-slice';
 import { diaryReducer } from './diary/diarySlice';
 
-const logInPersistConfig = {
-  key: 'login',
-  version: 1,
+// const logInPersistConfig = {
+//   key: 'login',
+//   version: 1,
+//   storage,
+//   whitelist: ['token'],
+// };
+
+const authPersistConfig = {
+  key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-// };
-
 export const store = configureStore({
   reducer: {
-    login: persistReducer(logInPersistConfig, logInReducer),
-    // auth: persistReducer(authPersistConfig, authReducer),
+    // login: persistReducer(logInPersistConfig, logInReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
+
     user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,

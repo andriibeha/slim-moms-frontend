@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 // import { lazy, Suspense, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
@@ -13,6 +14,8 @@ import PublicRoute from 'routes/PublicRoutes';
 
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
+import { useAuth } from 'hooks/useAuth';
+import { fetchCurrentUser } from 'redux/auth/auth-operations';
 
 //Add lazy
 import { AddProduct } from 'pages/AddProduct';
@@ -26,6 +29,13 @@ const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   const showModal = useSelector(state => state.modal.showModal);
 
   useEffect(() => {
@@ -42,59 +52,63 @@ export const App = () => {
       <Global styles={GlobalStyles} />
       {showModal && <Modal />}
       {/* <Suspense fallback={<Loader />}> */}
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
+      {isRefreshing ? (
+        <p>Refreshing...</p>
+      ) : (
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<MainPage />} />
 
-          {/* PRIVATE ROUTES */}
-          <Route
-            path="/logout"
-            element={
-              <PrivateRoute>
-                <Logout />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/diary"
-            element={
-              <PrivateRoute>
-                <Diary />
-              </PrivateRoute>
-            }
-          />
+            {/* PRIVATE ROUTES */}
+            <Route
+              path="/logout"
+              element={
+                <PrivateRoute>
+                  <Logout />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/diary"
+              element={
+                <PrivateRoute>
+                  <Diary />
+                </PrivateRoute>
+              }
+            />
 
-          <Route path="/add" element={<AddProduct />} />
-          <Route
-            path="/calculator"
-            element={
-              <PrivateRoute>
-                <Calculator />
-              </PrivateRoute>
-            }
-          />
+            <Route path="/add" element={<AddProduct />} />
+            <Route
+              path="/calculator"
+              element={
+                <PrivateRoute>
+                  <Calculator />
+                </PrivateRoute>
+              }
+            />
 
-          {/* PUBLICK ROUTES */}
-          <Route
-            path="/login"
-            element={
-              <PublicRoute>
-                <Login />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/registration"
-            element={
-              <PublicRoute>
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
+            {/* PUBLICK ROUTES */}
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/registration"
+              element={
+                <PublicRoute>
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
 
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      )}
       {/* </Suspense> */}
       <ToastContainer />
     </>

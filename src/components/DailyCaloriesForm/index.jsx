@@ -28,7 +28,8 @@ export const DailyCaloriesForm = () => {
 
   const dispatch = useDispatch();
   const savedFormData = useSelector(state => state.user.userDate);
-  const token = useSelector(state => state.login.token);
+  // const token = useSelector(state => state.login.token)
+  const token = useSelector(state => state.auth.token);
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
