@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from 'servises/api';
+import { apiAxios } from 'servises/api';
+const API = apiAxios;
 
 export const getByDate = createAsyncThunk(
   'diary/getByDate',
   async (date, thunkAPI) => {
     try {
-      const res = await api.get(`diary/?date=${date}`);
+      const res = await API.get(`diary?date=${date}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -16,7 +17,7 @@ export const addProduct = createAsyncThunk(
   'diary/addProduct',
   async (product, thunkAPI) => {
     try {
-      const res = await api.post(`diary`, product);
+      const res = await API.post(`diary`, product);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -28,7 +29,7 @@ export const removeProduct = createAsyncThunk(
   'diary/removeProduct',
   async (productId, thunkAPI) => {
     try {
-      const res = await api.get(`diary/${productId}`);
+      const res = await API.get(`diary/${productId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

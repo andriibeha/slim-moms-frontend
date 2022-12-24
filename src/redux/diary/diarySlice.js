@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
-  date: '',
+  selectedDate: '',
   calorisityPerDay: 0,
   dateFirstAdded: '',
   products: [],
@@ -28,12 +28,16 @@ const handleAnyRejected = (state, action) => {
 const diarySlice = createSlice({
   name: 'diary',
   initialState,
-  reducers: {},
+  reducers: {
+    setDate(state, { payload }) {
+      state.selectedDate = payload;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getByDate.fulfilled, (state, { payload }) => {
         state.products = payload.products;
-        state.date = payload.date;
+        // state.date = payload.date;
         state.dateFirstAdded = payload.dateFirstAdded;
         state.calorisityPerDay = payload.calorisityPerDay;
       })
@@ -60,4 +64,5 @@ const diarySlice = createSlice({
       ),
 });
 
+export const { setDate } = diarySlice.actions;
 export const diaryReducer = diarySlice.reducer;

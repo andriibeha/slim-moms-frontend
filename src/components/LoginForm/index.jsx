@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { FormLogIn, Input, Label, ErrorText } from './LoginForm.styled';
-import { logIn } from 'redux/login/operations';
+// import { logIn } from 'redux/login/operations';
+import { logIn } from 'redux/auth/auth-operations';
 import { ButtonAuth, ButtonLinkAuth } from 'components/Button';
 import { Link } from 'react-router-dom';
 import { Box } from 'components/Box';
@@ -25,7 +26,7 @@ const schema = yup.object().shape({
   password: yup
     .string()
     .min(3, 'Password must be at least 3 characters')
-    .max(8, 'Password must be at most 8 characters')
+    .max(9, 'Password must be at most 8 characters')
     .required('Password is a required field'),
 });
 

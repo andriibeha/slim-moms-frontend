@@ -1,5 +1,5 @@
 const selectProductByDate = state => state.diary.products;
-const selectDate = state => state.diary.date;
+const selectDate = state => state.diary.selectedDate;
 const selectCalorisityPerDay = state => state.diary.calorisityPerDay;
 const selectDateFirstAdded = state => state.diary.dateFirstAdded;
 

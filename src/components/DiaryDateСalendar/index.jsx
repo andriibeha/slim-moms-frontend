@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import 'moment/locale/en-au';
@@ -8,17 +9,18 @@ import {
   IconCalendarStyled,
 } from './DiaryDateСalendar.styled';
 import sprite from 'images/icons.svg';
-import { useDispatch } from 'react-redux';
+import { setDate } from 'redux/diary/diarySlice';
 import { getByDate } from 'redux/diary/diaryOperations';
-// import { diarySelectors } from 'redux/diary/diarySelectors';
 
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
+
   const [value, setValue] = useState(moment(new Date()));
   const [isOpen, setIsOpen] = useState(false);
   // const dateFirstAdded = new Date(
   //   useSelector(diarySelectors.selectDateFirstAdded)
   // );
+
   const dateFirstAdded = 'November 15, 2022';
   const first = moment(new Date(dateFirstAdded));
   const current = moment(new Date());
@@ -26,11 +28,11 @@ export const DiaryDateCalendar = () => {
   const normalizeDate = date => {
     return `${date.format('YYYY.MM.DD')}Z`;
   };
+
   useEffect(() => {
+    dispatch(setDate(normalizeDate(value)));
     dispatch(getByDate(normalizeDate(value)));
   }, [value, dispatch]);
-
-  console.log(normalizeDate(value));
 
   console.log(first);
 
