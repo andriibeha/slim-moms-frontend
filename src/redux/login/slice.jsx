@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 export const initialState = {
   user: { name: null, email: null },
+  bloodType: null,
   token: null,
   isLoading: false,
   isLoggedIn: false,
@@ -18,6 +19,7 @@ const logInSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.bloodType = null;
         state.token = null;
         state.isLoggedIn = true;
         state.isLoading = false;
@@ -27,6 +29,7 @@ const logInSlice = createSlice({
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.bloodType = action.payload;
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isLoading = false;
@@ -54,6 +57,7 @@ const logInSlice = createSlice({
       })
       .addCase(logOut.fulfilled, (state, action) => {
         state.user = { name: null, email: null };
+        state.bloodType = null;
         state.token = null;
         state.isLoggedIn = false;
       }),

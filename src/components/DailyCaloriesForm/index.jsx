@@ -53,6 +53,7 @@ export const DailyCaloriesForm = () => {
 
   const handleRadioChange = event => {
     setBloodType(event.target.value);
+    localStorage.setItem('bloodType', JSON.stringify(event.target.value))
   };
 
   const reset = () => {
