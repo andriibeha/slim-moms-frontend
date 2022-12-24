@@ -15,9 +15,9 @@ import {
   StyledNavLink,
   FormReg,
   Wrap,
-  ShowPassButton,
   MessageErr,
 } from './RegistrationForm.styled';
+import { ShowPasswordButton } from 'components/Button/ShowPasswordButton';
 
 
 const FormError = ({ name }) => {
@@ -54,8 +54,8 @@ const initialValues = {
 
 
 export const RegistrationForm = () => {
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
+  const [showPassword, setShow] = useState(false);
+  const handleClick = () => setShow(!showPassword);
   const dispatch = useDispatch();
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(register({ name, email, password }));
@@ -91,12 +91,11 @@ export const RegistrationForm = () => {
              <Input
                 id="password"
                 name="password"
-                type={show ? 'text' : 'password'}
+                type={showPassword ? 'true' : 'password'}
                 />
                 <FormError name="password" component="p" />
-              <ShowPassButton type="button" onClick={handleClick} show={show}>
-                Show password?
-              </ShowPassButton>
+              <ShowPasswordButton handleClick={handleClick} show={showPassword}/>
+                
             </FormItem>
           </FormList>
           <ButtonsContainer bg="green" height="108px">

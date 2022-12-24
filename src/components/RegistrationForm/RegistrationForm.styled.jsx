@@ -28,6 +28,12 @@ export const Title = styled.h1`
 `;
 
 export const FormReg = styled(Form)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  @media screen and (min-width: 768px) {
+    align-items: start;
+  }
  
 `;
 
@@ -43,6 +49,7 @@ export const FormList = styled.ul`
 
 export const FormItem = styled.li`
   position: relative;
+  width: 280px;
 `;
 
 export const Label = styled.label`
@@ -126,13 +133,4 @@ export const StyledNavLink = styled(Link)`
     box-shadow: 0px 4px 10px #9b9faa;
   }
   max-width: 180px;
-`;
-
-export const ShowPassButton = styled.button`
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  background: transparent;
-  padding: 0;
-  color: #9b9faa;
 `;

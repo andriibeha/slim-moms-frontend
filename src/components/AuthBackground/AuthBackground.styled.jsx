@@ -8,8 +8,8 @@ export const BackgroundStyled = styled.div`
 
 export const ImgBanana = styled.img`
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -275px;
+    top: -102px;
     z-index: -3;
     display: none;
     @media screen and (min-width: 1280px) {
@@ -18,7 +18,7 @@ export const ImgBanana = styled.img`
 `;
 
 export const ImgStraw = styled.img`
-       position: absolute;
+    position: absolute;
     right: 36px;
     top: 506px;
     z-index: -2;
@@ -30,9 +30,9 @@ export const ImgStraw = styled.img`
 `;
 
 export const ImgLeav = styled.img`
-       position: absolute;
-    right: 196px;
-    top: 0;
+    position: absolute;
+    right: 195px;
+    top: -26px;
     z-index: -1;
     display: none;
     @media screen and (min-width: 1280px) {
@@ -55,8 +55,8 @@ position: absolute;
 
 export const ImgBananaTablet = styled.img`
     position: absolute;
-    right: 0;
-    top: 549px;
+    right: -249px;
+    top: 593px;
     z-index: -3;
     display: none;
     @media screen and (min-width: 768px) and  (max-width: 1279px) {
@@ -66,10 +66,11 @@ export const ImgBananaTablet = styled.img`
 
 export const ImgStrawTablet = styled.img`
        position: absolute;
-    right: -86px;
-    top: 519px;
+    right: -26px;
+    top: 461px;
     z-index: -2;
     display: none;
+    filter: drop-shadow(10px 20px 50px rgba(0, 0, 0, 0.3));
      @media screen and (min-width: 768px) and  (max-width: 1279px) {
     display: block;
   }
@@ -77,8 +78,8 @@ export const ImgStrawTablet = styled.img`
 
 export const ImgLeavTablet = styled.img`
        position: absolute;
-    right: 23px;
-    top: 48px;
+    right: 12px;
+    top: -97px;
     z-index: -4;
     display: none;
      @media screen and (min-width: 768px) and  (max-width: 1279px) {
@@ -88,8 +89,8 @@ export const ImgLeavTablet = styled.img`
 
 export const ImgShadowTablet = styled.img`
 position: absolute;
-    right: -37px;
-    top: 419px;
+    right: -32px;
+    top: 461px;
     z-index: -4;
     display: none;
     @media screen and (min-width: 768px) and  (max-width: 1279px){

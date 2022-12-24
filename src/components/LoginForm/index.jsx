@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -8,6 +9,7 @@ import { ButtonAuth, ButtonLinkAuth } from 'components/Button';
 import { Link } from 'react-router-dom';
 import { Box } from 'components/Box';
 import 'react-toastify/dist/ReactToastify.css';
+import { ShowPasswordButton } from 'components/Button/ShowPasswordButton';
 
 const FormError = ({ name }) => {
   return (
@@ -36,6 +38,8 @@ const initialValues = {
 };
 
 export const FormLogin = () => {
+  const [showPassword, setShow] = useState(false);
+  const handleClick = () => setShow(!showPassword);
   const dispatch = useDispatch();
   const handleSubmit = ({ email, password }, { resetForm }) => {
 
@@ -65,8 +69,13 @@ export const FormLogin = () => {
               <FormError name="email" component="p" />
             </Label>
             <Label htmlFor="password">
-              Password *<Input type="password" name="password"></Input>
+              Password *
+              <Input
+                name="password"
+                type={showPassword ? 'true' : 'password'}>
+              </Input>
               <FormError name="password" component="p" />
+              <ShowPasswordButton handleClick={handleClick} show={showPassword}/>
             </Label>
           </Box>
           <Box

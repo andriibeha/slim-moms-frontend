@@ -9,8 +9,8 @@ export const BackgroundStyled = styled.div`
 
 export const ImgLeaves = styled.img`
 position: absolute;
-    right: 0px;
-    top: 34px;
+    right: -235px;
+    top: 35px;
     z-index: 1;
     display: none;
     @media screen and (min-width: 1280px) {

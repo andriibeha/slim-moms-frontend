@@ -4,23 +4,24 @@ import {
   ImgLeavesTablet,
 } from './BarBackground.styled';
 import {
-  Leaves1,
-  Leaves2,
-  LeavesTablet1,
-  LeavesTablet2,
+    leaves_desktop_calculator_1x,
+    leaves_desktop_calculator_2x,
+    leaves_tablet_calculator_1x,
+    leaves_tablet_calculator_2x
 } from './BarBackgroundImg';
 
 export const BarBackground = ({ children }) => {
   return (
     <BackgroundStyled>
-      <ImgLeaves alt="im" src={Leaves1} srcSet={`${Leaves2} 2x`} />
+      <ImgLeaves alt="im" src={leaves_desktop_calculator_1x}
+        srcSet={`${leaves_desktop_calculator_2x} 2x`} />
 
       {/* Tablet------------------------------------------------------------- */}
 
       <ImgLeavesTablet
         alt="im"
-        src={LeavesTablet1}
-        srcSet={`${LeavesTablet2} 2x`}
+        src={leaves_tablet_calculator_1x}
+        srcSet={`${leaves_tablet_calculator_2x} 2x`}
       />
       {children}
     </BackgroundStyled>

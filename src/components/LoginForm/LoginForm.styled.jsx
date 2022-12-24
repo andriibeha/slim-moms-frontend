@@ -20,14 +20,18 @@ export const Label = styled.label`
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.bold};
   width: 280px;
+  position: relative;
 `;
 
 export const Input = styled(Field)`
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline-color: ${p => p.theme.colors.accent};
-  width: 280px;
+  width: 100%;
   height: 20px;
+  @media screen and (min-width: 768px) {
+    max-width: 240px;
+  }
 `;
 
 export const ErrorText = styled.p`
