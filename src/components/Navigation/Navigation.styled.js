@@ -2,15 +2,29 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 export const NavStyled = styled('nav')`
-  margin-top: auto;
-  width: 211px;
-  display: flex;
-  justify-content: space-between;
-  @media screen and (min-width: 768px) {
-    width: 221px;
+  padding-top: 18px;
+  position: relative;
+
+  &::before {
+    content: '';
+    top: 57px;
+    left: -36px;
+    width: 32px;
+    rotate: 90deg;
+    position: absolute;
+    border-bottom: 2px solid #e0e0e0;
+
+    @media screen and (max-width: 1279px) {
+      display: none;
+    }
   }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 17px;
+  }
+
   @media screen and (min-width: 1280px) {
-    width: 215px;
+    padding-top: 52px;
   }
 `;
 
