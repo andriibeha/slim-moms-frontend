@@ -3,6 +3,7 @@ import { logOut, register, logIn, fetchCurrentUser } from './auth-operations';
 
 const initialState = {
   user: { name: null, email: null },
+  bloodType: null,
   token: null,
   isLoading: false,
   isLoggedIn: false,
@@ -15,6 +16,7 @@ const authSlice = createSlice({
   extraReducers: {
     [register.fulfilled]: (state, action) => {
       state.user = action.payload;
+      state.bloodType = null
       state.token = null;
       state.isLoggedIn = true;
       state.isLoading = false;
@@ -26,6 +28,7 @@ const authSlice = createSlice({
     [logIn.fulfilled]: (state, action) => {
       state.user = action.payload;
       state.token = action.payload.data.token;
+      state.bloodType = action.payload
       state.isLoggedIn = true;
       state.isLoading = false;
     },
@@ -35,6 +38,7 @@ const authSlice = createSlice({
 
     [logOut.fulfilled](state, action) {
       state.user = { name: null, email: null };
+      state.bloodType = null
       state.token = null;
       state.isLoggedIn = false;
     },
