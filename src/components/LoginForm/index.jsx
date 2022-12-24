@@ -38,9 +38,9 @@ const initialValues = {
 export const FormLogin = () => {
   const dispatch = useDispatch();
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    //const bloodType = JSON.parse(localStorage.getItem('bloodType'));
-    dispatch(logIn({ email, password }));
 
+    const bloodType = JSON.parse(localStorage.getItem("bloodType"))
+    dispatch(logIn({ email, password, bloodType }));
     resetForm();
     localStorage.setItem('bloodType', JSON.stringify(''));
   };
