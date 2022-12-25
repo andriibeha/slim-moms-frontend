@@ -28,7 +28,6 @@ const schema = yup.object().shape({
   password: yup
     .string()
     .min(3, 'Password must be at least 3 characters')
-    .max(9, 'Password must be at most 8 characters')
     .required('Password is a required field'),
 });
 
@@ -41,12 +40,14 @@ export const FormLogin = () => {
   const [showPassword, setShow] = useState(false);
   const handleClick = () => setShow(!showPassword);
   const dispatch = useDispatch();
-  const handleSubmit = ({ email, password }, { resetForm }) => {
 
-    const bloodType = JSON.parse(localStorage.getItem("bloodType"))
-    dispatch(logIn({ email, password, bloodType }));
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    // const bloodType = JSON.parse(localStorage.getItem('bloodType'));
+    dispatch(logIn({ email, password }));
+    // dispatch(logIn({ email, password, bloodType }));
+
     resetForm();
-    localStorage.setItem('bloodType', JSON.stringify(''));
+    // localStorage.setItem('bloodType', JSON.stringify(''));
   };
 
   return (
@@ -72,10 +73,13 @@ export const FormLogin = () => {
               Password *
               <Input
                 name="password"
-                type={showPassword ? 'true' : 'password'}>
-              </Input>
+                type={showPassword ? 'true' : 'password'}
+              ></Input>
               <FormError name="password" component="p" />
-              <ShowPasswordButton handleClick={handleClick} show={showPassword}/>
+              <ShowPasswordButton
+                handleClick={handleClick}
+                show={showPassword}
+              />
             </Label>
           </Box>
           <Box

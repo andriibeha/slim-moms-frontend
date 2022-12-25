@@ -12,107 +12,7 @@ import { addProduct } from 'redux/diary/diaryOperations';
 import { diarySelectors } from 'redux/diary/diarySelectors';
 import { getProductByQuery } from 'redux/products/products-operations';
 import { useDebounce } from 'hooks/useDebounce';
-
-const data = [
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff553b',
-    },
-    categories: ['яйца'],
-    weight: 100,
-    title: {
-      ru: 'Яйцо куриное (желток сухой)',
-      ua: 'Яйце куряче (жовток сухий)',
-    },
-    calories: 623,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff554d',
-    },
-    categories: ['зерновые'],
-    weight: 100,
-    title: {
-      ru: 'Горох маш Ярмарка Платинум',
-      ua: 'Горох маш Ярмарка Платинум',
-    },
-    calories: 312,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff555c',
-    },
-    categories: ['зерновые'],
-    weight: 100,
-    title: {
-      ru: 'Гречневая крупа (ядрица) зелёная',
-      ua: 'Гречана крупа (ядриця) зелена',
-    },
-    calories: 296,
-    groupBloodNotAllowed: [null, true, false, true, true],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff553a',
-    },
-    categories: ['яйца'],
-    weight: 100,
-    title: {
-      ru: 'Яйцо куриное (вареное всмятку)',
-      ua: 'Яйце куряче (варене всмятку)',
-    },
-    calories: 159,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff5530',
-    },
-    categories: ['яйца'],
-    weight: 100,
-    title: {
-      ru: 'Омлет с сыром',
-      ua: 'Омлет із сиром',
-    },
-    calories: 342,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff5539',
-    },
-    categories: ['яйца'],
-    weight: 100,
-    title: {
-      ru: 'Яйцо куриное (вареное вкрутую)',
-      ua: 'Яйце куряче (варене круто)',
-    },
-    calories: 160,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-  {
-    _id: {
-      $oid: '5d51694802b2373622ff552c',
-    },
-    categories: ['яйца'],
-    weight: 100,
-    title: {
-      ru: 'Меланж яичный',
-      ua: 'Меланж яєчний',
-    },
-    calories: 157,
-    groupBloodNotAllowed: [null, true, false, false, false],
-    __v: 0,
-  },
-];
+import { productSelectors } from 'redux/products/productSelectors';
 
 export const DiaryAddProductForm = () => {
   const [product, setProduct] = useState('');
@@ -124,40 +24,27 @@ export const DiaryAddProductForm = () => {
   const { width } = useWindowResize();
   const dispatch = useDispatch();
   const date = useSelector(diarySelectors.selectDate);
-  const debouncedProduct = useDebounce(product, 2000);
-
-  console.log(date);
+  const debouncedProduct = useDebounce(product, 500);
+  const data = useSelector(productSelectors.selectProductsByQuery);
 
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
   };
-  console.log(debouncedProduct);
-  console.log(product);
 
   useEffect(() => {
     if (debouncedProduct) {
-      getProductByQuery(debouncedProduct)
-        .then(({ data }) => {
-          return data.map(product => ({
-            data: product._id,
-            label: product?.title?.ua,
-          }));
-        })
-        .then(data => setOptions(data));
+      dispatch(getProductByQuery(debouncedProduct.toLowerCase()));
     }
-  }, [debouncedProduct]);
+  }, [debouncedProduct, dispatch]);
 
   useEffect(() => {
-    if (product.length >= 3) {
-      const result = data.map(product => ({
-        value: product._id,
-        label: product?.title?.ua,
-        calories: product.calories,
-      }));
-      console.log(result);
-      setOptions(result);
-    }
-  }, [product]);
+    if (!data) return;
+    const result = data.map(product => ({
+      value: product.id,
+      label: product?.title,
+    }));
+    setOptions(result);
+  }, [data]);
 
   useEffect(() => {
     if (weight !== '' || selectedOption !== '') {
@@ -168,6 +55,7 @@ export const DiaryAddProductForm = () => {
 
   const addNewProduct = e => {
     e.preventDefault();
+
     if (selectedOption === '' && weight === '') {
       setErrorProduct(true);
       setErrorWeight(true);
@@ -181,22 +69,22 @@ export const DiaryAddProductForm = () => {
       setErrorProduct(true);
       return;
     }
-
     const newProduct = {
-      // data: data,
+      date,
       product: selectedOption.label,
       weight: Number(weight),
+      baseCaloricity: data.filter(it => it.title === selectedOption.label)[0]
+        .calories,
     };
 
     dispatch(addProduct(newProduct));
-    console.log(newProduct);
     setProduct('');
     setWeight('');
     setSelectedOption('');
     setOptions([]);
   };
 
-  const handleNumberValue = ({ target }) => {
+  const handleWeight = ({ target }) => {
     const { value } = target;
     setErrorWeight(false);
     setWeight(value);
@@ -225,7 +113,7 @@ export const DiaryAddProductForm = () => {
             name="weight"
             value={weight}
             autoComplete="off"
-            onChange={handleNumberValue}
+            onChange={handleWeight}
             type="input"
             placeholder="Gramms"
           />

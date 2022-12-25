@@ -1,4 +1,5 @@
-const selectProductsByQuery = state => state.products.selectProductsByQuery;
+const selectProductsByQuery = state =>
+  state.products.productsByQuery.queryProducts;
 
 export const productSelectors = {
   selectProductsByQuery,

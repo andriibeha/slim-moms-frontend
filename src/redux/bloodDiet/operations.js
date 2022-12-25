@@ -1,13 +1,13 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { apiAxios } from 'servises/api';
 
-axios.defaults.baseURL = 'http://localhost:5001';
+const API = apiAxios;
 
 export const getDiet = createAsyncThunk(
   'blood',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/bloodproducts', credentials);
+      const { data } = API.post('bloodproducts', credentials);
       console.log(data);
       return data;
     } catch (error) {

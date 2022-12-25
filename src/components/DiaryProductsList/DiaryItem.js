@@ -1,26 +1,25 @@
-import { removeProduct } from 'redux/products/products-operations';
+import { useDispatch } from 'react-redux';
+import { removeProduct } from 'redux/diary/diaryOperations';
 import { ProductTitle, ProductProp, ExitBtn, Unit } from './DiaryItem.styled';
 import sprite from 'images/icons.svg';
-
-const { useDispatch } = require('react-redux');
 
 export const DiaryItem = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
     console.log('delete', product.id);
-    dispatch(removeProduct(product.id));
+    dispatch(removeProduct(product._id));
   };
 
   return (
     <>
-      <ProductTitle>{product.title}</ProductTitle>
+      <ProductTitle>{product?.product}</ProductTitle>
       <ProductProp>
-        {product.weight}
+        {product?.weight}
         <span> g</span>
       </ProductProp>
       <ProductProp>
-        {product.calories}
+        {product?.calories}
         <Unit> kcal</Unit>
       </ProductProp>
 

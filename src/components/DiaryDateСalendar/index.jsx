@@ -10,7 +10,7 @@ import {
 } from './DiaryDateСalendar.styled';
 import sprite from 'images/icons.svg';
 import { setDate } from 'redux/diary/diarySlice';
-import { getByDate } from 'redux/diary/diaryOperations';
+// import { diarySelectors } from 'redux/diary/diarySelectors';
 
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,6 @@ export const DiaryDateCalendar = () => {
 
   useEffect(() => {
     dispatch(setDate(normalizeDate(value)));
-    dispatch(getByDate(normalizeDate(value)));
   }, [value, dispatch]);
 
   console.log(first);
