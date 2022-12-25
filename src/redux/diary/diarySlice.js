@@ -11,7 +11,9 @@ const initialState = {
 };
 const actions = [getByDate, addProduct, removeProduct];
 
-const handleAnyFulfield = state => {
+const handleAnyFulfield = (state, action) => {
+  state.dateFirstAdded = action.payload.dateFirstAdded;
+  state.calorisityPerDay = action.payload.calorisityPerDay;
   state.isLoading = false;
   state.error = null;
 };
@@ -35,11 +37,8 @@ const diarySlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(getByDate.fulfilled, (state, { payload }) => {
-        state.products = payload.products;
-        // state.date = payload.date;
-        state.dateFirstAdded = payload.dateFirstAdded;
-        state.calorisityPerDay = payload.calorisityPerDay;
+      .addCase(getByDate.fulfilled, (state, action) => {
+        state.products = [...action.payload.products];
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
@@ -48,7 +47,7 @@ const diarySlice = createSlice({
         const idx = state.products.findIndex(
           item => item.id === action.payload.id
         );
-        state.product.splice(idx, 1);
+        state.products.splice(idx, 1);
       })
       .addMatcher(
         isAnyOf(...actions.map(action => action.fulfilled)),
