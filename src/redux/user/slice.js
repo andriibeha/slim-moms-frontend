@@ -4,9 +4,9 @@ const initialState = {
   userDate: {
     height: '',
     age: '',
-    cWeight: '',
-    dWeight: '',
-    blood: null,
+    curWeight: '',
+    desWeight: '',
+    bloodType: null,
   },
 };
 

@@ -16,7 +16,7 @@ import { toggleModal } from 'redux/modal/slice';
 
 const DailyCalorieIntake = () => {
   const dataApi = useSelector(state => state.bloodDiet.data);
-  const { products, dailyCalorie } = dataApi.data.result;
+  const { notRecProducts, dailyCalorie } = dataApi.result;
 
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const DailyCalorieIntake = () => {
       <BoxList>
         <ListTitle>Foods you should not eat</ListTitle>
         <List as="ol">
-          {products.map(product => (
+          {notRecProducts.map(product => (
             <Item key={product._id}>{product.title.ua}</Item>
           ))}
         </List>
