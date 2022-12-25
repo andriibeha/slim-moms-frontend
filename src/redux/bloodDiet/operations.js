@@ -34,10 +34,7 @@ export const getDietUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       token.set(store.getState().auth.token);
-      const { data } = await axios.post(
-        '/api/bloodproducts/users',
-        credentials
-      );
+      const { data } = await axios.patch('/api/users/update', credentials);
       console.log(data);
       return data;
     } catch (error) {
