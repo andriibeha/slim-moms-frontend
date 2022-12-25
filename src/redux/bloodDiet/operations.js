@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiAxios } from 'servises/api';
 import { store } from '../store';
-
+import axios from 'axios';
 
 const API = apiAxios;
 

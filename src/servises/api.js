@@ -5,6 +5,7 @@ export const apiAxios = axios.create({
 });
 
 export const apiToken = {
+  // Потрібн опереписати для всіх запросів
   set(token) {
     apiAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
