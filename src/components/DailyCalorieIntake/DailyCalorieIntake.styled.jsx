@@ -82,6 +82,10 @@ export const List = styled('ul')`
   list-style-position: inside;
   margin: 0;
   padding: 0;
+  max-height: 130px;
+    overflow-y: scroll;
+  scroll-behavior: smooth;
+
   }
 `;
 

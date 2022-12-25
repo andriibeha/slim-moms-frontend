@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeUserDate } from '../../redux/user/slice';
 import { toggleModal } from '../../redux/modal/slice';
-import { getDiet } from '../../redux/bloodDiet/operations';
+import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
 
 export const DailyCaloriesForm = () => {
@@ -28,8 +28,7 @@ export const DailyCaloriesForm = () => {
 
   const dispatch = useDispatch();
   const savedFormData = useSelector(state => state.user.userDate);
-  // const token = useSelector(state => state.login.token)
-  const token = useSelector(state => state.auth.token);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -70,24 +69,41 @@ export const DailyCaloriesForm = () => {
       changeUserDate({
         height: height,
         age: age,
-        cWeight: currentWeight,
-        dWeight: desiredWeight,
-        blood: bloodType,
+        curWeight: currentWeight,
+        desWeight: desiredWeight,
+        bloodType: bloodType,
       })
     );
-    try {
-      await dispatch(
-        getDiet({
-          height: Number(height),
-          age: Number(age),
-          cWeight: Number(currentWeight),
-          dWeight: Number(desiredWeight),
-          blood: Number(bloodType),
-        })
-      );
-      dispatch(toggleModal(true));
-    } catch {
-      console.log(Error);
+    if (isLoggedIn) {
+      try {
+        await dispatch(
+          getDietUser({
+            height: Number(height),
+            age: Number(age),
+            curWeight: Number(currentWeight),
+            desWeight: Number(desiredWeight),
+            bloodType: Number(bloodType),
+          })
+        );
+        dispatch(toggleModal(true));
+      } catch {
+        console.log(Error);
+      }
+    } else {
+      try {
+        await dispatch(
+          getDiet({
+            height: Number(height),
+            age: Number(age),
+            curWeight: Number(currentWeight),
+            desWeight: Number(desiredWeight),
+            bloodType: Number(bloodType),
+          })
+        );
+        dispatch(toggleModal(true));
+      } catch {
+        console.log(Error);
+      }
     }
     reset();
   };
@@ -105,7 +121,7 @@ export const DailyCaloriesForm = () => {
               id="height"
               type="number"
               name="height"
-              defaultValue={token ? savedFormData.height : ''}
+              defaultValue={isLoggedIn ? savedFormData.height : ''}
               onChange={handleInputChange}
             />
           </Label>
@@ -117,7 +133,7 @@ export const DailyCaloriesForm = () => {
               required
               type="number"
               name="age"
-              defaultValue={token ? savedFormData.age : ''}
+              defaultValue={isLoggedIn ? savedFormData.age : ''}
               onChange={handleInputChange}
             />
           </Label>
@@ -129,7 +145,7 @@ export const DailyCaloriesForm = () => {
               id="currentWeight"
               type="number"
               name="currentWeight"
-              defaultValue={token ? savedFormData.cWeight : ''}
+              defaultValue={isLoggedIn ? savedFormData.curWeight : ''}
               onChange={handleInputChange}
             />
             {/*
@@ -177,7 +193,7 @@ export const DailyCaloriesForm = () => {
               required
               name="desiredWeight"
               type="number"
-              defaultValue={token ? savedFormData.dWeight : ''}
+              defaultValue={isLoggedIn ? savedFormData.desWeight : ''}
               onChange={handleInputChange}
             />
           </Label>
@@ -207,7 +223,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-1"
                   value={1}
                   defaultChecked={
-                    token && savedFormData.blood === '1' ? true : false
+                    isLoggedIn && savedFormData.bloodType === '1' ? true : false
                   }
                   onChange={handleRadioChange}
                 />
@@ -220,7 +236,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-2"
                   value={2}
                   defaultChecked={
-                    token && savedFormData.blood === '2' ? true : false
+                    isLoggedIn && savedFormData.bloodType === '2' ? true : false
                   }
                   onChange={handleRadioChange}
                 />
@@ -233,7 +249,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-3"
                   value={3}
                   defaultChecked={
-                    token && savedFormData.blood === '3' ? true : false
+                    isLoggedIn && savedFormData.bloodType === '3' ? true : false
                   }
                   onChange={handleRadioChange}
                 />
@@ -246,7 +262,7 @@ export const DailyCaloriesForm = () => {
                   id="blood-inp-4"
                   value={4}
                   defaultChecked={
-                    token && savedFormData.blood === '4' ? true : false
+                    isLoggedIn && savedFormData.bloodType === '4' ? true : false
                   }
                   onChange={handleRadioChange}
                 />

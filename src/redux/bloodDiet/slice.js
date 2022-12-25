@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { getDiet } = require('./operations');
+const { getDiet, getDietUser } = require('./operations');
 
 const initialState = {
   data: {},
@@ -8,11 +8,13 @@ const initialState = {
 const bloodDietSlice = createSlice({
   name: 'blood',
   initialState,
-  reducers: {},
-  extraReducers: builder => {
-    builder.addCase(getDiet.fulfilled, (state, action) => {
+  extraReducers: {
+    [getDiet.fulfilled](state, action) {
       state.data = action.payload;
-    });
+    },
+    [getDietUser.fulfilled](state, action) {
+      state.data = action.payload;
+    },
   },
 });
 
