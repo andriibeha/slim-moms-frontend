@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import { register } from 'redux/auth/auth-operations';
 import * as yup from 'yup';
+import { ButtonAuth, ButtonLinkAuth } from 'components/Button';
+import { Link } from 'react-router-dom';
 
 import {
   Title,
@@ -11,8 +13,6 @@ import {
   Label,
   Input,
   ButtonsContainer,
-  Button,
-  StyledNavLink,
   FormReg,
   Wrap,
   MessageErr,
@@ -98,10 +98,12 @@ export const RegistrationForm = () => {
                 
             </FormItem>
           </FormList>
-          <ButtonsContainer bg="green" height="108px">
-          <Button type="submit">Register</Button>
-
-          <StyledNavLink to="/login">Log in</StyledNavLink>
+          <ButtonsContainer >
+          <ButtonAuth text="Register"></ButtonAuth>
+          <Link to="/login">
+              <ButtonLinkAuth text="Log in"></ButtonLinkAuth>
+          </Link>
+          
         </ButtonsContainer>
         </FormReg>
 
@@ -111,3 +113,6 @@ export const RegistrationForm = () => {
     </>
   );
 };
+
+
+            

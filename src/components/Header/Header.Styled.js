@@ -14,7 +14,7 @@ export const HeaderStyled = styled('header')`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 80px 16px;
+    padding: 80px 16px 0;
     border-bottom: none;
     justify-content: start;
     align-items: baseline;
