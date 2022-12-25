@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Logo = () => {
   const isLoggedIn = true;
   return (
-    <Link to={isLoggedIn ? '/diary' : '/login'}>
+    <Link to={isLoggedIn ? '/diary' : '/registration'}>
       <Box>
         <Img src={logo} alt="main logo" />
 

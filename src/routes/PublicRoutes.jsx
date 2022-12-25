@@ -1,17 +1,14 @@
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { authSelectors } from '../redux/auth/auth-selectors';
 
-const PublicRoute = ({ children }) => {
-  // let isLoggedIn = localStorage.getItem('user');
-  let isLoggedIn = false;
+export const PublicRoute = ({ children }) => {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
-  return (
-    <>{!isLoggedIn ? children : <Navigate to="/registration" replace />}</>
-  );
+  return <>{!isLoggedIn ? children : <Navigate to="/diary" replace />}</>;
 };
 
 PublicRoute.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default PublicRoute;

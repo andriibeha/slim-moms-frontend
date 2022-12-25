@@ -8,8 +8,8 @@ import { SharedLayout } from './components/SharedLayout';
 import Modal from './components/Modal';
 // import Loader from 'components/Loader/Loader';
 
-import PrivateRoute from 'routes/PrivatRoutes';
-import PublicRoute from 'routes/PublicRoutes';
+import { PrivateRoute } from 'routes/PrivatRoutes';
+import { PublicRoute } from 'routes/PublicRoutes';
 
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
