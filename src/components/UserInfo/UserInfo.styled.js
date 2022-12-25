@@ -139,6 +139,7 @@ export const MenuButton = styled.button`
   float: left;
   margin-left: auto;
   background: none;
+  z-index: 1;
 
   span {
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

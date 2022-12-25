@@ -32,6 +32,19 @@ export const Input = styled(Field)`
   @media screen and (min-width: 768px) {
     max-width: 240px;
   }
+   &:focus,
+  &:hover {
+    outline: none;
+  }
+  &:focus,
+  :hover {
+    border-bottom: 1px solid #fc842d;
+  }
+
+  &::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `;
 
 export const ErrorText = styled.p`

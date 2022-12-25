@@ -57,7 +57,7 @@ export const ImgBananaTablet = styled.img`
     position: absolute;
     right: -249px;
     top: 593px;
-    z-index: -3;
+    z-index: -1;
     display: none;
     @media screen and (min-width: 768px) and  (max-width: 1279px) {
     display: block;
@@ -80,7 +80,7 @@ export const ImgLeavTablet = styled.img`
        position: absolute;
     right: 12px;
     top: -97px;
-    z-index: -4;
+    z-index: -3;
     display: none;
      @media screen and (min-width: 768px) and  (max-width: 1279px) {
     display: block;

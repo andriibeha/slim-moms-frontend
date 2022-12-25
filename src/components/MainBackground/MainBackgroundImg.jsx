@@ -14,8 +14,8 @@ import banana_tablet_2x from '../../images/banana_tablet_2x.webp';
 import leaves_tablet_home_1x from '../../images/leaves_tablet-home1_1x.webp';
 import leaves_tablet_home_2x from '../../images/leaves_tablet-home1_2x.webp';
 
-import strawberry_tablet_1x from '../../images/strawberry_tablet_1x.webp';
-import strawberry_tablet_2x from '../../images/strawberry_tablet_2x.webp';
+import strawberry_tablet1_1x from '../../images/strawberry_tablet1_1x.webp';
+import strawberry_tablet1_2x from '../../images/strawberry_tablet1_2x.webp';
 
 import shadow_tablet from '../../images/shadow_tablet.webp';
 
@@ -31,7 +31,7 @@ export {
   banana_tablet_2x,
   leaves_tablet_home_1x,
   leaves_tablet_home_2x,
-  strawberry_tablet_1x,
-  strawberry_tablet_2x,
+  strawberry_tablet1_1x,
+  strawberry_tablet1_2x,
   shadow_tablet,
 };
