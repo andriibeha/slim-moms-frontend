@@ -1,11 +1,12 @@
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../redux/auth/auth-selectors';
 
 const PrivateRoute = ({ children }) => {
-  // let isLoggedIn = localStorage.getItem('user');
-  let isLoggedIn = true;
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return <>{isLoggedIn ? children : <Navigate to="/diary" replace />}</>;
+  return <>{isLoggedIn ? children : <Navigate to="/registration" replace />}</>;
 };
 
 PrivateRoute.propTypes = {
