@@ -4,6 +4,8 @@ import {
   Title,
   Form,
   Label,
+  LabelBlood,
+  BloodTypeTitle,
   Input,
   BloodList,
   RadioButton,
@@ -180,6 +182,7 @@ export const DailyCaloriesForm = () => {
               <BloodListItem>
                 <RadioButton
                   type="radio"
+                  // checked
                   name="bloodType"
                   id="blood-inp-1"
                   value={1}
@@ -222,7 +225,7 @@ export const DailyCaloriesForm = () => {
                 <label htmlFor="blood-inp-4">4</label>
               </BloodListItem>
             </BloodList>
-          </Label>
+          </LabelBlood>
         </WrapBox>
         <ButtonContainer>
           <Button type="submit" text="Start losing weight" />

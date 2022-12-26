@@ -5,13 +5,12 @@ export const Wrap = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 610px;
-  padding: 32px 20px 0;
-
+  padding: 32px 20px 100px;
   @media screen and (min-width: 768px) {
-    padding: 100px 32px 0;
+    padding: 100px 32px 501px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 144px 16px 0;
+    padding: 140px 16px 214px;
   }
 `;
 
@@ -67,11 +66,31 @@ export const Label = styled.label`
   }
 `;
 
+export const LabelBlood = styled.label`
+  position: relative;
+  width: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  margin-bottom:40px ;
+`
+export const BloodTypeTitle = styled.p`
+margin-bottom: 8px;
+@media (min-width: 768px) {
+    height: 36px;
+    border-bottom: 1px solid #e0e0e0;
+
+    }`
+
+
+
 export const Input = styled.input`
   display: block;
   border: none;
   width: 100%;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #e0e0e0;
   &:focus,
   &:hover {
     outline: none;
@@ -89,7 +108,7 @@ export const Input = styled.input`
 
 export const TitleRadioBtn = styled.p`
   margin-bottom: 8px;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 20px;
 `;
 

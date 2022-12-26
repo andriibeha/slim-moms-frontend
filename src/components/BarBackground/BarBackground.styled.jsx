@@ -13,6 +13,7 @@ position: absolute;
     top: 35px;
     z-index: 1;
     display: none;
+    pointer-events: none;
     @media screen and (min-width: 1280px) {
     display: block;
   }
@@ -26,6 +27,7 @@ position: absolute;
     top: 662px;
     z-index: 1;
     display: none;
+    pointer-events: none;
     @media screen and (min-width: 768px) and  (max-width: 1279px){
     display: block;
   }

@@ -3,7 +3,7 @@ import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
   selectedDate: '',
-  calorisityPerDay: 0,
+  caloricityPerDay: 0,
   dateFirstAdded: '',
   products: [],
   isLoading: false,
@@ -11,9 +11,7 @@ const initialState = {
 };
 const actions = [getByDate, addProduct, removeProduct];
 
-const handleAnyFulfield = (state, action) => {
-  state.dateFirstAdded = action.payload.dateFirstAdded;
-  state.calorisityPerDay = action.payload.calorisityPerDay;
+const handleAnyFulfield = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
 };
@@ -37,16 +35,25 @@ const diarySlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(getByDate.fulfilled, (state, action) => {
-        state.products = [...action.payload.products];
+      .addCase(getByDate.fulfilled, (state, { payload }) => {
+        const { result, caloricityPerDay, dateFirstAdded } = payload.data;
+        state.products = [...result].reverse();
+        state.caloricityPerDay = caloricityPerDay;
+        state.dateFirstAdded = dateFirstAdded;
       })
-      .addCase(addProduct.fulfilled, (state, action) => {
-        state.products.push(action.payload);
+      .addCase(getByDate.rejected, (state, { payload }) => {
+        if (payload === 'Request failed with status code 404') {
+          state.products = [];
+          state.caloricityPerDay = '';
+          state.dateFirstAdded = '';
+        }
       })
-      .addCase(removeProduct.fulfilled, (state, action) => {
-        const idx = state.products.findIndex(
-          item => item.id === action.payload.id
-        );
+      .addCase(addProduct.fulfilled, (state, { payload }) => {
+        const { result } = payload.data;
+        state.products = [result, ...state.products];
+      })
+      .addCase(removeProduct.fulfilled, (state, { payload }) => {
+        const idx = state.products.findIndex(item => item.id === payload.id);
         state.products.splice(idx, 1);
       })
       .addMatcher(
@@ -62,6 +69,5 @@ const diarySlice = createSlice({
         handleAnyRejected
       ),
 });
-
 export const { setDate } = diarySlice.actions;
 export const diaryReducer = diarySlice.reducer;

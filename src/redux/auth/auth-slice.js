@@ -18,13 +18,9 @@ const authSlice = createSlice({
       state.user = action.payload;
       // state.bloodType = null
       state.token = null;
-      state.isLoggedIn = true;
+      state.isLoggedIn = false;
       state.isLoading = false;
     },
-    [logIn.fulfilled]: (state, action) => {
-      state.isLoading = true;
-    },
-
     [logIn.fulfilled]: (state, action) => {
       state.user = action.payload;
       state.token = action.payload.data.token;

@@ -22,8 +22,8 @@ import {
   banana_tablet_2x,
   leaves_tablet_home_1x,
   leaves_tablet_home_2x,
-  strawberry_tablet_1x,
-  strawberry_tablet_2x,
+  strawberry_tablet1_1x,
+  strawberry_tablet1_2x,
   shadow_tablet,
 } from './MainBackgroundImg';
 
@@ -69,8 +69,8 @@ export const MainBackground = ({ children }) => {
       <ImgStrawTablet
         alt="im"
         media="(min-width: 768px)"
-        src={strawberry_tablet_1x}
-        srcSet={`${strawberry_tablet_2x} 2x`}
+        src={strawberry_tablet1_1x}
+        srcSet={`${strawberry_tablet1_2x} 2x`}
       />
       <ImgShadowTablet alt="im" media="(min-width: 768px)" src={shadow_tablet} />
       {children}
