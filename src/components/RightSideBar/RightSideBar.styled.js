@@ -8,11 +8,11 @@ export const Box = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    padding: 80px 32px 40px 32px;
+    padding: 80px 0px 40px 32px;
   }
   @media screen and (min-width: 1280px) {
     flex-direction: column;
-    padding: 149px 94px 116px 94px;
+    padding: 149px 0x 116px 94px;
   }
 `;
 
@@ -91,6 +91,7 @@ export const ContainerItem = styled.div`
 `;
 export const Title= styled.div`
   // flex: auto;  
+<<<<<<< Updated upstream
   width: 180px;
     @media screen and (min-width: 768px) {
     width: 182px;
@@ -99,3 +100,16 @@ export const Title= styled.div`
 export const Content= styled.div`
 width: 88px;
 `
+=======
+
+  width: 180px;
+  
+  @media screen and (min-width: 768px) {
+    width: 182px;
+  }
+`;
+
+export const Content= styled.div`
+width: 88px;
+`
+>>>>>>> Stashed changes
