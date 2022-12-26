@@ -14,23 +14,34 @@ import {
   WrapBox,
 } from './DailyCaloriesForm.styled';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeUserDate } from '../../redux/user/slice';
 import { toggleModal } from '../../redux/modal/slice';
 import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
+// import { NotFoundBlock } from '../NotFoundBlock';
 
 export const DailyCaloriesForm = () => {
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
-  const [bloodType, setBloodType] = useState(null);
+  const [bloodType, setBloodType] = useState('');
 
   const dispatch = useDispatch();
   const savedFormData = useSelector(state => state.user.userDate);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setHeight(savedFormData.height);
+      setAge(savedFormData.age);
+      setCurrentWeight(savedFormData.curWeight);
+      setDesiredWeight(savedFormData.desWeight);
+      setBloodType(savedFormData.bloodType);
+    }
+  }, [isLoggedIn, savedFormData]);
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -54,7 +65,7 @@ export const DailyCaloriesForm = () => {
 
   const handleRadioChange = event => {
     setBloodType(event.target.value);
-    localStorage.setItem('bloodType', JSON.stringify(event.target.value))
+    localStorage.setItem('bloodType', JSON.stringify(event.target.value));
   };
 
   const reset = () => {
@@ -89,7 +100,7 @@ export const DailyCaloriesForm = () => {
         );
         dispatch(toggleModal(true));
       } catch {
-        console.log(Error);
+        throw new Error();
       }
     } else {
       try {
@@ -104,7 +115,7 @@ export const DailyCaloriesForm = () => {
         );
         dispatch(toggleModal(true));
       } catch {
-        console.log(Error);
+        throw new Error();
       }
     }
     reset();
@@ -123,7 +134,7 @@ export const DailyCaloriesForm = () => {
               id="height"
               type="number"
               name="height"
-              defaultValue={isLoggedIn ? savedFormData.height : ''}
+              value={height}
               onChange={handleInputChange}
             />
           </Label>
@@ -135,7 +146,7 @@ export const DailyCaloriesForm = () => {
               required
               type="number"
               name="age"
-              defaultValue={isLoggedIn ? savedFormData.age : ''}
+              value={age}
               onChange={handleInputChange}
             />
           </Label>
@@ -147,43 +158,9 @@ export const DailyCaloriesForm = () => {
               id="currentWeight"
               type="number"
               name="currentWeight"
-              defaultValue={isLoggedIn ? savedFormData.curWeight : ''}
+              value={currentWeight}
               onChange={handleInputChange}
             />
-            {/*
-  TitleRadioBtn,
-} from './DailyCaloriesForm.styled';
-
-export const DailyCaloriesForm = () => {
-  return (
-    <Wrap>
-      <Title>Calculate your daily calorie intake right now</Title>
-      <Form>
-        <WrapBox>
-          <Label htmlFor="height">
-            Height *
-            <Input
-              pattern="[0-9]"
-              required
-              id="height"
-              type="number"
-              name="height"
-            />
-          </Label>
-          <Label htmlFor="age">
-            Age *
-            <Input pattern="[0-9]" id="age" required type="number" name="age" />
-          </Label>
-          <Label htmlFor="currentWeight">
-            Current weight *
-            <Input
-              pattern="[0-9]"
-              required
-              id="currentWeight"
-              type="number"
-              name="currentWeight"
-            />
-*/}
           </Label>
         </WrapBox>
         <WrapBox>
@@ -195,28 +172,12 @@ export const DailyCaloriesForm = () => {
               required
               name="desiredWeight"
               type="number"
-              defaultValue={isLoggedIn ? savedFormData.desWeight : ''}
+              value={desiredWeight}
               onChange={handleInputChange}
             />
           </Label>
-          <LabelBlood htmlFor="bloodType" required>
-            <BloodTypeTitle>Blood type *</BloodTypeTitle>
-
-            {/* 
-            <Input
-              pattern="[0-9]"
-              id="desiredWeight"
-              required
-              name="desiredWeight"
-              type="number"
-            />
-          </Label>
           <Label htmlFor="bloodType" required>
-            <TitleRadioBtn style={{ marginBottom: '8px' }}>
-              Blood type *
-            </TitleRadioBtn>
-            */}
-
+            <p style={{ marginBottom: '8px' }}>Blood type *</p>
             <BloodList>
               <BloodListItem>
                 <RadioButton
@@ -225,9 +186,7 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-1"
                   value={1}
-                  defaultChecked={
-                    isLoggedIn && savedFormData.bloodType === '1' ? true : false
-                  }
+                  checked={bloodType === '1' ? true : false}
                   onChange={handleRadioChange}
                 />
                 <label htmlFor="blood-inp-1">1</label>
@@ -238,9 +197,7 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-2"
                   value={2}
-                  defaultChecked={
-                    isLoggedIn && savedFormData.bloodType === '2' ? true : false
-                  }
+                  checked={bloodType === '2' ? true : false}
                   onChange={handleRadioChange}
                 />
                 <label htmlFor="blood-inp-2">2</label>
@@ -251,9 +208,7 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-3"
                   value={3}
-                  defaultChecked={
-                    isLoggedIn && savedFormData.bloodType === '3' ? true : false
-                  }
+                  checked={bloodType === '3' ? true : false}
                   onChange={handleRadioChange}
                 />
                 <label htmlFor="blood-inp-3">3</label>
@@ -264,9 +219,7 @@ export const DailyCaloriesForm = () => {
                   name="bloodType"
                   id="blood-inp-4"
                   value={4}
-                  defaultChecked={
-                    isLoggedIn && savedFormData.bloodType === '4' ? true : false
-                  }
+                  checked={bloodType === '4' ? true : false}
                   onChange={handleRadioChange}
                 />
                 <label htmlFor="blood-inp-4">4</label>
@@ -274,7 +227,6 @@ export const DailyCaloriesForm = () => {
             </BloodList>
           </LabelBlood>
         </WrapBox>
-
         <ButtonContainer>
           <Button type="submit" text="Start losing weight" />
         </ButtonContainer>
