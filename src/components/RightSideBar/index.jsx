@@ -12,60 +12,34 @@ import {
   ContainerItem,
 } from './RightSideBar.styled';
 import { useAuth } from 'hooks/useAuth';
-
-// import { useSelector } from 'react-redux';
-
-
-const dataArray = {
-  products: [
-    {
-      _id: '5d51694802b2373622ff5569',
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Гречневые хлопья Пассим',
-        ua: 'Гречані пластівці Пассим',
-      },
-      calories: 322,
-      groupBloodNotAllowed: [null, true, false, true, true],
-      __v: 0,
-    },
-    {
-      _id: '5d51694802b2373622ff555a',
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Гречневая крупа (продел)',
-        ua: 'Гречана крупа (проділ)',
-      },
-      calories: 306,
-      groupBloodNotAllowed: [null, true, false, true, true],
-      __v: 0,
-    },
-  ],
-  dailyCalorie: 0,
-  caloricityPerDay: 0,
-  currentDate: '22.12.2022',
-};
+import { diarySelectors } from 'redux/diary/diarySelectors';
+import { useSelector } from 'react-redux';
 
 export const RightSideBar = () => {
   const { user } = useAuth();
   const notRecProducts = user.data.user.notRecProducts;
+  notRecProducts.slice(0,5)
+  console.log(notRecProducts)
+
   const dailyCalorie = user.data.user.dailyCalorie;
   console.log(notRecProducts, dailyCalorie);
 
-  // const dataApi = useSelector(state => state.diary.data);
-  // const { caloricityPerDay, date} = dataApi.data;
-  // console.log(caloricityPerDay, date);
+  const caloricityPerDay = useSelector(diarySelectors.selectCaloricityPerDay);
+  const returnedDate= useSelector(diarySelectors.selectReturnedDate);
+  const selectedDate = useSelector(diarySelectors.selectDate);
+  const date = new Date(returnedDate).toLocaleString('').slice(0,10);
+  const normalizedSelectedDate = new Date(selectedDate).toLocaleString('').slice(0,10);
 
-  const leftCalories = dailyCalorie - dataArray.caloricityPerDay;
+  console.log(returnedDate);
+  console.log(caloricityPerDay, date);
+
+  const leftCalories = dailyCalorie - caloricityPerDay;
   const percentOfNormal = (leftCalories / dailyCalorie) * 100;
-
 
   return (
     <Box>
       <BoxList>
-        <ListTitle>Summary for {dataArray.currentDate}</ListTitle>
+        <ListTitle>Summary for {caloricityPerDay==="null" ? date : normalizedSelectedDate}</ListTitle>
         <Container>
           <ContainerItem>
             <Title>Left</Title>
@@ -74,17 +48,14 @@ export const RightSideBar = () => {
           <ContainerItem>
             <Title>Consumed</Title>
             <Content>
-
-              {dataArray.consumedCalories > 0 ? dataArray.caloricityPerDay : 0}{' '}
+              {caloricityPerDay  > 0 ? caloricityPerDay : 0}{' '}
               kcal{' '}
-
             </Content>
           </ContainerItem>
           <ContainerItem>
             <Title>Daily rate </Title>
 
             <Content> {dailyCalorie > 0 ? dailyCalorie : 0} kcal </Content>
-
           </ContainerItem>
           <ContainerItem>
             <Title>% of normal</Title>
@@ -99,7 +70,6 @@ export const RightSideBar = () => {
         {dailyCalorie > 0 ? (
           <List>
             {notRecProducts.map(product => (
-
               <Item key={product._id}>{product.title.ua}</Item>
             ))}
           </List>
