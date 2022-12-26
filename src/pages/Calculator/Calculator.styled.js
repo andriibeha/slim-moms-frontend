@@ -9,14 +9,14 @@ export const CalculatorStyledPage = styled('div')`
 `;
 export const CalculatorStyled = styled('div')`
   padding-top: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  // padding-left: 20px;
+  // padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: 768px) {
-    padding-top: 100px;
-    padding-left: 32px;
+    // padding-top: 100px;
+    // padding-left: 32px;
     align-items: start;
   }
 `;
