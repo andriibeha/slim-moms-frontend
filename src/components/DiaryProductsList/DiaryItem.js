@@ -2,18 +2,18 @@ import { useDispatch } from 'react-redux';
 import { removeProduct } from 'redux/diary/diaryOperations';
 import { ProductTitle, ProductProp, ExitBtn, Unit } from './DiaryItem.styled';
 import sprite from 'images/icons.svg';
+import { useAdaptivString } from 'hooks/useAdaptivString';
 
 export const DiaryItem = ({ product }) => {
   const dispatch = useDispatch();
-
+  const title = useAdaptivString(product.product);
   const handleDelete = () => {
-    console.log('delete', product.id);
     dispatch(removeProduct(product._id));
   };
 
   return (
     <>
-      <ProductTitle>{product?.product}</ProductTitle>
+      <ProductTitle>{title}</ProductTitle>
       <ProductProp>
         {product?.weight}
         <span> g</span>

@@ -17,37 +17,34 @@ import { BarBackground } from 'components/BarBackground';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 // import { useSelector } from 'react-redux';
 
-
 export const Diary = () => {
   const { width } = useWindowResize();
 
-
   return (
     <BarBackground>
-    <DiaryStyledPage>
-      <DiaryStyled>
-        <DiaryCalendar>
-          <DiaryDateCalendar />
-        </DiaryCalendar>
-        {width > 767 ? (
-          <Wrapper>
-            <DiaryAdd>
-              <DiaryAddProductForm />
-            </DiaryAdd>
-            <DiaryProductsList />
-          </Wrapper>
-        ) : (
-          <MobileWrapper>
-            <DiaryProductsList />
-            <MobileButton to="/add">+</MobileButton>
-          </MobileWrapper>
-        )}
-      </DiaryStyled>
-      <RightSideBar />
-    </DiaryStyledPage>
+      <DiaryStyledPage>
+        <DiaryStyled>
+          <DiaryCalendar>
+            <DiaryDateCalendar />
+          </DiaryCalendar>
+          {width > 767 ? (
+            <Wrapper>
+              <DiaryAdd>
+                <DiaryAddProductForm />
+              </DiaryAdd>
+              <DiaryProductsList />
+            </Wrapper>
+          ) : (
+            <MobileWrapper>
+              <DiaryProductsList />
+              <MobileButton to="/add">+</MobileButton>
+            </MobileWrapper>
+          )}
+        </DiaryStyled>
+        <RightSideBar />
+      </DiaryStyledPage>
     </BarBackground>
   );
 };
 
 export default Diary;
-

@@ -1,10 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { lazy, Suspense, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { useSelector } from 'react-redux';
-
 import { SharedLayout } from './components/SharedLayout';
 import Modal from './components/Modal';
 // import Loader from 'components/Loader/Loader';
@@ -77,7 +75,14 @@ export const App = () => {
               }
             />
 
-            <Route path="/add" element={<AddProduct />} />
+            <Route
+              path="/add"
+              element={
+                <PrivateRoute>
+                  <AddProduct />
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/calculator"
               element={
@@ -109,7 +114,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-      {/* </Suspense> */}
       <ToastContainer />
     </>
   );
