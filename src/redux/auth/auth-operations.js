@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { apiToken, apiAxios } from 'servises/api';
+import { creatNotifyError } from 'helpers/createNotify';
 
 const token = apiToken;
 const API = apiAxios;
@@ -15,22 +16,27 @@ const API = apiAxios;
 //   },
 // };
 // нащо в реєстрації вертать щось, якщо ми це не використовуємо
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await API.post('auth/register', credentials);
-    console.log(data.token);
-    return data;
-  } catch (error) {
-    console.log(error);
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await API.post('auth/register', credentials);
+      console.log(data.token);
+      return data;
+    } catch (error) {
+      creatNotifyError(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const logOut = createAsyncThunk('auth/logout', async () => {
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await API.get('auth/logout');
     token.unset();
   } catch (error) {
-    console.log(error.message);
+    creatNotifyError(error.message);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 export const logIn = createAsyncThunk(
@@ -41,6 +47,7 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
+      creatNotifyError(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -61,6 +68,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await API.get('users/current');
       return data;
     } catch (err) {
+      creatNotifyError(err.message);
       return thunkAPI.rejectWithValue(err);
     }
   }

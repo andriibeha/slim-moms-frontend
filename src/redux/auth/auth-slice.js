@@ -14,12 +14,21 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [register.pending]: state => {
+      state.isLoading = true;
+    },
     [register.fulfilled]: (state, action) => {
       state.user = action.payload;
       // state.bloodType = null
       state.token = null;
       state.isLoggedIn = false;
       state.isLoading = false;
+    },
+    [register.rejected]: (state, action) => {
+      state.isLoading = false;
+    },
+    [logIn.pending]: state => {
+      state.isLoading = true;
     },
     [logIn.fulfilled]: (state, action) => {
       state.user = action.payload;
@@ -32,11 +41,18 @@ const authSlice = createSlice({
       state.isLoading = false;
     },
 
+    [logOut.pending]: state => {
+      state.isLoading = true;
+    },
     [logOut.fulfilled](state, action) {
       state.user = { name: null, email: null };
       // state.bloodType = null
       state.token = null;
       state.isLoggedIn = false;
+      state.isLoading = false;
+    },
+    [logOut.rejected]: (state, action) => {
+      state.isLoading = false;
     },
 
     [fetchCurrentUser.pending](state) {
