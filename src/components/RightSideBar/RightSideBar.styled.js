@@ -23,6 +23,7 @@ export const BoxList = styled.div`
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     margin-right: 97px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -35,7 +36,7 @@ export const ListTitle = styled.p`
   letter-spacing: 0.04em;
   color: #212121;
   text-align: start;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const List = styled('ul')`
@@ -62,20 +63,7 @@ export const Item = styled.li`
     margin-bottom: 0;
   }
 `;
-export const CalcItem = styled.tr`
-  font-family: 'Verdana';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-  margin-bottom: 20px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
 export const PreContent = styled.p`
   font-family: 'Verdana';
   font-style: normal;
@@ -85,9 +73,29 @@ export const PreContent = styled.p`
   letter-spacing: 0.04em;
   color: #9b9faa;
 `;
-export const CalcTitle = styled.td`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  color: #9b9faa;
+`;
+export const ContainerItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+export const Title= styled.div`
+  // flex: auto;  
   width: 180px;
-  @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
     width: 182px;
   }
 `;
+export const Content= styled.div`
+width: 88px;
+`

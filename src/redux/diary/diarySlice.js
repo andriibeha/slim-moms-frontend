@@ -37,6 +37,7 @@ const diarySlice = createSlice({
     builder
       .addCase(getByDate.fulfilled, (state, { payload }) => {
         const { result, caloricityPerDay, dateFirstAdded } = payload.data;
+        console.log(payload.data);
         state.products = [...result];
         state.caloricityPerDay = caloricityPerDay;
         state.dateFirstAdded = dateFirstAdded;

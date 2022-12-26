@@ -1,13 +1,18 @@
-import { DailyCaloriesForm } from "components/DailyCaloriesForm";
-import { RightSideBar } from "components/RightSideBar";
-
+import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
+import { RightSideBar } from 'components/RightSideBar';
+import { CalculatorStyled, CalculatorStyledPage } from './Calculator.styled';
+import { BarBackground } from 'components/BarBackground';
 
 const Calculator = () => {
   return (
-    <>
-      <DailyCaloriesForm />
-      <RightSideBar />
-    </>
+    <BarBackground>
+      <CalculatorStyledPage>
+        <CalculatorStyled>
+          <DailyCaloriesForm />
+        </CalculatorStyled>
+        <RightSideBar />
+      </CalculatorStyledPage>
+    </BarBackground>
   );
 };
 
