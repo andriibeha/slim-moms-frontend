@@ -4,8 +4,6 @@ import {
   Title,
   Form,
   Label,
-  LabelBlood,
-  BloodTypeTitle,
   Input,
   BloodList,
   RadioButton,
@@ -225,7 +223,7 @@ export const DailyCaloriesForm = () => {
                 <label htmlFor="blood-inp-4">4</label>
               </BloodListItem>
             </BloodList>
-          </LabelBlood>
+          </Label>
         </WrapBox>
         <ButtonContainer>
           <Button type="submit" text="Start losing weight" />
