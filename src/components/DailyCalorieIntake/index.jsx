@@ -12,6 +12,7 @@ import {
   Link,
 } from './DailyCalorieIntake.styled';
 import { useDispatch, useSelector } from 'react-redux';
+import { clearState } from '../../redux/bloodDiet/operations';
 import { toggleModal } from 'redux/modal/slice';
 
 const DailyCalorieIntake = () => {
@@ -22,6 +23,7 @@ const DailyCalorieIntake = () => {
 
   const onBtnClick = () => {
     dispatch(toggleModal(false));
+    dispatch(clearState());
   };
 
   const mds = window.matchMedia('(min-width: 768px)');

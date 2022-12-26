@@ -21,13 +21,12 @@ const authSlice = createSlice({
       state.user = action.payload;
       // state.bloodType = null
       state.token = null;
-      state.isLoggedIn = true;
+      state.isLoggedIn = false;
       state.isLoading = false;
     },
     [register.rejected]: (state, action) => {
       state.isLoading = false;
     },
-
     [logIn.pending]: state => {
       state.isLoading = true;
     },
