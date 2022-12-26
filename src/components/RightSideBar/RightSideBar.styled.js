@@ -91,7 +91,6 @@ export const ContainerItem = styled.div`
 `;
 export const Title= styled.div`
   // flex: auto;  
-<<<<<<< Updated upstream
   width: 180px;
     @media screen and (min-width: 768px) {
     width: 182px;
@@ -100,16 +99,3 @@ export const Title= styled.div`
 export const Content= styled.div`
 width: 88px;
 `
-=======
-
-  width: 180px;
-  
-  @media screen and (min-width: 768px) {
-    width: 182px;
-  }
-`;
-
-export const Content= styled.div`
-width: 88px;
-`
->>>>>>> Stashed changes
