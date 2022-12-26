@@ -6,9 +6,15 @@ import {
   PreContent,
   Item,
   BoxList,
-  CalcItem,
-  CalcTitle,
+  Container,
+  Title,
+  Content,
+  ContainerItem,
 } from './RightSideBar.styled';
+import { useAuth } from 'hooks/useAuth';
+
+// import { useSelector } from 'react-redux';
+
 
 const dataArray = {
   products: [
@@ -38,48 +44,62 @@ const dataArray = {
     },
   ],
   dailyCalorie: 0,
-  consumedCalories: 0,
-  currentDate: "22.12.2022",
+  caloricityPerDay: 0,
+  currentDate: '22.12.2022',
 };
 
 export const RightSideBar = () => {
-  const leftCalories = dataArray.dailyCalorie - dataArray.consumedCalories;
-  const percentOfNormal = (leftCalories / dataArray.dailyCalorie) * 100;
+  const { user } = useAuth();
+  const notRecProducts = user.data.user.notRecProducts;
+  const dailyCalorie = user.data.user.dailyCalorie;
+  console.log(notRecProducts, dailyCalorie);
+
+  // const dataApi = useSelector(state => state.diary.data);
+  // const { caloricityPerDay, date} = dataApi.data;
+  // console.log(caloricityPerDay, date);
+
+  const leftCalories = dailyCalorie - dataArray.caloricityPerDay;
+  const percentOfNormal = (leftCalories / dailyCalorie) * 100;
+
 
   return (
     <Box>
       <BoxList>
         <ListTitle>Summary for {dataArray.currentDate}</ListTitle>
-        <List as="table">
-          <CalcItem>
-            <CalcTitle>Left</CalcTitle>
-            <td>{leftCalories > 0 ? leftCalories : 0} kcal</td>
-          </CalcItem>
-          <CalcItem>
-            <CalcTitle>Consumed</CalcTitle>
-            <td>
-              {dataArray.consumedCalories > 0 ? dataArray.consumedCalories : 0}{' '}
-              kcal
-            </td>
-          </CalcItem>
-          <CalcItem>
-            <CalcTitle>Daily rate </CalcTitle>
-            <td>
-              {dataArray.dailyCalorie > 0 ? dataArray.dailyCalorie : 0} kcal
-            </td>
-          </CalcItem>
-          <CalcItem>
-            <CalcTitle>% of normal</CalcTitle>
-            <td>{percentOfNormal > 0 ? Math.round(percentOfNormal) : 0} %</td>
-          </CalcItem>
-        </List>
+        <Container>
+          <ContainerItem>
+            <Title>Left</Title>
+            <Content>{leftCalories > 0 ? leftCalories : 0} kcal</Content>{' '}
+          </ContainerItem>
+          <ContainerItem>
+            <Title>Consumed</Title>
+            <Content>
+
+              {dataArray.consumedCalories > 0 ? dataArray.caloricityPerDay : 0}{' '}
+              kcal{' '}
+
+            </Content>
+          </ContainerItem>
+          <ContainerItem>
+            <Title>Daily rate </Title>
+
+            <Content> {dailyCalorie > 0 ? dailyCalorie : 0} kcal </Content>
+
+          </ContainerItem>
+          <ContainerItem>
+            <Title>% of normal</Title>
+            <Content>
+              {percentOfNormal > 0 ? Math.round(percentOfNormal) : 0} %
+            </Content>
+          </ContainerItem>
+        </Container>
       </BoxList>
       <BoxList>
         <ListTitle>Food not recommended</ListTitle>
+        {dailyCalorie > 0 ? (
+          <List>
+            {notRecProducts.map(product => (
 
-        {dataArray.dailyCalorie > 0 ? (
-          <List as="ol">
-            {dataArray.products.map(product => (
               <Item key={product._id}>{product.title.ua}</Item>
             ))}
           </List>
