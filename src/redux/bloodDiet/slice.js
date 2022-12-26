@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const { getDiet, getDietUser } = require('./operations');
+const { getDiet, getDietUser, clearState } = require('./operations');
 
 const initialState = {
   data: {},
@@ -14,6 +14,9 @@ const bloodDietSlice = createSlice({
     },
     [getDietUser.fulfilled](state, action) {
       state.data = action.payload;
+    },
+    [clearState](state, _) {
+      state.data = {};
     },
   },
 });
