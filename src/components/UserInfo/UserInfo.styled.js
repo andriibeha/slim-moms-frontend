@@ -38,7 +38,7 @@ export const UserNameContainer = styled.div`
   width: 100%;
   height: 40px;
   left: 0;
-  top: 77px;
+  top: 74px;
 
   @media screen and (min-width: 768px) {
     padding-right: 48px;
@@ -101,10 +101,10 @@ export const ModalBox = styled.div`
   position: fixed;
   z-index: 50;
   width: 100vw;
-  height: 100vh;
-  top: 77px;
+  height: 200vh;
+  top: 74px;
   left: 0;
-  transform: translateX(110%);
+  transform: translateX(150%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &.active {
