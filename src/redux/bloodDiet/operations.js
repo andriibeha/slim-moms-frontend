@@ -1,9 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiAxios } from 'servises/api';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { store } from '../store';
 import axios from 'axios';
 
-const API = apiAxios;
+axios.defaults.baseURL = 'http://localhost:5001';
 
 const token = {
   set(token) {
@@ -18,7 +17,7 @@ export const getDiet = createAsyncThunk(
   'blood',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = API.post('bloodproducts', credentials);
+      const { data } = await axios.post('/api/bloodproducts', credentials);
       console.log(data);
       return data;
     } catch (error) {
@@ -46,3 +45,5 @@ export const getDietUser = createAsyncThunk(
     }
   }
 );
+
+export const clearState = createAction('data/clearState');
