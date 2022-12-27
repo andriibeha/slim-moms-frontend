@@ -18,7 +18,7 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [register.fulfilled]: (state, action) => {
-      state.user = action.payload;
+      state.user = action.payload.data.user;
       // state.bloodType = null
       state.token = null;
       state.isLoggedIn = false;
@@ -31,7 +31,7 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [logIn.fulfilled]: (state, action) => {
-      state.user = action.payload;
+      state.user = action.payload.data.user;
       state.token = action.payload.data.token;
       // state.bloodType = action.payload.data
       state.isLoggedIn = true;
@@ -59,7 +59,7 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     },
     [fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.data.user;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

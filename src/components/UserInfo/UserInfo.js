@@ -59,7 +59,7 @@ export const UserInfo = () => {
   const location = useLocation();
 
   const { user } = useAuth();
-  console.log(user.data.user.name);
+  console.log(user.name);
 
   const isLogout = () => {
     dispatch(logOut());
@@ -81,7 +81,7 @@ export const UserInfo = () => {
         </BackLink>
 
         <NameBox>
-          <UserName>{user.data.user.name}</UserName>
+          <UserName>{user.name}</UserName>
           <ExitBtn type="button" onClick={isLogout}>
             Exit
           </ExitBtn>

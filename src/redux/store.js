@@ -46,13 +46,13 @@ export const store = configureStore({
     diary: diaryReducer,
   },
 
-  middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware({
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    });
-  },
+    }),
+  ],
 });
 
 export const persistor = persistStore(store);

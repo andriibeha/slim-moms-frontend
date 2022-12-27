@@ -29,9 +29,11 @@ export const selectStyles = {
   dropdownIndicator: () => ({
     display: 'none',
   }),
-  container: provided => ({
+  container: (provided, state) => ({
     ...provided,
-    borderBottom: theme.borders.normal + theme.colors.grey,
+    borderBottom: state.isFocused
+      ? theme.borders.normal + theme.colors.accent
+      : theme.borders.normal + theme.colors.grey,
     position: 'relative',
   }),
   valueContainer: provided => ({

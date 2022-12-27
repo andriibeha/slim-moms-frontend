@@ -6,13 +6,9 @@ import { useAuth } from 'hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-  return isLoggedIn && !isRefreshing ? (
-    children
-  ) : (
-    <Navigate to="/registration" replace />
-  );
+  return isLoggedIn ? children : <Navigate to="/registration" replace />;
 };
 
 PrivateRoute.propTypes = {
