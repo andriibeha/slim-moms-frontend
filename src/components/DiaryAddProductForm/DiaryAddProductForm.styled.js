@@ -42,8 +42,12 @@ export const WeightInputStyled = styled.input`
   @media screen and (min-width: 768px) {
     width: 106px;
   }
-
-  :focus {
+  &:focus,
+  &:hover {
     outline: none;
+  }
+  &:focus,
+  :hover {
+    border-bottom: ${theme.borders.normal} ${theme.colors.accent};
   }
 `;

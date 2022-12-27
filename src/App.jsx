@@ -14,7 +14,7 @@ import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
 import { useAuth } from 'hooks/useAuth';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
-
+import Loader from 'components/Loader/Loader';
 //Add lazy
 import { AddProduct } from 'pages/AddProduct';
 
@@ -50,9 +50,8 @@ export const App = () => {
     <>
       <Global styles={GlobalStyles} />
       {showModal && <Modal />}
-      {/* <Suspense fallback={<Loader />}> */}
       {isRefreshing ? (
-        <p>Refreshing...</p>
+        <Loader />
       ) : (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
