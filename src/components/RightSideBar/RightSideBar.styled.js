@@ -12,7 +12,7 @@ export const Box = styled.div`
   }
   @media screen and (min-width: 1280px) {
     flex-direction: column;
-    padding: 149px 0x 116px 94px;
+    padding: 145px 94px 116px 94px;
   }
 `;
 
@@ -47,6 +47,10 @@ export const List = styled('ul')`
   list-style-position: inside;
   margin: 0;
   padding: 0;
+  width: 400px;
+  max-height: 180px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 `;
 
 export const Item = styled.li`
@@ -89,13 +93,12 @@ export const ContainerItem = styled.div`
     margin-bottom: 0;
   }
 `;
-export const Title= styled.div`
-  // flex: auto;  
+export const Title = styled.div`
   width: 180px;
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 182px;
   }
 `;
-export const Content= styled.div`
-width: 88px;
-`
+export const Content = styled.div`
+  width: 88px;
+`;

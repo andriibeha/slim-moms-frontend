@@ -6,6 +6,7 @@ const selectIsLoading = state => state.diary.isLoading;
 const selectError = state => state.diary.error;
 const selectReturnedDate = state => state.diary.date;
 
+
 export const diarySelectors = {
   selectProductByDate,
   selectDate,
