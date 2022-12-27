@@ -9,10 +9,9 @@ export const Backdrop = styled.div`
   height: 100%;
   z-index: 1200;
   background-color: ${theme.colors.backdrop};
-    opacity: 1;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      opaсity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  opacity: 1;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opaсity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const ModalWindow = styled.div`
@@ -39,16 +38,16 @@ export const ModalWindow = styled.div`
 `;
 
 export const ModalButton = styled.button`
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    display: block;
-    background-color: #11ffee00;
-    border:${theme.borders.none};;
-    color: ${theme.colors.black};;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: block;
+  background-color: #11ffee00;
+  border:${theme.borders.none};;
+  color: ${theme.colors.black};;
   transition:  fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
   cursor: pointer;
-
+  
   &:hover,
   :focus {
     fill: ${theme.colors.accent};
