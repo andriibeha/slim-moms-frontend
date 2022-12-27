@@ -38,19 +38,16 @@ export const ModalWindow = styled.div`
 `;
 
 export const ModalButton = styled.button`
-  display: none;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: block;
+  background-color: #11ffee00;
+  border:${theme.borders.none};;
+  color: ${theme.colors.black};;
+  transition:  fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  cursor: pointer;
 
-  @media screen and (min-width: 768px) {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    display: block;
-    background-color: #11ffee00;
-    border: ${theme.borders.none};
-    color: ${theme.colors.black};
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-  }
   &:hover,
   :focus {
     fill: ${theme.colors.accent};

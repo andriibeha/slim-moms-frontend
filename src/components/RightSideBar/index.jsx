@@ -18,7 +18,6 @@ import { useSelector } from 'react-redux';
 export const RightSideBar = () => {
   const { user } = useAuth();
   const notRecProducts = user.data.user.notRecProducts;
-
   const dailyCalorie = user.data.user.dailyCalorie;
 
   const caloricityPerDay = useSelector(diarySelectors.selectCaloricityPerDay);

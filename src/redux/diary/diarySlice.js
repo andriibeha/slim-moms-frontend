@@ -3,6 +3,7 @@ import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
   selectedDate: '',
+  date: null,
   caloricityPerDay: null,
   dateFirstAdded: '',
   products: [],
@@ -36,19 +37,21 @@ const diarySlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getByDate.fulfilled, (state, { payload }) => {
-        const { result, caloricityPerDay, dateFirstAdded } = payload.data;
+        const { result, caloricityPerDay, dateFirstAdded, date } = payload.data;
         console.log(payload.data);
         state.products = [...result].reverse();
+
         state.caloricityPerDay = caloricityPerDay;
         state.dateFirstAdded = dateFirstAdded;
-
+        state.date= date;
       })
       .addCase(getByDate.rejected, (state, { payload }) => {
         if (payload === 'Request failed with status code 404') {
           state.products = [];
           state.caloricityPerDay = '';
           state.dateFirstAdded = '';
-            }
+          state.date= null;
+        }
       })
       .addCase(addProduct.fulfilled, (state, { payload }) => {
         const { result } = payload.data;
