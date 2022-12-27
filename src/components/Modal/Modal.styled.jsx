@@ -47,7 +47,7 @@ export const ModalButton = styled.button`
   color: ${theme.colors.black};;
   transition:  fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
   cursor: pointer;
-  
+
   &:hover,
   :focus {
     fill: ${theme.colors.accent};
