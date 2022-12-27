@@ -9,6 +9,7 @@ import {
   ModalButton,
   ModalButtonIcon,
 } from './Modal.styled';
+import { clearState } from '../../redux/bloodDiet/operations';
 import sprite from 'images/icons.svg';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -20,6 +21,7 @@ export default function Modal() {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
         dispatch(toggleModal(false));
+        dispatch(clearState());
       }
     };
 
@@ -33,11 +35,13 @@ export default function Modal() {
   const onBackdropClick = e => {
     if (e.currentTarget === e.target) {
       dispatch(toggleModal(false));
+      dispatch(clearState());
     }
   };
 
   const onBtnClick = () => {
     dispatch(toggleModal(false));
+    dispatch(clearState());
   };
 
   return createPortal(

@@ -10,22 +10,23 @@ export const ListItem = styled.li`
   display: grid;
   grid-template-columns: 130px 49px 58px 10px;
   gap: 8px;
-  align-items: baseline;
-  margin-bottom: 28px;
+  align-items: stretch;
+  margin-bottom: 30px;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: 240px 106px 106px 12px;
+    gap: 30px;
+    grid-template-columns: 240px 107px 106px 12px;
   }
 `;
 
 export const ProductListBox = styled.div`
   position: relative;
   width: 314px;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   height: 252px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -48,8 +49,8 @@ export const ProductListBox = styled.div`
   }
   @media screen and (min-width: 1280px) {
     width: 633px;
-    margin-left: 0;
-    padding-left: 16px;
+    /* margin-left: 0;
+    padding-left: 16px; */
     height: 271px;
   }
 `;
