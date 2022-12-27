@@ -37,18 +37,16 @@ const diarySlice = createSlice({
     builder
       .addCase(getByDate.fulfilled, (state, { payload }) => {
         const { result, caloricityPerDay, dateFirstAdded } = payload.data;
-        console.log(payload.data);
         state.products = [...result].reverse();
         state.caloricityPerDay = caloricityPerDay;
         state.dateFirstAdded = dateFirstAdded;
-
       })
       .addCase(getByDate.rejected, (state, { payload }) => {
         if (payload === 'Request failed with status code 404') {
           state.products = [];
           state.caloricityPerDay = '';
           state.dateFirstAdded = '';
-            }
+        }
       })
       .addCase(addProduct.fulfilled, (state, { payload }) => {
         const { result } = payload.data;
