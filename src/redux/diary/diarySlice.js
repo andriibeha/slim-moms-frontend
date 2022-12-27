@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
-  selectedDate: '',
+  selectedDate: new Date(),
   caloricityPerDay: null,
   dateFirstAdded: '',
   products: [],

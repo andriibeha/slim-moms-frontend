@@ -26,8 +26,6 @@ export const RightSideBar = () => {
   const normalizedSelectedDate = new Date(selectedDate)
     .toLocaleString('')
     .slice(0, 10);
-    // const date = new Date(Date.UTC(2012, 11, 12, 3, 0, 0));
-    // console.log(date.toLocaleString());
   const leftCalories = dailyCalorie - caloricityPerDay;
   const percentOfNormal = (caloricityPerDay / dailyCalorie) * 100;
 
