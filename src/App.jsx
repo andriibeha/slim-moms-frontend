@@ -25,6 +25,7 @@ const Calculator = lazy(() => import('./pages/Calculator/index'));
 const Diary = lazy(() => import('./pages/Diary/index'));
 const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
+const ModalPage = lazy(() => import('./pages/ModalPage/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -88,6 +89,14 @@ export const App = () => {
               element={
                 <PrivateRoute>
                   <Calculator />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/modal"
+              element={
+                <PrivateRoute>
+                  <ModalPage />
                 </PrivateRoute>
               }
             />

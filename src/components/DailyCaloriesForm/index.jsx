@@ -18,9 +18,11 @@ import { changeUserDate } from '../../redux/user/slice';
 import { toggleModal } from '../../redux/modal/slice';
 import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
-// import { NotFoundBlock } from '../NotFoundBlock';
+import { Navigate } from 'react-router-dom';
+// import { redirect } from 'react-router-dom';
 
 export const DailyCaloriesForm = () => {
+  const [apiSuccess, setApiSuccess] = useState(false);
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
@@ -30,6 +32,7 @@ export const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const savedFormData = useSelector(state => state.user.userDate);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const mds = window.matchMedia('(min-width: 768px)');
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -96,7 +99,11 @@ export const DailyCaloriesForm = () => {
             bloodType: Number(bloodType),
           })
         );
-        dispatch(toggleModal(true));
+        if (mds.matches) {
+          dispatch(toggleModal(true));
+        } else {
+          setApiSuccess(true);
+        }
       } catch {
         throw new Error();
       }
@@ -111,13 +118,19 @@ export const DailyCaloriesForm = () => {
             bloodType: Number(bloodType),
           })
         );
-        dispatch(toggleModal(true));
+
+        if (mds.matches) {
+          dispatch(toggleModal(true));
+        } else {
+          setApiSuccess(true);
+        }
       } catch {
         throw new Error();
       }
     }
     reset();
   };
+  if (apiSuccess) return <Navigate to="/modal" />;
 
   return (
     <Wrap>

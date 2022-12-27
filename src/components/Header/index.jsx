@@ -9,9 +9,11 @@ export const Header = () => {
 
   console.log(isLoggedIn);
   return (
-    <HeaderStyled>
-      <Logo />
-      {isLoggedIn ? <UserInfo /> : <Navigation />}
-    </HeaderStyled>
+    <>
+      <HeaderStyled>
+        <Logo />
+        {isLoggedIn ? <UserInfo /> : <Navigation />}
+      </HeaderStyled>
+    </>
   );
 };
