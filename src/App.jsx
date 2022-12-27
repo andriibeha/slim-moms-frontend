@@ -25,6 +25,7 @@ const Calculator = lazy(() => import('./pages/Calculator/index'));
 const Diary = lazy(() => import('./pages/Diary/index'));
 const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
+const ModalPage = lazy(() => import('./pages/ModalPage/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,6 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<MainPage />} />
-
             {/* PRIVATE ROUTES */}
             <Route
               path="/logout"
@@ -74,7 +74,6 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
             <Route
               path="/add"
               element={
@@ -91,7 +90,14 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
+            <Route
+              path="/modal"
+              element={
+                <PrivateRoute>
+                  <ModalPage />
+                </PrivateRoute>
+              }
+            />
             {/* PUBLICK ROUTES */}
             <Route
               path="/login"
@@ -109,7 +115,14 @@ export const App = () => {
                 </PublicRoute>
               }
             />
-
+            <Route
+              path="/diet"
+              element={
+                <PublicRoute>
+                  <ModalPage />
+                </PublicRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

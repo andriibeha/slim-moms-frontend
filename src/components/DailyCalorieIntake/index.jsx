@@ -16,8 +16,13 @@ import { clearState } from '../../redux/bloodDiet/operations';
 import { toggleModal } from 'redux/modal/slice';
 
 const DailyCalorieIntake = () => {
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const dataApi = useSelector(state => state.bloodDiet.data);
-  const { notRecProducts, dailyCalorie } = dataApi.result;
+  const dataApiUser = useSelector(state => state.bloodDiet.data.data);
+
+  const { notRecProducts, dailyCalorie } = isLoggedIn
+    ? dataApiUser.user
+    : dataApi.result;
 
   const dispatch = useDispatch();
 

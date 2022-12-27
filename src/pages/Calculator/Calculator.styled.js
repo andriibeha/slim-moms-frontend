@@ -7,6 +7,7 @@ export const CalculatorStyledPage = styled('div')`
     flex-direction: row;
   }
 `;
+
 export const CalculatorStyled = styled('div')`
   padding-top: 40px;
   // padding-left: 20px;
@@ -20,3 +21,4 @@ export const CalculatorStyled = styled('div')`
     align-items: start;
   }
 `;
+

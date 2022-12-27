@@ -1,6 +1,8 @@
 // import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
 import { RightSideBar } from 'components/RightSideBar';
-import { CalculatorStyled, CalculatorStyledPage } from './Calculator.styled';
+import { 
+
+  CalculatorStyledPage } from './Calculator.styled';
 
 import { BarBackground } from 'components/BarBackground';
 import { CalculateCaloriesForm } from 'components/CalculateCaloriesForm';
