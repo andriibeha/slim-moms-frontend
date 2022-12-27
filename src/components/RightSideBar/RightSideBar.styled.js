@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Box = styled.div`
+width:100%;
   display: flex;
   flex-direction: column;
   padding: 40px 20px 12px 20px;
@@ -8,7 +9,7 @@ export const Box = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    padding: 80px 0px 40px 32px;
+    padding: 80px 32px 40px 32px;
   }
   @media screen and (min-width: 1280px) {
     flex-direction: column;
@@ -21,9 +22,11 @@ export const BoxList = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 40px;
-  @media screen and (min-width: 768px) {
-    margin-right: 97px;
-    margin-bottom: 60px;
+  @media screen and (min-width: 1280px) {
+   margin-right: 97px;
+   &:last-child {
+    margin-bottom: 0;
+  }
   }
 `;
 
@@ -47,10 +50,11 @@ export const List = styled('ul')`
   list-style-position: inside;
   margin: 0;
   padding: 0;
-  width: 400px;
+  max-width: 400px;
   max-height: 180px;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  z-index: 10;
 `;
 
 export const Item = styled.li`
@@ -84,6 +88,7 @@ export const Container = styled.div`
   font-style: normal;
   font-weight: 400;
   color: #9b9faa;
+ 
 `;
 export const ContainerItem = styled.div`
   display: flex;

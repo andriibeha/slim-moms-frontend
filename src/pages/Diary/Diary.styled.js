@@ -11,9 +11,9 @@ flex-direction: row;
   }
 `;
 export const DiaryStyled = styled('div')`
-  padding-top: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  // padding-top: 40px;
+  // padding-left: 20px;
+  // padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@ export const MobileWrapper = styled('div')`
 `;
 
 export const MobileButton = styled(Link)`
-  margin-top: 60px;
+  margin: 30px 0px;
   color: ${theme.colors.white};
   font-weight: ${theme.fontWeights.bold};
   display: flex;
