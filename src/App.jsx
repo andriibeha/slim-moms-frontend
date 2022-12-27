@@ -29,11 +29,12 @@ const ModalPage = lazy(() => import('./pages/ModalPage/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, token } = useAuth();
 
   useEffect(() => {
+    if (!token) return;
     dispatch(fetchCurrentUser());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   const showModal = useSelector(state => state.modal.showModal);
 
