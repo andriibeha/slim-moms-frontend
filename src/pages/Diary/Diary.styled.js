@@ -22,6 +22,10 @@ export const DiaryStyled = styled('div')`
     padding-left: 32px;
     align-items: start;
   }
+  @media screen and (min-width: 768px) {
+    padding-top: 145px;
+
+  }
 `;
 
 export const Wrapper = styled('div')`

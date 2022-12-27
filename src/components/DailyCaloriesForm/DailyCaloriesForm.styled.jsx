@@ -7,7 +7,7 @@ export const Wrap = styled.div`
   max-width: 610px;
   padding: 32px 20px 100px;
   @media screen and (min-width: 768px) {
-    padding: 100px 32px 501px;
+    padding: 100px 32px 48px;
   }
   @media screen and (min-width: 1280px) {
     padding: 140px 16px 214px;
