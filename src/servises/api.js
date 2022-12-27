@@ -1,11 +1,10 @@
 import axios from 'axios';
 
 export const apiAxios = axios.create({
-  baseURL: 'http://localhost:5001/api/',
+  baseURL: 'https://slim-moms-backend.onrender.com/api/',
 });
 
 export const apiToken = {
-  // Потрібн опереписати для всіх запросів
   set(token) {
     apiAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },

@@ -30,7 +30,7 @@ export const DailyCaloriesForm = () => {
   const [bloodType, setBloodType] = useState('');
 
   const dispatch = useDispatch();
-  const savedFormData = useSelector(state => state.user.userDate);
+  const savedFormData = useSelector(state => state.user); // ТУТ ЗАБРАВ userData
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const mds = window.matchMedia('(min-width: 768px)');
 
