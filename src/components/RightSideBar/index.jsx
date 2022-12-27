@@ -12,18 +12,10 @@ import {
   ContainerItem,
 } from './RightSideBar.styled';
 import { diarySelectors } from 'redux/diary/diarySelectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { userSelector } from '../../redux/user/userSelector';
-import { useEffect } from 'react';
-import { getUser } from '../../redux/user/userOperation';
 
 export const RightSideBar = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
-
   const userDailyCalories = useSelector(userSelector.selectUserDailyCalorie);
   const usernotRecProducts = useSelector(userSelector.selectUserNotRecProducts);
 
