@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../redux/auth/auth-selectors';
 
-const PublicRoute = ({ children }) => {
+const PublicRoute = ({ children, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return !isLoggedIn ? children : <Navigate to="/diary" replace />;
+  return !isLoggedIn ? children : <Navigate to={redirectTo} replace />;
 };
 
 PublicRoute.propTypes = {
