@@ -39,9 +39,6 @@ export const ModalWindow = styled.div`
 `;
 
 export const ModalButton = styled.button`
-  display: none;
-
-  @media screen and (min-width: 768px) {
     position: absolute;
     top: 24px;
     right: 24px;

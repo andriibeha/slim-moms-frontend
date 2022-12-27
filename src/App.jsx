@@ -57,7 +57,6 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<MainPage />} />
-
             {/* PRIVATE ROUTES */}
             <Route
               path="/logout"
@@ -75,7 +74,6 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
             <Route
               path="/add"
               element={
@@ -100,7 +98,6 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
             {/* PUBLICK ROUTES */}
             <Route
               path="/login"
@@ -118,7 +115,14 @@ export const App = () => {
                 </PublicRoute>
               }
             />
-
+            <Route
+              path="/diet"
+              element={
+                <PublicRoute>
+                  <ModalPage />
+                </PublicRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

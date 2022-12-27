@@ -130,7 +130,8 @@ export const DailyCaloriesForm = () => {
     }
     reset();
   };
-  if (apiSuccess) return <Navigate to="/modal" />;
+  if (apiSuccess && isLoggedIn) return <Navigate to="/modal" />;
+  if (apiSuccess && !isLoggedIn) return <Navigate to="/diet" />;
 
   return (
     <Wrap>
