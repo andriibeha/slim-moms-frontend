@@ -4,15 +4,11 @@ import PropTypes from 'prop-types';
 // import { selectIsLoggedIn } from '../redux/auth/auth-selectors';
 import { useAuth } from 'hooks/useAuth';
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ children, redirectTo = '/' }) => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-  return isLoggedIn && !isRefreshing ? (
-    children
-  ) : (
-    <Navigate to="/registration" replace />
-  );
+  return isLoggedIn ? children : <Navigate to={redirectTo} replace />;
 };
 
 PrivateRoute.propTypes = {

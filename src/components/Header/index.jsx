@@ -1,17 +1,24 @@
 import { Logo } from 'components/Logo';
-import { HeaderStyled } from './Header.Styled';
+import { HeaderStyled, HeaderStyledContent } from './Header.Styled';
 import { UserInfo } from 'components/UserInfo';
 import { Navigation } from 'components/Navigation';
 import { useAuth } from 'hooks/useAuth';
+import { GlobalContainerStyled } from 'components/SharedLayout/GlobalContainer.styled';
 
 export const Header = () => {
   const { isLoggedIn } = useAuth();
 
   console.log(isLoggedIn);
   return (
-    <HeaderStyled>
-      <Logo />
-      {isLoggedIn ? <UserInfo /> : <Navigation />}
-    </HeaderStyled>
+    <>
+      <HeaderStyled>
+        <GlobalContainerStyled>
+          <HeaderStyledContent>
+            <Logo />
+            {isLoggedIn ? <UserInfo /> : <Navigation />}
+          </HeaderStyledContent>
+        </GlobalContainerStyled>
+      </HeaderStyled>
+    </>
   );
 };

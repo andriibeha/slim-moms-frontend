@@ -3,13 +3,13 @@ import { RightSideBar } from 'components/RightSideBar';
 import { CalculatorStyledPage } from './Calculator.styled';
 
 import { BarBackground } from 'components/BarBackground';
+// import { CalculateCaloriesForm } from 'components/CalculateCaloriesForm';
 
 const Calculator = () => {
   return (
     <BarBackground>
       <CalculatorStyledPage>
         <DailyCaloriesForm />
-
         <RightSideBar />
       </CalculatorStyledPage>
     </BarBackground>

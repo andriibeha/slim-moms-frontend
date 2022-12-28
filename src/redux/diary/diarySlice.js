@@ -3,6 +3,7 @@ import { getByDate, addProduct, removeProduct } from './diaryOperations';
 
 const initialState = {
   selectedDate: '',
+  date: null,
   caloricityPerDay: null,
   dateFirstAdded: '',
   products: [],
@@ -38,6 +39,7 @@ const diarySlice = createSlice({
       .addCase(getByDate.fulfilled, (state, { payload }) => {
         const { result, caloricityPerDay, dateFirstAdded } = payload.data;
         state.products = [...result].reverse();
+
         state.caloricityPerDay = caloricityPerDay;
         state.dateFirstAdded = dateFirstAdded;
       })

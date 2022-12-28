@@ -11,14 +11,15 @@ import {
   Content,
   ContainerItem,
 } from './RightSideBar.styled';
-import { useAuth } from 'hooks/useAuth';
 import { diarySelectors } from 'redux/diary/diarySelectors';
 import { useSelector } from 'react-redux';
+import { userSelector } from '../../redux/user/userSelector';
 
 export const RightSideBar = () => {
   const { user } = useAuth();
   const notRecProducts = user.data.user.notRecProducts;
   const dailyCalorie = user.data.user.dailyCalorie;
+
   const caloricityPerDay = useSelector(diarySelectors.selectCaloricityPerDay);
   const selectedDate = useSelector(diarySelectors.selectDate);
   const normalizedSelectedDate = new Date(selectedDate)

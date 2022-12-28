@@ -99,13 +99,14 @@ export const DiaryAddProductForm = () => {
             value={selectedOption}
             onChange={handleChange}
             options={options}
+            noOptionsMessage={() => null}
             inputValue={product}
             onInputChange={setProduct}
             styles={selectStyles}
             placeholder="Enter product name"
           />
           {errorProduct ? (
-            <p style={{ color: 'red' }}>Field "product" is required</p>
+            <p style={{ color: 'red' }}>Field "Product" is required</p>
           ) : null}
         </Box>
         <Box>
@@ -118,7 +119,7 @@ export const DiaryAddProductForm = () => {
             placeholder="Gramms"
           />
           {errorWeight ? (
-            <p style={{ color: 'red' }}>Field "weight" is required</p>
+            <p style={{ color: 'red' }}>Field "Gramms" is required</p>
           ) : null}
         </Box>
         {width > 767 ? (

@@ -14,9 +14,10 @@ import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
 import { useAuth } from 'hooks/useAuth';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
-
+import Loader from 'components/Loader/Loader';
 //Add lazy
 import { AddProduct } from 'pages/AddProduct';
+import RegisterRoute from 'routes/RegisterRoutes';
 
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/index'));
 const Login = lazy(() => import('./pages/Login/index'));
@@ -25,14 +26,16 @@ const Calculator = lazy(() => import('./pages/Calculator/index'));
 const Diary = lazy(() => import('./pages/Diary/index'));
 const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
+const ModalPage = lazy(() => import('./pages/ModalPage/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, token } = useAuth();
 
   useEffect(() => {
+    if (!token) return;
     dispatch(fetchCurrentUser());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   const showModal = useSelector(state => state.modal.showModal);
 
@@ -49,14 +52,12 @@ export const App = () => {
     <>
       <Global styles={GlobalStyles} />
       {showModal && <Modal />}
-      {/* <Suspense fallback={<Loader />}> */}
       {isRefreshing ? (
-        <p>Refreshing...</p>
+        <Loader />
       ) : (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<MainPage />} />
-
             {/* PRIVATE ROUTES */}
             <Route
               path="/logout"
@@ -74,7 +75,6 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
             <Route
               path="/add"
               element={
@@ -91,12 +91,19 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-
+            <Route
+              path="/modal"
+              element={
+                <PrivateRoute>
+                  <ModalPage />
+                </PrivateRoute>
+              }
+            />
             {/* PUBLICK ROUTES */}
             <Route
               path="/login"
               element={
-                <PublicRoute>
+                <PublicRoute redirectTo="/diary">
                   <Login />
                 </PublicRoute>
               }
@@ -104,12 +111,19 @@ export const App = () => {
             <Route
               path="/registration"
               element={
-                <PublicRoute>
+                <RegisterRoute redirectTo="/login">
                   <RegistrationPage />
+                </RegisterRoute>
+              }
+            />
+            <Route
+              path="/diet"
+              element={
+                <PublicRoute>
+                  <ModalPage />
                 </PublicRoute>
               }
             />
-
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

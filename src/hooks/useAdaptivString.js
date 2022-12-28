@@ -8,7 +8,7 @@ export const useAdaptivString = str => {
     if (!str) return;
     if (width > 767) {
       return setNormalizeString(
-        str.length > 33 ? str.slice(0, 30) + '...' : str
+        str.length > 25 ? str.slice(0, 22) + '...' : str
       );
     } else {
       return setNormalizeString(

@@ -4,6 +4,7 @@ const selectCaloricityPerDay = state => state.diary.caloricityPerDay;
 const selectDateFirstAdded = state => state.diary.dateFirstAdded;
 const selectIsLoading = state => state.diary.isLoading;
 const selectError = state => state.diary.error;
+const selectReturnedDate = state => state.diary.date;
 
 
 export const diarySelectors = {
@@ -13,5 +14,5 @@ export const diarySelectors = {
   selectDateFirstAdded,
   selectIsLoading,
   selectError,
-
+  selectReturnedDate
 };

@@ -16,7 +16,8 @@ export const GlobalStyles = css`
 
   @font-face {
     font-family: Verdana;
-    src: url('../fonts/verdana-font-family/Verdana-bold.ttf'), format('truetype');
+    src: url('../fonts/verdana-font-family/Verdana-bold.ttf'),
+      format('truetype');
     font-weight: bold;
   }
 
@@ -60,5 +61,6 @@ export const GlobalStyles = css`
     padding: 0;
     margin: 0;
     border: 0;
+    background: none;
   }
 `;

@@ -38,7 +38,6 @@ export const store = configureStore({
   reducer: {
     // login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-
     user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,
@@ -46,13 +45,13 @@ export const store = configureStore({
     diary: diaryReducer,
   },
 
-  middleware(getDefaultMiddleware) {
-    return getDefaultMiddleware({
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    });
-  },
+    }),
+  ],
 });
 
 export const persistor = persistStore(store);

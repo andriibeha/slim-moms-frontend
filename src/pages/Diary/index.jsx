@@ -1,3 +1,8 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getByDate } from 'redux/diary/diaryOperations';
+import { getUser } from '../../redux/user/userOperation';
+import { diarySelectors } from 'redux/diary/diarySelectors';
 import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
 import { DiaryDateCalendar } from 'components/DiaryDateСalendar';
 import { DiaryProductsList } from 'components/DiaryProductsList';
@@ -14,11 +19,18 @@ import {
 } from './Diary.styled';
 import { useWindowResize } from 'hooks/useWindowResize';
 import { BarBackground } from 'components/BarBackground';
-// import { authSelectors } from '../../redux/auth/auth-selectors';
-// import { useSelector } from 'react-redux';
 
 export const Diary = () => {
+  const date = useSelector(diarySelectors.selectDate);
+  const dispatch = useDispatch();
+
   const { width } = useWindowResize();
+  useEffect(() => {
+    if (date) {
+      dispatch(getUser());
+      dispatch(getByDate(date));
+    }
+  }, [date, dispatch]);
 
   return (
     <BarBackground>

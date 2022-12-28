@@ -19,7 +19,7 @@ export const UserInfoBox = styled.div`
 
 export const UserNameContainer = styled.div`
   position: absolute;
-  max-width: 100%;
+  /* max-width: 100%; */
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 4px;
@@ -38,16 +38,17 @@ export const UserNameContainer = styled.div`
   width: 100%;
   height: 40px;
   left: 0;
-  top: 74px;
+  top: 75px;
 
   @media screen and (min-width: 768px) {
     padding-right: 48px;
     background: none;
-    position: relative;
-    top: 0;
-    left: 70%;
+    position: static;
+    width: 100%;
+    display: block;
   }
   @media screen and (min-width: 1280px) {
+    padding-right: 0;
   }
 `;
 
@@ -67,6 +68,7 @@ export const NavLinkBox = styled.div`
 
 export const NameBox = styled.div`
   display: flex;
+  justify-content: end;
 `;
 
 export const UserName = styled.p`
@@ -102,7 +104,7 @@ export const ModalBox = styled.div`
   z-index: 50;
   width: 100vw;
   height: 200vh;
-  top: 74px;
+  top: 75px;
   left: 0;
   transform: translateX(150%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

@@ -15,6 +15,7 @@ const API = apiAxios;
 //     axios.defaults.headers.common.Authorization = '';
 //   },
 // };
+
 // нащо в реєстрації вертать щось, якщо ми це не використовуємо
 export const register = createAsyncThunk(
   'auth/register',
@@ -39,6 +40,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
@@ -60,7 +62,6 @@ export const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      console.log('Токена нет, уходим из fetchCurrentUser');
       return thunkAPI.rejectWithValue();
     }
     token.set(persistedToken);

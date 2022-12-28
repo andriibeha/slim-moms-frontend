@@ -1,10 +1,8 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import { store } from '../store';
-import axios from 'axios';
+import { apiAxios, apiToken } from '../../servises/api';
 
-axios.defaults.baseURL = 'http://localhost:5001';
-
-const token = {
+/* const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -12,12 +10,13 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+ */
 
 export const getDiet = createAsyncThunk(
   'blood',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/bloodproducts', credentials);
+      const { data } = await apiAxios.post('bloodproducts', credentials);
       console.log(data);
       return data;
     } catch (error) {
@@ -33,8 +32,8 @@ export const getDietUser = createAsyncThunk(
   'blood',
   async (credentials, thunkAPI) => {
     try {
-      token.set(store.getState().auth.token);
-      const { data } = await axios.patch('/api/users/update', credentials);
+      apiToken.set(store.getState().auth.token);
+      const { data } = await apiAxios.patch('users/update', credentials);
       console.log(data);
       return data;
     } catch (error) {

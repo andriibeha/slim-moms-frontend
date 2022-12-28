@@ -2,12 +2,11 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { theme } from 'components/Theme';
 
-
 export const DiaryStyledPage = styled('div')`
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 1280px) {
-flex-direction: row;
+    flex-direction: row;
   }
 `;
 export const DiaryStyled = styled('div')`
@@ -22,9 +21,8 @@ export const DiaryStyled = styled('div')`
     padding-left: 32px;
     align-items: start;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 145px;
-
   }
 `;
 
