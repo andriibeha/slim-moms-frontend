@@ -17,8 +17,8 @@ import { useAuth } from '../../hooks/useAuth';
 
 export const RightSideBar = () => {
   const { user } = useAuth();
-  const notRecProducts = user.data.user.notRecProducts;
-  const dailyCalorie = user.data.user.dailyCalorie;
+  const notRecProducts = user.notRecProducts || [];
+  const dailyCalorie = user.dailyCalorie || 0;
 
   const caloricityPerDay = useSelector(diarySelectors.selectCaloricityPerDay);
   const selectedDate = useSelector(diarySelectors.selectDate);
