@@ -5,17 +5,15 @@ export const NavStyled = styled('nav')`
   padding-top: 18px;
   position: relative;
 
-  &::before {
-    content: '';
-    top: 57px;
-    left: -36px;
-    width: 32px;
-    rotate: 90deg;
-    position: absolute;
-    border-bottom: 2px solid #e0e0e0;
-
-    @media screen and (max-width: 1279px) {
-      display: none;
+  @media screen and (min-width: 1280px) {
+    &::before {
+      content: '';
+      top: 57px;
+      left: -36px;
+      width: 32px;
+      rotate: 90deg;
+      position: absolute;
+      border-bottom: 2px solid #e0e0e0;
     }
   }
 
