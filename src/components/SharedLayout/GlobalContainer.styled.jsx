@@ -18,7 +18,7 @@ export const GlobalContainerStyled = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1600px;
+    width: 1280px;
     padding-right: 16px;
     padding-left: 16px;
   }
