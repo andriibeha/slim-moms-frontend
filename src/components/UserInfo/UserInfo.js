@@ -74,7 +74,7 @@ export const UserInfo = () => {
       </NavLinkBox>
 
       <UserNameContainer>
-        <BackLink to={location.state?.from ?? '/'}>
+        <BackLink to={location.state?.from ?? '/diary'}>
           <BackArrow>
             <use href={sprite + '#icon-enter-arrow'}></use>
           </BackArrow>

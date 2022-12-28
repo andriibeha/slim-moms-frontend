@@ -10,7 +10,7 @@ export const DiaryStyledPage = styled('div')`
   }
 `;
 export const DiaryStyled = styled('div')`
-  // padding-top: 40px;
+  padding-top: 80px;
   // padding-left: 20px;
   // padding-right: 20px;
   display: flex;
