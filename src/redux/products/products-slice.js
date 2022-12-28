@@ -3,9 +3,8 @@ import {
   removeProduct,
   getAllProducts,
   getProductByQuery,
-  addProduct
+  addProduct,
 } from './products-operations';
-
 
 const handlePending = state => {
   state.isLoading = true;
@@ -23,6 +22,7 @@ const handleProducts = (state, { payload }) => {
 
 const handleProductsByQuery = (state, { payload }) => {
   state.error = null;
+  state.isLoading = false;
   state.productsByQuery = payload;
 };
 

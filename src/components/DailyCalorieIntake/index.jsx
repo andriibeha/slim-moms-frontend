@@ -13,7 +13,7 @@ import {
 } from './DailyCalorieIntake.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearState } from '../../redux/bloodDiet/operations';
-import { toggleModal } from 'redux/modal/slice';
+import { toggleModal } from 'redux/bloodDiet/operations';
 import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 

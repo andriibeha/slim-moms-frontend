@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleModal } from '../../redux/modal/slice';
+import { toggleModal } from '../../redux/bloodDiet/operations';
 import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 import DailyCalorieIntake from '../DailyCalorieIntake';
 import {

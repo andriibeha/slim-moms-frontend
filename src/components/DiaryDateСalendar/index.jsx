@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
+import 'react-toastify/dist/ReactToastify.css';
 import moment from 'moment';
 import 'moment/locale/en-au';
 import {
@@ -10,16 +11,13 @@ import {
 } from './DiaryDateСalendar.styled';
 import sprite from 'images/icons.svg';
 import { setDate } from 'redux/diary/diarySlice';
-// import { diarySelectors } from 'redux/diary/diarySelectors';
+import { creatNotifyError } from 'helpers/createNotify';
 
 export const DiaryDateCalendar = () => {
   const dispatch = useDispatch();
 
   const [value, setValue] = useState(moment(new Date()));
   const [isOpen, setIsOpen] = useState(false);
-  // const dateFirstAdded = new Date(
-  //   useSelector(diarySelectors.selectDateFirstAdded)
-  // );
 
   const dateFirstAdded = 'November 15, 2022';
   const first = moment(new Date(dateFirstAdded));
@@ -33,13 +31,11 @@ export const DiaryDateCalendar = () => {
     dispatch(setDate(normalizeDate(value)));
   }, [value, dispatch]);
 
-  console.log(first);
-
   const onChange = newValue => {
     setIsOpen(false);
 
     if (newValue > current || newValue < first) {
-      alert('Selected date is not valid');
+      creatNotifyError('Selected date is not valid');
       setValue(current);
       return;
     }

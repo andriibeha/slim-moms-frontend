@@ -7,13 +7,15 @@ import { LoginPage, TitleLogIn } from './loginPage.styled';
 const Login = () => {
   const { isLoading } = useAuth();
   return (
-    <AuthBackground>
+    <>
+    <AuthBackground/>
     <LoginPage>
       <TitleLogIn>LOG IN</TitleLogIn>
       <FormLogin />
       {isLoading && <Loader />}
       </LoginPage>
-      </AuthBackground>
+      {/* // </AuthBackground> */}
+      </>
   );
 };
 

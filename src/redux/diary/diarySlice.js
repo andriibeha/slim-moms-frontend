@@ -10,7 +10,6 @@ import { getByDate, addProduct, removeProduct } from './diaryOperations';
 const initialState = {
   selectedDate: '',
   caloricityPerDay: null,
-
   products: [],
   isLoading: false,
   error: null,
@@ -55,7 +54,6 @@ const diarySlice = createSlice({
         if (payload === 'Request failed with status code 404') {
           state.products = [];
           state.caloricityPerDay = '';
-          // state.dateFirstAdded = '';
         }
       })
       .addCase(addProduct.fulfilled, (state, { payload }) => {

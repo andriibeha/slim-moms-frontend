@@ -19,6 +19,7 @@ import Loader from 'components/Loader/Loader';
 //Add lazy
 import { AddProduct } from 'pages/AddProduct';
 import RegisterRoute from 'routes/RegisterRoutes';
+import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/index'));
 const Login = lazy(() => import('./pages/Login/index'));
@@ -31,14 +32,13 @@ const ModalPage = lazy(() => import('./pages/ModalPage/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, token } = useAuth();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    if (!token) return;
     dispatch(fetchCurrentUser());
-  }, [dispatch, token]);
+  }, [dispatch]);
 
-  const showModal = useSelector(state => state.modal.showModal);
+  const showModal = useSelector(bloodSelectors.selectShowModal);
 
   useEffect(() => {
     if (showModal) {

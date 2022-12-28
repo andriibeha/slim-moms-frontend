@@ -14,12 +14,12 @@ import {
 
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeUserDate } from '../../redux/user/slice';
-import { toggleModal } from '../../redux/modal/slice';
-import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
+// import { changeUserDate } from '../../redux/bloodDiet/operations';
+// import { toggleModal } from '../../redux/bloodDiet/operations';
+import { getDiet, getDietUser, toggleModal, changeUserDate } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { userSelector } from 'redux/user/userSelector';
+import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors'; 
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import calculatorSchema from '../../utils/schemas/CalculatorSchema';
 
@@ -32,7 +32,7 @@ export const DailyCaloriesForm = () => {
   const [bloodType, setBloodType] = useState('1');
 
   const dispatch = useDispatch();
-  const savedFormData = useSelector(userSelector.selectUserSavedData);
+  const savedFormData = useSelector(bloodSelectors.selectUserDate);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const mds = window.matchMedia('(min-width: 768px)');
 
