@@ -20,8 +20,6 @@ import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-// import { redirect } from 'react-router-dom';
-
 export const DailyCaloriesForm = () => {
   const [apiSuccess, setApiSuccess] = useState(false);
   const [height, setHeight] = useState('');

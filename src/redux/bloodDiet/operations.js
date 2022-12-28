@@ -1,16 +1,5 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
-import { store } from '../store';
-import { apiAxios, apiToken } from '../../servises/api';
-
-/* const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
- */
+import { apiAxios } from '../../servises/api';
 
 export const getDiet = createAsyncThunk(
   'blood',
@@ -32,7 +21,6 @@ export const getDietUser = createAsyncThunk(
   'blood',
   async (credentials, thunkAPI) => {
     try {
-      apiToken.set(store.getState().auth.token);
       const { data } = await apiAxios.patch('users/update', credentials);
       console.log(data);
       return data;
