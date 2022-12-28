@@ -19,6 +19,7 @@ import { toggleModal } from '../../redux/modal/slice';
 import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+
 // import { redirect } from 'react-router-dom';
 
 export const DailyCaloriesForm = () => {
@@ -27,7 +28,7 @@ export const DailyCaloriesForm = () => {
   const [age, setAge] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
-  const [bloodType, setBloodType] = useState('');
+  const [bloodType, setBloodType] = useState('1');
 
   const dispatch = useDispatch();
   const savedFormData = useSelector(state => state.user.userDate);
@@ -40,9 +41,10 @@ export const DailyCaloriesForm = () => {
       setAge(savedFormData.age);
       setCurrentWeight(savedFormData.curWeight);
       setDesiredWeight(savedFormData.desWeight);
+      console.log('bloodType', bloodType);
       setBloodType(savedFormData.bloodType);
     }
-  }, [isLoggedIn, savedFormData]);
+  }, [isLoggedIn, savedFormData, bloodType]);
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -74,7 +76,7 @@ export const DailyCaloriesForm = () => {
     setAge('');
     setCurrentWeight('');
     setDesiredWeight('');
-    setBloodType('');
+    setBloodType('1');
   };
 
   const handleSubmit = async event => {
@@ -133,6 +135,7 @@ export const DailyCaloriesForm = () => {
     }
     reset();
   };
+
   if (apiSuccess && isLoggedIn) return <Navigate to="/modal" />;
   if (apiSuccess && !isLoggedIn) return <Navigate to="/diet" />;
 
