@@ -40,7 +40,8 @@ export const ProductProp = styled.div`
 
 export const ExitBtn = styled.button`
   background: none;
-  cursor:pointer;
+  cursor: pointer;
+  margin-left: 10px;
 `;
 
 export const Unit = styled.span`

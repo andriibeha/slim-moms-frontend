@@ -5,7 +5,9 @@ export const Wrap = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 610px;
-  padding-top: 32px;
+
+  padding: 72px 0 100px;
+
   @media screen and (min-width: 768px) {
     padding-top: 100px;
   }
@@ -74,17 +76,15 @@ export const LabelBlood = styled.label`
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #9b9faa;
-  margin-bottom:40px ;
-`
+  margin-bottom: 40px;
+`;
 export const BloodTypeTitle = styled.p`
-margin-bottom: 8px;
-@media (min-width: 768px) {
+  margin-bottom: 8px;
+  @media (min-width: 768px) {
     height: 36px;
     border-bottom: 1px solid #e0e0e0;
-
-    }`
-
-
+  }
+`;
 
 export const Input = styled.input`
   display: block;

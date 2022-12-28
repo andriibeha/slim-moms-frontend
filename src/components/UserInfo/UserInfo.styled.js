@@ -19,7 +19,7 @@ export const UserInfoBox = styled.div`
 
 export const UserNameContainer = styled.div`
   position: absolute;
-  /* max-width: 100%; */
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 4px;
@@ -35,10 +35,11 @@ export const UserNameContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  width: 100vw;
+  max-width: 480px;
   height: 40px;
-  left: 0;
-  top: 75px;
+  left: -20px;
+  top: 56px;
 
   @media screen and (min-width: 768px) {
     padding-right: 48px;
