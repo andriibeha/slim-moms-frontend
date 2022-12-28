@@ -6,10 +6,11 @@ export const Wrap = styled.div`
   width: 100%;
   max-width: 610px;
 
-  padding: 72px 0 100px;
+  padding: 32px 0 41px;
 
   @media screen and (min-width: 768px) {
     padding-top: 100px;
+    padding-bottom: 48px;
   }
   @media screen and (min-width: 1280px) {
     padding-top: 140px;
@@ -186,6 +187,6 @@ export const ButtonContainer = styled.div`
     align-self: flex-start;
   }
   @media screen and (min-width: 1280px) {
-    margin-left: auto;
+    margin-left: 339px;
   }
 `;
