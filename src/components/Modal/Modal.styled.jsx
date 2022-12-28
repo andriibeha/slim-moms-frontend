@@ -49,7 +49,7 @@ export const ModalButton = styled.button`
   cursor: pointer;
 
   &:hover,
-  :focus {
+  &:focus {
     fill: ${theme.colors.accent};
   }
 `;

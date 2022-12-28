@@ -1,13 +1,15 @@
-// import Loader from 'components/Loader/Loader';
+import { useSelector } from 'react-redux';
+import Loader from 'components/Loader/Loader';
 import { DailyCaloriesForm } from 'components/DailyCaloriesForm';
 import { MainBackground } from 'components/MainBackground';
 
 const MainPage = () => {
+  const isLoading = useSelector(state => state.bloodDiet.isLoading);
   return (
     <>
       <MainBackground>
-        {/* <Loader /> */}
         <DailyCaloriesForm />
+        {isLoading && <Loader />}
       </MainBackground>
     </>
   );
