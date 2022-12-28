@@ -13,7 +13,7 @@ import {
 } from './RightSideBar.styled';
 import { diarySelectors } from 'redux/diary/diarySelectors';
 import { useSelector } from 'react-redux';
-import { userSelector } from '../../redux/user/userSelector';
+import { useAuth } from '../../hooks/useAuth';
 
 export const RightSideBar = () => {
   const { user } = useAuth();
