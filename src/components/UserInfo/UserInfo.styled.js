@@ -35,9 +35,10 @@ export const UserNameContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  width: 100vw;
+  max-width: 480px;
   height: 40px;
-  left: 0;
+  left: -20px;
   top: 56px;
 
   @media screen and (min-width: 768px) {
