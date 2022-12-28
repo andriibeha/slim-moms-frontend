@@ -21,7 +21,7 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { userSelector } from 'redux/user/userSelector';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
-
+import calculatorSchema from '../../utils/schemas/CalculatorSchema';
 
 export const DailyCaloriesForm = () => {
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -139,10 +139,7 @@ export const DailyCaloriesForm = () => {
   return (
     <Wrap>
       <Title>Calculate your daily calorie intake right now</Title>
-      <Form
-        validationSchema={calculatorSchema}
-        onSubmit={handleSubmit}
-      >
+      <Form validationSchema={calculatorSchema} onSubmit={handleSubmit}>
         <WrapBox>
           <Label htmlFor="height">
             Height *
