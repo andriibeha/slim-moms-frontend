@@ -19,7 +19,6 @@ import {
 } from './RegistrationForm.styled';
 import { ShowPasswordButton } from 'components/Button/ShowPasswordButton';
 
-
 const FormError = ({ name }) => {
   return (
     <ErrorMessage
@@ -41,8 +40,8 @@ const schema = yup.object().shape({
     .required('Email is a required field'),
   password: yup
     .string()
-    .min(3, 'Password must be at least 3 characters')
-    .max(8, 'Password must be at most 8 characters')
+    .min(8, 'Password must be at least 8 characters')
+    .max(100, 'Password must be at most 100 characters')
     .required('Password is a required field'),
 });
 
@@ -52,14 +51,13 @@ const initialValues = {
   password: '',
 };
 
-
 export const RegistrationForm = () => {
   const [showPassword, setShow] = useState(false);
   const handleClick = () => setShow(!showPassword);
   const dispatch = useDispatch();
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(register({ name, email, password }));
-    console.log({ name, email, password })
+    console.log({ name, email, password });
     resetForm();
   };
 
@@ -70,49 +68,45 @@ export const RegistrationForm = () => {
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
-      <Wrap>
-        <Title>Register</Title>
+        <Wrap>
+          <Title>Register</Title>
 
-        <FormReg autoComplete='off'>
-          <FormList>
-            <FormItem>
-              <Label htmlFor="name">Name *</Label>
+          <FormReg autoComplete="off">
+            <FormList>
+              <FormItem>
+                <Label htmlFor="name">Name *</Label>
                 <Input id="name" name="name" type="text" />
                 <FormError name="name" component="p" />
-            </FormItem>
-            <FormItem>
-              <Label htmlFor="email">Email  *</Label>
+              </FormItem>
+              <FormItem>
+                <Label htmlFor="email">Email *</Label>
                 <Input id="email" name="email" type="text" />
                 <FormError name="email" component="p" />
-            </FormItem>
+              </FormItem>
 
-            <FormItem>
-              <Label htmlFor="password">Password *</Label>
-             <Input
-                id="password"
-                name="password"
-                type={showPassword ? 'true' : 'password'}
+              <FormItem>
+                <Label htmlFor="password">Password *</Label>
+                <Input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'true' : 'password'}
                 />
                 <FormError name="password" component="p" />
-              <ShowPasswordButton handleClick={handleClick} show={showPassword}/>
-                
-            </FormItem>
-          </FormList>
-          <ButtonsContainer >
-          <ButtonAuth text="Register"></ButtonAuth>
-          <Link to="/login">
-              <ButtonLinkAuth text="Log in"></ButtonLinkAuth>
-          </Link>
-          
-        </ButtonsContainer>
-        </FormReg>
-
-        
+                <ShowPasswordButton
+                  handleClick={handleClick}
+                  show={showPassword}
+                />
+              </FormItem>
+            </FormList>
+            <ButtonsContainer>
+              <ButtonAuth text="Register"></ButtonAuth>
+              <Link to="/login">
+                <ButtonLinkAuth text="Log in"></ButtonLinkAuth>
+              </Link>
+            </ButtonsContainer>
+          </FormReg>
         </Wrap>
-        </Formik>
+      </Formik>
     </>
   );
 };
-
-
-            
