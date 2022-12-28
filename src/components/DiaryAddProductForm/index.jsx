@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
-//import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { LoaderDots } from 'components/Loader/LoaderDots';
+
 import { Button } from '../Button';
 import { Box } from 'components/Box';
 import { ContainerForm, WeightInputStyled } from './DiaryAddProductForm.styled';
@@ -26,6 +26,9 @@ export const DiaryAddProductForm = () => {
   const date = useSelector(diarySelectors.selectDate);
   const debouncedProduct = useDebounce(product, 500);
   const data = useSelector(productSelectors.selectProductsByQuery);
+  const isLoading = useSelector(
+    productSelectors.selectIsLoadingProductsByQuery
+  );
 
   const handleChange = inputValue => {
     setSelectedOption(inputValue);
@@ -99,7 +102,7 @@ export const DiaryAddProductForm = () => {
             value={selectedOption}
             onChange={handleChange}
             options={options}
-            noOptionsMessage={() => null}
+            noOptionsMessage={() => 'Product not found'}
             inputValue={product}
             onInputChange={setProduct}
             styles={selectStyles}
@@ -109,6 +112,8 @@ export const DiaryAddProductForm = () => {
             <p style={{ color: 'red' }}>Field "Product" is required</p>
           ) : null}
         </Box>
+        {isLoading ? <LoaderDots /> : null}
+
         <Box>
           <WeightInputStyled
             name="weight"
