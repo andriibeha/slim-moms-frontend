@@ -11,16 +11,20 @@ import {
   RadioButton,
   ButtonContainer,
   BloodListItem,
-    WrapBox,
-//   CalcWrap
+  WrapBox,
+  //   CalcWrap
 } from './CalculateCaloriesForm.styled';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeUserDate } from '../../redux/user/slice';
-import { toggleModal } from '../../redux/modal/slice';
-import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
+import {
+  getDiet,
+  getDietUser,
+  toggleModal,
+  changeUserDate,
+} from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
+import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 
 export const CalculateCaloriesForm = () => {
   const [height, setHeight] = useState('');
@@ -30,7 +34,7 @@ export const CalculateCaloriesForm = () => {
   const [bloodType, setBloodType] = useState(null);
 
   const dispatch = useDispatch();
-  const savedFormData = useSelector(state => state.user.userDate);
+  const savedFormData = useSelector(bloodSelectors.selectUserDate);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   const handleInputChange = event => {
@@ -55,7 +59,7 @@ export const CalculateCaloriesForm = () => {
 
   const handleRadioChange = event => {
     setBloodType(event.target.value);
-    localStorage.setItem('bloodType', JSON.stringify(event.target.value))
+    localStorage.setItem('bloodType', JSON.stringify(event.target.value));
   };
 
   const reset = () => {
@@ -114,8 +118,8 @@ export const CalculateCaloriesForm = () => {
   return (
     <Wrap>
       <Title>Calculate your daily calorie intake right now</Title>
-          <Form onSubmit={handleSubmit}>
-              {/* <CalcWrap> */}
+      <Form onSubmit={handleSubmit}>
+        {/* <CalcWrap> */}
         <WrapBox>
           <Label htmlFor="height">
             Height *
@@ -227,7 +231,7 @@ export const CalculateCaloriesForm = () => {
             </BloodList>
           </LabelBlood>
         </WrapBox>
-{/* </CalcWrap> */}
+        {/* </CalcWrap> */}
         <ButtonContainer>
           <Button type="submit" text="Start losing weight" />
         </ButtonContainer>

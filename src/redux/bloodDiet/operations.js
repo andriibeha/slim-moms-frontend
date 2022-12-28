@@ -37,3 +37,5 @@ export const getDietUser = createAsyncThunk(
 );
 
 export const clearState = createAction('data/clearState');
+export const toggleModal = createAction('showModal/toggleModal');
+export const changeUserDate = createAction('userDate/changeUserDate');
