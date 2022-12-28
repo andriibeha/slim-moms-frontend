@@ -19,7 +19,7 @@ export const DiaryItem = ({ product }) => {
         <span> g</span>
       </ProductProp>
       <ProductProp>
-        {product?.calories}
+        {Math.round(product?.calories)}
         <Unit> kcal</Unit>
       </ProductProp>
 

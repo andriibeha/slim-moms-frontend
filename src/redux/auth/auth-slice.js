@@ -60,6 +60,7 @@ const authSlice = createSlice({
     },
     [fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload.data.user;
+      state.token = action.payload.data.token;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

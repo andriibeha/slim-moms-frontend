@@ -13,7 +13,7 @@ export const DiaryProductsList = () => {
       {isLoading && <Loader />}
       <ProductListBox>
         <List>
-          {productsByDate?.length && !isLoading ? (
+          {productsByDate?.length ? (
             productsByDate.map(product => (
               <ListItem key={product._id}>
                 <DiaryItem product={product} />

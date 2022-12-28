@@ -8,9 +8,7 @@ export const selectStyles = {
     color: theme.colors.textFirst,
     backgroundColor: state.isFocused ? theme.colors.accent : theme.colors.white,
     '&:hover': {
-      backgroundColor: state.isFocused
-        ? theme.colors.accent
-        : theme.colors.white,
+      backgroundColor: theme.colors.accent,
       color: theme.colors.white,
     },
   }),

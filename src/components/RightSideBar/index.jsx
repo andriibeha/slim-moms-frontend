@@ -37,18 +37,21 @@ export const RightSideBar = () => {
           <ContainerItem>
             <Title>Left</Title>
             <Content>
-              {caloricityPerDay > 0 ? leftCalories : 0} kcal
+              {caloricityPerDay > 0 ? Math.round(leftCalories) : 0} kcal
             </Content>{' '}
           </ContainerItem>
           <ContainerItem>
             <Title>Consumed</Title>
             <Content>
-              {caloricityPerDay > 0 ? caloricityPerDay : 0} kcal{' '}
+              {caloricityPerDay > 0 ? Math.round(caloricityPerDay) : 0} kcal{' '}
             </Content>
           </ContainerItem>
           <ContainerItem>
             <Title>Daily rate </Title>
-            <Content> {dailyCalorie > 0 ? dailyCalorie : 0} kcal </Content>
+            <Content>
+              {' '}
+              {dailyCalorie > 0 ? Math.round(dailyCalorie) : 0} kcal{' '}
+            </Content>
           </ContainerItem>
           <ContainerItem>
             <Title>% of normal</Title>
