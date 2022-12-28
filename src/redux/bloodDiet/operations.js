@@ -1,5 +1,10 @@
 import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
+
+//import { store } from '../store';
+//import { apiAxios, apiToken } from '../../servises/api';
+
 import { apiAxios } from '../../servises/api';
+
 
 export const getDiet = createAsyncThunk(
   'blood',

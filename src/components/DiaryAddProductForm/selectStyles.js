@@ -7,10 +7,6 @@ export const selectStyles = {
     lineHeight: 1.17,
     color: theme.colors.textFirst,
     backgroundColor: state.isFocused ? theme.colors.accent : theme.colors.white,
-    '&:hover': {
-      backgroundColor: theme.colors.accent,
-      color: theme.colors.white,
-    },
   }),
   singleValue: (provided, state) => ({
     ...provided,
@@ -18,20 +14,22 @@ export const selectStyles = {
     lineHeight: 1.2,
     color: theme.colors.textFirst,
   }),
-  control: () => ({
+  control: state => ({
     width: 240,
     '@media only screen and (max-width: 767px)': {
       width: 280,
     },
+    '&:hover': {
+      borderBottom: theme.borders.normal + theme.colors.accent,
+    },
+    borderBottom: state.isFocused
+      ? theme.borders.normal + theme.colors.accent
+      : theme.borders.normal + theme.colors.grey,
   }),
   dropdownIndicator: () => ({
     display: 'none',
   }),
-  container: (provided, state) => ({
-    ...provided,
-    borderBottom: state.isFocused
-      ? theme.borders.normal + theme.colors.accent
-      : theme.borders.normal + theme.colors.grey,
+  container: () => ({
     position: 'relative',
   }),
   valueContainer: provided => ({

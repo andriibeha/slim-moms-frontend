@@ -37,6 +37,9 @@ export const DatetimeStyled = styled(Datetime)`
   .rdtPicker td.rdtActive {
     background-color: ${theme.colors.accent};
   }
+  .rdtPicker td.rdtActive:hover {
+    background-color: ${theme.colors.accent};
+  }
 `;
 
 export const IconCalendarStyled = styled.svg`
