@@ -38,7 +38,6 @@ export const store = configureStore({
   reducer: {
     // login: persistReducer(logInPersistConfig, logInReducer),
     auth: persistReducer(authPersistConfig, authReducer),
-
     user: userReducer,
     modal: modalReducer,
     bloodDiet: bloodDietReducer,

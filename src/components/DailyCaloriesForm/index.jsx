@@ -30,7 +30,7 @@ export const DailyCaloriesForm = () => {
   const [bloodType, setBloodType] = useState('');
 
   const dispatch = useDispatch();
-  const savedFormData = useSelector(state => state.user); // ТУТ ЗАБРАВ userData
+  const savedFormData = useSelector(state => state.user.userDate);
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const mds = window.matchMedia('(min-width: 768px)');
 
@@ -79,15 +79,9 @@ export const DailyCaloriesForm = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    dispatch(
-      changeUserDate({
-        height: height,
-        age: age,
-        curWeight: currentWeight,
-        desWeight: desiredWeight,
-        bloodType: bloodType,
-      })
-    );
+    console.log(isLoggedIn);
+    console.log(savedFormData);
+
     if (isLoggedIn) {
       try {
         await dispatch(
@@ -116,6 +110,15 @@ export const DailyCaloriesForm = () => {
             curWeight: Number(currentWeight),
             desWeight: Number(desiredWeight),
             bloodType: Number(bloodType),
+          })
+        );
+        dispatch(
+          changeUserDate({
+            height: height,
+            age: age,
+            curWeight: currentWeight,
+            desWeight: desiredWeight,
+            bloodType: bloodType,
           })
         );
 
