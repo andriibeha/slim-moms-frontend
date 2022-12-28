@@ -47,7 +47,6 @@ export const Link = styled(NavLink)`
 
     @media screen and (min-width: 1280px) {
       margin-left: 18px;
-      margin-right: 826px;
     }
   }
 
