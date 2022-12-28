@@ -19,7 +19,9 @@ import { toggleModal } from '../../redux/modal/slice';
 import { getDiet, getDietUser } from '../../redux/bloodDiet/operations';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-// import { redirect } from 'react-router-dom';
+import { userSelector } from 'redux/user/userSelector';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import calculatorSchema from '../../utils/schemas/CalculatorSchema';
 
 export const DailyCaloriesForm = () => {
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -27,11 +29,11 @@ export const DailyCaloriesForm = () => {
   const [age, setAge] = useState('');
   const [currentWeight, setCurrentWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
-  const [bloodType, setBloodType] = useState('');
+  const [bloodType, setBloodType] = useState('1');
 
   const dispatch = useDispatch();
-  const savedFormData = useSelector(state => state.user.userDate);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const savedFormData = useSelector(userSelector.selectUserSavedData);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const mds = window.matchMedia('(min-width: 768px)');
 
   useEffect(() => {
@@ -74,13 +76,11 @@ export const DailyCaloriesForm = () => {
     setAge('');
     setCurrentWeight('');
     setDesiredWeight('');
-    setBloodType('');
+    setBloodType('1');
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(isLoggedIn);
-    console.log(savedFormData);
 
     if (isLoggedIn) {
       try {
@@ -133,13 +133,13 @@ export const DailyCaloriesForm = () => {
     }
     reset();
   };
-  if (apiSuccess && isLoggedIn) return <Navigate to="/modal" />;
-  if (apiSuccess && !isLoggedIn) return <Navigate to="/diet" />;
+
+  if (apiSuccess) return <Navigate to="/modal" />;
 
   return (
     <Wrap>
       <Title>Calculate your daily calorie intake right now</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form validationSchema={calculatorSchema} onSubmit={handleSubmit}>
         <WrapBox>
           <Label htmlFor="height">
             Height *

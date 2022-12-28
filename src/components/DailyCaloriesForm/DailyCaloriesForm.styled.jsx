@@ -5,12 +5,12 @@ export const Wrap = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 610px;
-  padding: 32px 20px 100px;
+  padding-top: 32px;
   @media screen and (min-width: 768px) {
-    padding: 100px 32px 48px;
+    padding-top: 100px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 140px 16px 214px;
+    padding-top: 140px;
   }
 `;
 

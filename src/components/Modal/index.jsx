@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal } from '../../redux/modal/slice';
+import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 import DailyCalorieIntake from '../DailyCalorieIntake';
 import {
   Backdrop,
   ModalWindow,
   ModalButton,
   ModalButtonIcon,
+  NotFound,
 } from './Modal.styled';
 import { clearState } from '../../redux/bloodDiet/operations';
 import sprite from 'images/icons.svg';
@@ -16,6 +18,7 @@ const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal() {
   const dispatch = useDispatch();
+  const error = useSelector(bloodSelectors.selectBloodError);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -47,7 +50,7 @@ export default function Modal() {
   return createPortal(
     <Backdrop onClick={onBackdropClick}>
       <ModalWindow>
-        <DailyCalorieIntake />
+        {!error ? <DailyCalorieIntake /> : <NotFound>404 NotFound</NotFound>}
         <ModalButton onClick={() => onBtnClick()}>
           <ModalButtonIcon>
             <use href={sprite + '#icon-exit-icon'} />

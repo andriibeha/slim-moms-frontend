@@ -10,15 +10,12 @@ export const MessageErr = styled.p`
 `;
 
 export const Wrap = styled.div`
-  padding: 40px 20px;
+  padding-top: 40px;
   @media screen and (min-width: 768px) {
     padding-top: 160px;
-    padding-left: 32px;
+   
   }
-  @media screen and (min-width: 1280px) {
-    padding-top: 160px;
-    padding-left: 16px;
-  }
+
 `;
 
 export const Title = styled.h1`
