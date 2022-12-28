@@ -35,7 +35,8 @@ export const Diary = () => {
   }, [date, dispatch]);
 
   return (
-    <BarBackground>
+    <>
+    <BarBackground/>
       <DiaryStyledPage>
         <DiaryStyled>
           <DiaryCalendar>
@@ -57,7 +58,8 @@ export const Diary = () => {
         </DiaryStyled>
         <RightSideBar />
       </DiaryStyledPage>
-    </BarBackground>
+      {/* </BarBackground> */}
+      </>
   );
 };
 

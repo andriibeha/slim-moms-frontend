@@ -11,13 +11,15 @@ import { BarBackground } from 'components/BarBackground';
 const Calculator = () => {
   const isLoading = useSelector(bloodSelectors.selectBloodIsLoading);
   return (
-    <BarBackground>
+    <>
+    <BarBackground/>
       <CalculatorStyledPage>
         <DailyCaloriesForm />
         {isLoading && <Loader />}
         <RightSideBar />
       </CalculatorStyledPage>
-    </BarBackground>
+      {/* </BarBackground> */}
+      </>
   );
 };
 
