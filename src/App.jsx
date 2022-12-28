@@ -9,6 +9,7 @@ import Modal from './components/Modal';
 
 import PrivateRoute from 'routes/PrivatRoutes';
 import PublicRoute from 'routes/PublicRoutes';
+import ErrorRoute from 'routes/ErrorRoutes';
 
 import { Global } from '@emotion/react';
 import { GlobalStyles } from 'components/GlobalStyles';
@@ -58,6 +59,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<MainPage />} />
+            <Route
+              path="/modal"
+              element={
+                <ErrorRoute>
+                  <ModalPage />
+                </ErrorRoute>
+              }
+            />
             {/* PRIVATE ROUTES */}
             <Route
               path="/logout"
@@ -91,14 +100,7 @@ export const App = () => {
                 </PrivateRoute>
               }
             />
-            <Route
-              path="/modal"
-              element={
-                <PrivateRoute>
-                  <ModalPage />
-                </PrivateRoute>
-              }
-            />
+
             {/* PUBLICK ROUTES */}
             <Route
               path="/login"
@@ -114,14 +116,6 @@ export const App = () => {
                 <RegisterRoute redirectTo="/login">
                   <RegistrationPage />
                 </RegisterRoute>
-              }
-            />
-            <Route
-              path="/diet"
-              element={
-                <PublicRoute>
-                  <ModalPage />
-                </PublicRoute>
               }
             />
             <Route path="*" element={<NotFound />} />

@@ -6,7 +6,6 @@ export const getDiet = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await apiAxios.post('bloodproducts', credentials);
-      console.log(data);
       return data;
     } catch (error) {
       if (!error.response) {
@@ -22,7 +21,6 @@ export const getDietUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await apiAxios.patch('users/update', credentials);
-      console.log(data);
       return data;
     } catch (error) {
       if (!error.response) {
