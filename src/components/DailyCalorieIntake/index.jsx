@@ -14,10 +14,12 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { clearState } from '../../redux/bloodDiet/operations';
 import { toggleModal } from 'redux/modal/slice';
+import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 
 const DailyCalorieIntake = () => {
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
-  const dataApi = useSelector(state => state.bloodDiet.data);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dataApi = useSelector(bloodSelectors.selectBloodByDate);
   const dataApiUser = useSelector(state => state.bloodDiet.data.data);
 
   const { notRecProducts, dailyCalorie } = isLoggedIn
