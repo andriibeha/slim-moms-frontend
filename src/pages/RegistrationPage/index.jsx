@@ -4,9 +4,11 @@ import { RegistrationForm } from 'components/RegistrationForm';
 
 const RegistrationPage = () => {
   return (
-    <AuthBackground>
+       <>
+    <AuthBackground/>
     <RegistrationForm />
-    </AuthBackground>
+        {/* </AuthBackground> */}
+      </>
   );
 };
 
