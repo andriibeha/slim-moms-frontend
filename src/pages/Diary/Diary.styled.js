@@ -2,18 +2,17 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { theme } from 'components/Theme';
 
-
 export const DiaryStyledPage = styled('div')`
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 1280px) {
-flex-direction: row;
+    flex-direction: row;
   }
 `;
 export const DiaryStyled = styled('div')`
-  padding-top: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  // padding-top: 40px;
+  // padding-left: 20px;
+  // padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,9 +21,8 @@ export const DiaryStyled = styled('div')`
     padding-left: 32px;
     align-items: start;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 145px;
-
   }
 `;
 
@@ -49,7 +47,7 @@ export const MobileWrapper = styled('div')`
 `;
 
 export const MobileButton = styled(Link)`
-  margin-top: 60px;
+  margin: 30px 0px;
   color: ${theme.colors.white};
   font-weight: ${theme.fontWeights.bold};
   display: flex;

@@ -13,22 +13,19 @@ import {
 } from './RightSideBar.styled';
 import { diarySelectors } from 'redux/diary/diarySelectors';
 import { useSelector } from 'react-redux';
-import { userSelector } from '../../redux/user/userSelector';
+import { useAuth } from '../../hooks/useAuth';
 
 export const RightSideBar = () => {
-  const userDailyCalories = useSelector(userSelector.selectUserDailyCalorie);
-  const usernotRecProducts = useSelector(userSelector.selectUserNotRecProducts);
-
-  const notRecProducts = usernotRecProducts || [];
-  const dailyCalorie = userDailyCalories || 0;
+  const { user } = useAuth();
+  const notRecProducts = user.data.user.notRecProducts;
+  const dailyCalorie = user.data.user.dailyCalorie;
 
   const caloricityPerDay = useSelector(diarySelectors.selectCaloricityPerDay);
   const selectedDate = useSelector(diarySelectors.selectDate);
   const normalizedSelectedDate = new Date(selectedDate)
     .toLocaleString()
     .slice(0, 10);
-  const date = new Date(Date.UTC(2012, 11, 12, 3, 0, 0));
-  console.log(date.toLocaleString());
+
   const leftCalories = dailyCalorie - caloricityPerDay;
   const percentOfNormal = (caloricityPerDay / dailyCalorie) * 100;
 
