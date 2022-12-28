@@ -8,10 +8,10 @@ const MainPage = () => {
   const isLoading = useSelector(bloodSelectors.selectBloodIsLoading);
   return (
     <>
-      <MainBackground>
+      <MainBackground/>
         <DailyCaloriesForm />
         {isLoading && <Loader />}
-      </MainBackground>
+      {/* </MainBackground> */}
     </>
   );
 };

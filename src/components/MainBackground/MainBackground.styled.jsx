@@ -3,7 +3,12 @@ import styled from '@emotion/styled';
 
 export const BackgroundStyled = styled.div`
   width: 100%;
-  height: 100%;
+    overflow: hidden;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
 `;
 
 export const ImgBanana = styled.img`
@@ -43,7 +48,8 @@ export const ImgLeav = styled.img`
 export const ImgShadow = styled.img`
 position: absolute;
     right: 0px;
-    top: 34px;;
+    bottom: 0;
+    /* top: 34px; */
     z-index: -4;
     display: none;
     @media screen and (min-width: 1280px) {

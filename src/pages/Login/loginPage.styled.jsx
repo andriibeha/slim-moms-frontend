@@ -4,18 +4,16 @@ export const LoginPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px 175px;
+  padding-top: 40px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 160px 32px 495px;
+    padding-top: 160px;
   }
-  @media screen and (min-width: 1280px) {
-    padding: 160px 16px 255px;
-  }
+  
 `;
 
 export const TitleLogIn = styled.h1`
