@@ -7,7 +7,13 @@ export const Box = styled.div`
   padding: 40px 20px 12px 20px;
   background-color: #f0f1f3;
 
+  @media screen and (max-width: 320px) {
+    width: 320px;
+    margin-left: -20px;
+  }
   @media screen and (min-width: 768px) {
+    width: 768px;
+    margin-left: -32px;
     flex-direction: row;
     padding: 80px 32px 40px 32px;
   }
