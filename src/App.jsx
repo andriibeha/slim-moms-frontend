@@ -17,8 +17,6 @@ import { useAuth } from 'hooks/useAuth';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import Loader from 'components/Loader/Loader';
 //Add lazy
-import { AddProduct } from 'pages/AddProduct';
-import RegisterRoute from 'routes/RegisterRoutes';
 import { bloodSelectors } from 'redux/bloodDiet/bloodDietSelectors';
 
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/index'));
@@ -29,6 +27,7 @@ const Diary = lazy(() => import('./pages/Diary/index'));
 const MainPage = lazy(() => import('./pages/MainPage/index'));
 const NotFound = lazy(() => import('./pages/NotFound/index'));
 const ModalPage = lazy(() => import('./pages/ModalPage/index'));
+const AddProduct = lazy(() => import('./pages/AddProduct/index'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -58,7 +57,14 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<MainPage />} />
+            <Route
+              index
+              element={
+                <PublicRoute redirectTo="/diary" restricted>
+                  <MainPage />
+                </PublicRoute>
+              }
+            />
             <Route
               path="/modal"
               element={
@@ -105,7 +111,7 @@ export const App = () => {
             <Route
               path="/login"
               element={
-                <PublicRoute redirectTo="/diary">
+                <PublicRoute redirectTo="/diary" restricted>
                   <Login />
                 </PublicRoute>
               }
@@ -113,9 +119,9 @@ export const App = () => {
             <Route
               path="/registration"
               element={
-                <RegisterRoute redirectTo="/login">
+                <PublicRoute redirectTo="/diary" restricted>
                   <RegistrationPage />
-                </RegisterRoute>
+                </PublicRoute>
               }
             />
             <Route path="*" element={<NotFound />} />

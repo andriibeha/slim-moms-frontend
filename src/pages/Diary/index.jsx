@@ -22,7 +22,7 @@ import { BarBackground } from 'components/BarBackground';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 // import { useSelector } from 'react-redux';
 
-export const Diary = () => {
+const Diary = () => {
   const date = useSelector(diarySelectors.selectDate);
   const dispatch = useDispatch();
 

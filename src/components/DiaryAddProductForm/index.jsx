@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
+import 'react-toastify/dist/ReactToastify.css';
+import { createNotifySuccess } from 'helpers/createNotify';
 import { LoaderDots } from 'components/Loader/LoaderDots';
-
 import { Button } from '../Button';
 import { Box } from 'components/Box';
 import { ContainerForm, WeightInputStyled } from './DiaryAddProductForm.styled';
@@ -81,6 +82,7 @@ export const DiaryAddProductForm = () => {
     };
 
     dispatch(addProduct(newProduct));
+    createNotifySuccess('Product added successfully');
     setProduct('');
     setWeight('');
     setSelectedOption('');
