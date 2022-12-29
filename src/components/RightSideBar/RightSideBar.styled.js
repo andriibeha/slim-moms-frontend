@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Box = styled.div`
-width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 40px 20px 12px 20px;
@@ -12,8 +12,11 @@ width:100%;
     padding: 80px 32px 40px 32px;
   }
   @media screen and (min-width: 1280px) {
+    width: 517 px;
+    min-height: 100vh;
     flex-direction: column;
-    padding: 145px 94px 116px 94px;
+    margin-top: -168px;
+    padding: 292px 123px 0 106px;
   }
 `;
 
@@ -21,12 +24,14 @@ export const BoxList = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   @media screen and (min-width: 1280px) {
-   margin-right: 97px;
-   &:last-child {
-    margin-bottom: 0;
-  }
+    width: 288px;
+    heigth: 178px;
+    // margin-right: 97px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -88,8 +93,8 @@ export const Container = styled.div`
   font-style: normal;
   font-weight: 400;
   color: #9b9faa;
- 
 `;
+
 export const ContainerItem = styled.div`
   display: flex;
   flex-direction: row;
