@@ -10,7 +10,7 @@ export const Navigation = () => {
         pl="20px"
         borderLeft="1px solid rgb(224, 224, 224)"
       > */}
-      <Link to="/login">Sign IN</Link>
+      <Link to="/login">LOG IN</Link>
       <Link to="/registration">Registration</Link>
       {/* </Box> */}
     </NavStyled>

@@ -18,7 +18,7 @@ export const DiaryStyled = styled('div')`
   align-items: center;
   @media screen and (min-width: 768px) {
     padding-top: 100px;
-    padding-left: 32px;
+    // padding-left: 32px;
     align-items: start;
   }
   @media screen and (min-width: 1280px) {
