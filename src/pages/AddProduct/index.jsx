@@ -1,5 +1,7 @@
 import { DiaryAddProductForm } from 'components/DiaryAddProductForm';
 
-export const AddProduct = () => {
+const AddProduct = () => {
   return <DiaryAddProductForm />;
 };
+
+export default AddProduct;
