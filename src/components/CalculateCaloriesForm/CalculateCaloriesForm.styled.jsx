@@ -194,6 +194,6 @@ export const ButtonContainer = styled.div`
     align-self: flex-start;
   }
   @media screen and (min-width: 1280px) {
-    margin-left: 339px;
+    margin-left: 319px;
   }
 `;

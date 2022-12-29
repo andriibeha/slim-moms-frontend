@@ -21,7 +21,7 @@ export const ListItem = styled.li`
 
 export const ProductListBox = styled.div`
   position: relative;
-  width: 314px;
+  width: 280px;
   /* padding-left: 20px;
   padding-right: 20px; */
   height: 252px;
